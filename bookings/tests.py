@@ -8,17 +8,17 @@ from django.urls import reverse
 
 class BlogPostListViewTest(TestCase):
 
-    def setUp(self):        
+    def setUp(self):
         self.reservation = Reservation.objects.create(
-            customer_name= 'Test Test',
-            customer_email= 'test@gmail.com',
-            customer_phone= '+123456789123',
-            price= 500,
-            date= '2000-01-01',
-            time_slot= '14:00',
-            room_choice= 'Horror',
-            comment= 'Test',
-            user_id=  55,
+            customer_name='Test Test',
+            customer_email='test@gmail.com',
+            customer_phone='+123456789123',
+            price=500,
+            date='2000-01-01',
+            time_slot='14:00',
+            room_choice='Horror',
+            comment='Test',
+            user_id=55,
         )
 
     def test_Reservation_List_View(self):
@@ -28,6 +28,11 @@ class BlogPostListViewTest(TestCase):
         self.assertContains(response, self.reservation.time_slot)
         self.assertContains(response, self.reservation.room_choice)
         self.assertContains(response, str(self.reservation.date))
+        context = response.context_data
+        self.assertIn('today', context)
+        expected_date = timezone.now().date().strftime("%Y-%m-%d")
+        self.assertEqual(context['today'], expected_date)
+
 
 
 

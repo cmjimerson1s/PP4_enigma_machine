@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
+{{ today }}
 {% if reservation_list%}
   {% for reservation in reservation_list %}
+    {% if reservation.date|date:"Y-m-d" == today %}
       <h2>{{ reservation.room_choice }}</h2>
       <h2>{{ reservation.time_slot }}</h2>
       <h2>{{ reservation.date|date:"Y-m-d" }}</h2>
+    {% endif %}
     {% endfor %}
     {% endif %}
 {% endblock %}
