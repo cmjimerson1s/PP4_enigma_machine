@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+{% if reservation_list%}
+  {% for reservation in reservation_list %}
+      <h2>{{ reservation.room_choice }}</h2>
+      <h2>{{ reservation.time_slot }}</h2>
+      <h2>{{ reservation.date }}</h2>
+    {% endfor %}
+    {% endif %}
+{% endblock %}

@@ -12,6 +12,7 @@ class Reservation(models.Model):
     price = models.IntegerField()
     date = models.DateField(auto_created=False)
     time_slot = models.CharField(max_length=5)
+    room_choice = models.CharField()
     comment = models.TextField(max_length=300, default='')
     user_id = models.IntegerField(default=0)
 
