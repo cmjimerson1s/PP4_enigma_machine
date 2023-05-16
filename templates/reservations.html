@@ -9,7 +9,13 @@
 {% if reservation.time_slot == time %}
   <button>Unavailable</button>
 {%else%}
-  <button>Available</button>
+  <form method="POST" action="{% url 'reservation_choice' %}">
+  {% csrf_token %}
+    <input type="hidden" name="date" value="{{today}}">
+    <input type="hidden" name="room" value="{{room}}">
+    <input type="hidden" name="time" value="{{time}}">
+    <button type="submit">Available</button>
+  </form>
 {% endif %}
 {% endfor %}
 {% endif %}
