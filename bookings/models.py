@@ -4,6 +4,17 @@ from cloudinary.models import CloudinaryField
 from django.core.exceptions import ValidationError
 
 
+#Model validators below
+
+def validate_phone_number(value):
+    if not value.startswith("+"):
+        raise ValidationError("Phone number must start with '+'")
+    if not value[1:].isdigit():
+        raise ValidationError("Phone number must contain only digits after '+'")
+    if len(value) != 13:
+        raise ValidationError("Phone number must be in the format '+###########'")
+
+
 class Reservation(models.Model):
     customer_name = models.CharField(max_length=200)
     customer_email = models.EmailField()
@@ -12,7 +23,7 @@ class Reservation(models.Model):
     price = models.IntegerField()
     date = models.DateField(auto_created=False)
     time_slot = models.CharField(max_length=5)
-    room_choice = models.CharField()
+    room_choice = models.CharField(max_length=200)
     comment = models.TextField(max_length=300, default='')
     user_id = models.IntegerField(default=0)
 
@@ -23,11 +34,4 @@ class Reservation(models.Model):
         return f"{self.time_slot} + {self.date}"
 
 
-#Model validators below
-def validate_phone_number(value):
-    if not value.startswith("+"):
-        raise ValidationError("Phone number must start with '+'")
-    if not value[1:].isdigit():
-        raise ValidationError("Phone number must contain only digits after '+'")
-    if len(value) != 13:
-        raise ValidationError("Phone number must be in the format '+## ##########'")
+
