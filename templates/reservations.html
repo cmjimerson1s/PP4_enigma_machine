@@ -1,11 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
+{{ rooms }}
+{{ times }}
 {{ today }}
 {% if reservation_list%}
   {% for reservation in reservation_list %}
-    {% if reservation.date|date:"Y-m-d" == today %}
-      <button>{{ reservation.room_choice }} {{ reservation.time_slot }} {{ reservation.date|date:"Y-m-d" }}</button>
-    {% endif %}
+    {% for room in rooms %}
+    {{ room }}
+      {% for time in times %}
+        {% if reservation.date|date:"Y-m-d" == today %}
+          {% if reservation.time_slot == time%}
+            <button>None</button>
+            {% else %}
+            <button>{{ room }}{{ time }} {{ today }}</button>
+          {% endif %}        
+        {% endif %}
+      {% endfor %}
     {% endfor %}
-    {% endif %}
+  {% endfor %}
+{% endif%}
+
+
+
+
+
+
+
 {% endblock %}
