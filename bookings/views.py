@@ -13,6 +13,7 @@ class ReservationView(generic.ListView):
         context = super().get_context_data(**kwargs)
         date = timezone.now().date()
         context['today'] = date.strftime("%Y-%m-%d")
-        context['times'] = ['12:00','14:00','16:00']
+        context['times'] = ['12:00', '14:00', '16:00']
         context['rooms'] = ['Horror', 'Pirate']
+
         return context

@@ -1,28 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-{{ rooms }}
-{{ times }}
-{{ today }}
-{% if reservation_list%}
-  {% for reservation in reservation_list %}
-    {% for room in rooms %}
-    {{ room }}
-      {% for time in times %}
-        {% if reservation.date|date:"Y-m-d" == today %}
-          {% if reservation.time_slot == time%}
-            <button>None</button>
-            {% else %}
-            <button>{{ room }}{{ time }} {{ today }}</button>
-          {% endif %}        
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-  {% endfor %}
-{% endif%}
-
-
-
-
+{% for room in rooms %}
+<h1>{{room}}</h1>
+{% for reservation in reservation_list %}
+{% if reservation.room_choice == room and reservation.date|date:"Y-m-d" == today %}
+{% for time in times %}
+<h3>{{time}}</h3>
+{% if reservation.time_slot == time %}
+  <button>Unavailable</button>
+{%else%}
+  <button>Available</button>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endfor %}
 
 
 
