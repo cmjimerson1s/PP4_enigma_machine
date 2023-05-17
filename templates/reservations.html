@@ -10,7 +10,7 @@
       {% else %}
       <form method="POST" action="{% url 'reservation_choice' %}">
         {% csrf_token %}
-        <input type="hidden" name="date" value="{{today}}">
+        <input type="hidden" name="picked_date" value="{{today}}">
         <input type="hidden" name="time" value="{{time}}">
         <input type="hidden" name="room" value="{{room}}">
         <button type="submit">Available</button>

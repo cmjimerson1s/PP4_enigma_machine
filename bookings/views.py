@@ -18,17 +18,28 @@ class ReservationView(generic.ListView):
 
         return context
 
+
+    
 class ReservationChoice(View):
+    template = 'res_choice.html'
+
+
     def post(self, request):
-        time = request.POST.get('time')
-        date = request.POST.get('date')
-        room = request.POST.get('room')
         template = 'res_choice.html'
 
+        date = timezone.now().date()
+        today = date.strftime("%Y-%m-%d")
+        times = ['12:00', '14:00', '16:00','18:00']
+        rooms = ['Horror', 'Pirate']
+        queryset = Reservation.objects.all()
+        picked_date = request.POST.get('picked_date')
+
         context = {
-            'date': date,
-            'time': time,
-            'room': room,
+            'today': today,
+            'times': times,
+            'rooms': rooms,
+            'queryset': queryset,
+            'picked_date': picked_date,
         }
 
         return render(request, template, context)
