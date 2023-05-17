@@ -1,27 +1,26 @@
 {% extends "base.html" %}
+{% load res_tags %}
 {% block content %}
 {% for room in rooms %}
 <h1>{{room}}</h1>
-{% for reservation in reservation_list %}
-{% if reservation.room_choice == room and reservation.date|date:"Y-m-d" == today %}
-{% for time in times %}
-<h3>{{time}}</h3>
-{% if reservation.time_slot == time %}
-  <button>Unavailable</button>
-{%else%}
-  <form method="POST" action="{% url 'reservation_choice' %}">
-  {% csrf_token %}
-    <input type="hidden" name="date" value="{{today}}">
-    <input type="hidden" name="room" value="{{room}}">
-    <input type="hidden" name="time" value="{{time}}">
-    <button type="submit">Available</button>
-  </form>
-{% endif %}
+  {% for time in times %}
+    {% with bookings=reservation_list|res_date:today|res_room:room|res_time:time%}
+      {% if bookings %}
+        <button type="submit" disabled>Unavailable</button>
+      {% else %}
+      <form method="POST" action="{% url 'reservation_choice' %}">
+        {% csrf_token %}
+        <input type="hidden" name="date" value="{{today}}">
+        <input type="hidden" name="time" value="{{time}}">
+        <input type="hidden" name="room" value="{{room}}">
+        <button type="submit">Available</button>
+      </form>
+      {% endif %}
+    {% endwith%}
+  {% endfor %}
 {% endfor %}
-{% endif %}
-{% endfor %}
-{% endfor %}
-
 
 
 {% endblock %}
+
+
