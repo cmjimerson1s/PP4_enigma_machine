@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import Reservation
 from django.utils import timezone
 from django.views import generic, View
+import ast
+
 
 
 class ReservationView(generic.ListView):
@@ -77,3 +79,21 @@ class ReservationChoice(View):
         }
 
         return render(request, template, context)
+
+def CartView(request):
+    data = request.GET.get('cart')
+    cart = CartTransform(data)
+    template = 'res_booking_page.html'
+
+    return render(request, template, {'data': cart})
+
+def CartTransform(data):
+    string = data.replace('[', '').replace(']', '').replace('"', '')
+    game_data = ast.literal_eval(string)
+    if isinstance(game_data, dict):
+    # if dataset is a dictionary, convert it to a tuple
+        dataset = (game_data,)
+    else:
+        dataset = game_data
+
+    return dataset
