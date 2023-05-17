@@ -25,10 +25,10 @@
       <h2>Shopping Cart</h2>
       <ul>
           {% for item in cart %}
-          <li>{{ item.room }}: {{ item.time }} ({{ item.picked_date }}) 
+          <li>{{ item.key }}: {{ item.value }} ({{ item.specific_date }}) 
           <form method="POST">
               {% csrf_token %}
-              <button type="submit" class="btn btn-danger" name="delete-item" value="{{ item.room }}|{{ item.time }}|{{ item.picked_date }}">Delete</button>
+              <button type="submit" class="btn btn-danger" name="delete-item" value="{{ item.key }}|{{ item.value }}|{{ item.specific_date }}">Delete</button>
           </form>
           </li>        
           {% endfor %}
