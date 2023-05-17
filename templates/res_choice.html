@@ -21,4 +21,23 @@
   {% endfor %}
 {% endfor %}
 
+{% if cart %}
+      <h2>Shopping Cart</h2>
+      <ul>
+          {% for item in cart %}
+          <li>{{ item.key }}: {{ item.value }} ({{ item.specific_date }}) 
+          <form method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger" name="delete-item" value="{{ item.key }}|{{ item.value }}|{{ item.specific_date }}">Delete</button>
+          </form>
+          </li>        
+          {% endfor %}
+      </ul>
+      <form method="POST">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger" name="delete-all" value="true">Delete All Items</button>
+      </form>
+
+  {% endif %}
+
 {% endblock %}
