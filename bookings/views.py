@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Reservation
+from django.http import HttpResponse
 from django.utils import timezone
 from django.views import generic, View
 import ast
@@ -86,6 +87,44 @@ def CartView(request):
     template = 'res_booking_page.html'
 
     return render(request, template, {'data': cart})
+
+def update_database(request):
+    data = request.GET.get('data')
+    dataset = CartTransform(data)
+    if request.method == 'POST':
+        for item in dataset:
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            phone = request.POST.get('phone')
+            # numbers = request.POST.get('number')
+            price = request.POST.get('price')
+            date = item['specific_date']
+            room = item['key']
+            time = item['value']
+            comment = request.POST.get('comment')
+            user_id = request.POST.get('user_id')
+            
+
+            # Create a new instance of the Reservation model and set its attributes
+            instance = Reservation()
+            instance.customer_name = name
+            instance.customer_email = email
+            instance.phone_number = phone
+            # instance.player_numbers = numbers
+            instance.price = price
+            instance.date = date
+            instance.room_choice = room
+            instance.time_slot = time
+            instance.comment = comment
+            instance.user_id = user_id
+            instance.save()
+    del request.session['cart']
+    return HttpResponse('Data saved successfully.')
+
+
+
+
+
 
 def CartTransform(data):
     string = data.replace('[', '').replace(']', '').replace('"', '')
