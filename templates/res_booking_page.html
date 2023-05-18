@@ -11,16 +11,40 @@
         <input type="hidden" name="time" value="{{ booking.value }}">
         <h3>Date: {{ booking.specific_date }}</h3>
         <input type="hidden" name="date" value="{{ booking.specific_date }}">
-        <h3>Group Size:<input name="number" type="number" min="2" max="7"></h3>
+        <h3>Group Size:<input name="number" id="numberDropdown" type="number" min="2" max="7"></h3>
     {% endfor %}
         <input type="text" name="user_id">
         {{ form.customer_name }}
         {{ form.customer_email }}
         {{ form.customer_phone }}
-        <input type="number" name="price" min="300">
+        <input type="number" name="price" id="price" min="300">
         {{ form.comment}}
     {% csrf_token %}
 
     <button type="submit">Complete Booking</button> 
 </form>
+
+<script>
+// Get the dropdown element
+const numberDropdown = document.getElementById("numberDropdown");
+
+// Get the result element
+const priceInput = document.getElementById("price");
+
+// Add event listener to the dropdown
+numberDropdown.addEventListener("change", function() {
+  // Get the selected value from the dropdown
+  const selectedValue = parseInt(numberDropdown.value);
+
+  // Perform calculation based on the selected value
+  const result = selectedValue * 300; // Example calculation, multiply selected value by 300
+
+  // Update the price input value with the calculated result
+  priceInput.value = result;
+});
+</script>
+
+
+
+
 {% endblock %}
