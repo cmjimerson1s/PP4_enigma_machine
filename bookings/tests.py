@@ -1,7 +1,8 @@
 from django.test import TestCase, RequestFactory
+from datetime import date
 from .models import Reservation
 from django.utils import timezone
-from .views import ReservationView, ReservationChoice, CartTransform, CartView
+from .views import ReservationView, ReservationChoice, CartTransform, CartView, update_database
 from django.urls import reverse
 from django.contrib.sessions.middleware import SessionMiddleware
 
@@ -156,6 +157,57 @@ class CartViewTestCase(TestCase):
         # Assert the data passed to the template
         expected_data = CartTransform("[{'key': 'Horror', 'value': '14:00', 'specific_date': '2023-05-17'}]")
         self.assertEqual(response.context['data'], expected_data)
+
+
+class UpdateDatabaseTestCase(TestCase):
+    
+    def test_update_database(self):
+        # Mock the request object
+        raw_data = "[{'name': 'John Doe','email': 'john@example.com','phone': '+121234567890','price': '100','comment': 'Test comment','specific_date' : '2000-01-01', 'key' : 'Horror','value' : '14:00','user_id': '1'}]"
+        data = CartTransform(raw_data)
+
+        url = reverse('posted')  
+        url += f'?data={data}'
+
+        post_data = {
+            'name': 'John Doe',
+            'email': 'john@example.com',
+            'phone': '+121234567890',
+            'price': '100',
+            'comment': 'Test comment',
+            'specific_date': date(2000, 1, 1),  # Convert to datetime.date object
+            'key': 'Horror',
+            'value': '14:00',
+            'user_id': '1',
+        }
+        
+        session = self.client.session
+        session['cart'] = [{'key': 'Horror', 'value': '14:00', 'specific_date': '2000-01-01'}]
+        session.save()
+
+        # Call the view function
+        response = self.client.post(url, data=post_data)
+
+        # Assert that the response is successful
+        self.assertEqual(response.status_code, 200)
+        
+        data = CartTransform(raw_data)
+
+        # Assert that the data is saved to the database
+        instances = Reservation.objects.all()
+        self.assertEqual(instances.count(), 1)
+        instance = instances.first()
+        self.assertEqual(instance.customer_name, 'John Doe')
+        self.assertEqual(instance.customer_email, 'john@example.com')
+        self.assertEqual(instance.phone_number, '+121234567890')
+        self.assertEqual(instance.price, 100)
+        self.assertEqual(instance.date, date(2000, 1, 1))
+        self.assertEqual(instance.room_choice, 'Horror')
+        self.assertEqual(instance.time_slot, '14:00')
+        self.assertEqual(instance.comment, 'Test comment')
+        self.assertEqual(instance.user_id, 1)
+        session = self.client.session
+        self.assertNotIn('cart', session)
 
 
 class CartTransformTestCase(TestCase):

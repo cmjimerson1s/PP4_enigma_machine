@@ -96,7 +96,6 @@ def update_database(request):
             name = request.POST.get('name')
             email = request.POST.get('email')
             phone = request.POST.get('phone')
-            # numbers = request.POST.get('number')
             price = request.POST.get('price')
             date = item['specific_date']
             room = item['key']
@@ -110,7 +109,6 @@ def update_database(request):
             instance.customer_name = name
             instance.customer_email = email
             instance.phone_number = phone
-            # instance.player_numbers = numbers
             instance.price = price
             instance.date = date
             instance.room_choice = room
@@ -118,7 +116,8 @@ def update_database(request):
             instance.comment = comment
             instance.user_id = user_id
             instance.save()
-    del request.session['cart']
+    if 'cart' in request.session:
+        del request.session['cart']
     return HttpResponse('Data saved successfully.')
 
 
