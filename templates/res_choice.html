@@ -3,7 +3,7 @@
 {% block content %}
 <form method = POST action="{% url 'reservation_choice' %}">
   {% csrf_token %}
-  <input type="date" name="new_date"><button type="submit">View Day</button>{{today}}{{new_date}}
+  <input type="date" name="new_date" min="{{today}}"><button type="submit">View Day</button>{{today}}{{new_date}}
 </form>
 {% if new_date %}
   {% with new_date as today %}

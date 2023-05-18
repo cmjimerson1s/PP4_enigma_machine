@@ -14,11 +14,11 @@
         <h3>Group Size:<input name="number" type="number" min="2" max="7"></h3>
     {% endfor %}
         <input type="text" name="user_id">
-        <input type="text" name="name">
-        <input type="text" name="email">
-        <input type="text" name="phone">
+        {{ form.customer_name }}
+        {{ form.customer_email }}
+        {{ form.customer_phone }}
         <input type="number" name="price" min="300">
-        <textarea name="comment" style="resize:none;"></textarea>
+        {{ form.comment}}
     {% csrf_token %}
 
     <button type="submit">Complete Booking</button> 

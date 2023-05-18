@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Reservation, GameTime, Room
+from .forms import ReservationForm
 from django.http import HttpResponse
 from django.utils import timezone
 from django.views import generic, View
@@ -84,46 +85,45 @@ class ReservationChoice(View):
 def CartView(request):
     data = request.GET.get('cart')
     cart = CartTransform(data)
+    form = ReservationForm()
     template = 'res_booking_page.html'
 
-    return render(request, template, {'data': cart})
+    return render(request, template, {'data': cart, 'form': form})
 
 def update_database(request):
     data = request.GET.get('data')
     dataset = CartTransform(data)
     if request.method == 'POST':
         for item in dataset:
-            name = request.POST.get('name')
-            email = request.POST.get('email')
-            phone = request.POST.get('phone')
-            price = request.POST.get('price')
-            date = item['specific_date']
-            room_name = item['key']
-            time_slot = item['value']
-            comment = request.POST.get('comment')
-            user_id = request.POST.get('user_id')
-            room = Room.objects.get(room_name=room_name)
-            time = GameTime.objects.get(game_slot=time_slot)
+            form = ReservationForm(request.POST)
+            if form.is_valid():
+                date = item['specific_date']
+                room_name = item['key']
+                time_slot = item['value']
+                price = request.POST.get('price')
+                user_id = request.POST.get('user_id')
+                room = Room.objects.get(room_name=room_name)
+                time = GameTime.objects.get(game_slot=time_slot)
 
-            # Create a new instance of the Reservation model and set its attributes
-            instance = Reservation()
-            instance.customer_name = name
-            instance.customer_email = email
-            instance.phone_number = phone
-            instance.price = price
-            instance.date = date
-            instance.room_choice = room
-            instance.time_slot = time
-            instance.comment = comment
-            instance.user_id = user_id
-            instance.save()
-    if 'cart' in request.session:
-        del request.session['cart']
-    return HttpResponse('Data saved successfully.')
+                instance = form.save(commit=False)
+                instance.date = date
+                instance.room_choice = room
+                instance.time_slot = time
+                instance.price = price
+                instance.user_id = user_id
+                instance.save()
+
+            else:
+                form = ReservationForm()
+
+        if 'cart' in request.session:
+            del request.session['cart']
+
+        return redirect('reservation')
 
 
-
-
+    context = {'form': form, 'data': data}
+    return render(request, 'reservations.html', context)
 
 
 def CartTransform(data):

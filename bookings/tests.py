@@ -1,23 +1,31 @@
 from django.test import TestCase, RequestFactory
+from django.shortcuts import render
 from datetime import date
-from .models import Reservation
+from .models import Reservation, Room, GameTime
+from .forms import ReservationForm
+from django.http import HttpRequest
 from django.utils import timezone
 from .views import ReservationView, ReservationChoice, CartTransform, CartView, update_database
 from django.urls import reverse
 from django.contrib.sessions.middleware import SessionMiddleware
+from django.core.exceptions import ObjectDoesNotExist
+
 
 
 class ReservationListViewTest(TestCase):
 
     def setUp(self):
+        room = Room.objects.create(room_name='Horror')
+        time_slot = GameTime.objects.create(game_slot='12:00')
+
         self.reservation = Reservation.objects.create(
             customer_name='Test Test',
             customer_email='test@gmail.com',
             customer_phone='+123456789123',
             price=500,
             date='2000-01-01',
-            time_slot='14:00',
-            room_choice='Horror',
+            time_slot=time_slot,
+            room_choice=room,
             comment='Test',
             user_id=55,
         )
@@ -36,6 +44,8 @@ class ReservationListViewTest(TestCase):
 
 class ReservationChoiceTestCase(TestCase):
     def test_post_method_adds_item_to_cart(self):
+        room = Room.objects.create(room_name='Horror')
+        time_slot = GameTime.objects.create(game_slot='12:00')
         # Create a sample Reservation instance
         reservation = Reservation.objects.create(
             customer_name='Test Test',
@@ -43,8 +53,8 @@ class ReservationChoiceTestCase(TestCase):
             customer_phone='+123456789123',
             price=500,
             date='2000-01-01',
-            time_slot='14:00',
-            room_choice='Horror',
+            time_slot=time_slot,
+            room_choice=room,
             comment='Test',
             user_id=55,
         )
@@ -159,55 +169,60 @@ class CartViewTestCase(TestCase):
         self.assertEqual(response.context['data'], expected_data)
 
 
-class UpdateDatabaseTestCase(TestCase):
-    
-    def test_update_database(self):
-        # Mock the request object
-        raw_data = "[{'name': 'John Doe','email': 'john@example.com','phone': '+121234567890','price': '100','comment': 'Test comment','specific_date' : '2000-01-01', 'key' : 'Horror','value' : '14:00','user_id': '1'}]"
-        data = CartTransform(raw_data)
+class ReservationViewTestCase(TestCase):
+    def test_reservation_view(self):
+        # Create related objects
+        room = Room.objects.create(room_name='Horror')
+        time_slot = GameTime.objects.create(game_slot='14:00')
 
-        url = reverse('posted')  
-        url += f'?data={data}'
-
+        # Prepare test data
+        raw_data = "[{'customer_name': 'John Doe','email': 'john@example.com','phone': '+121234567890','price': '100','comment': 'Test comment','specific_date' : '2000-01-01', 'key' : 'Horror','value' : '14:00','user_id': '1'}]"
         post_data = {
-            'name': 'John Doe',
-            'email': 'john@example.com',
-            'phone': '+121234567890',
-            'price': '100',
+            'customer_name': 'John Doe',
+            'customer_email': 'john@example.com',
+            'customer_phone': '+12123456789',
+            'price': 100,
             'comment': 'Test comment',
-            'specific_date': date(2000, 1, 1),  # Convert to datetime.date object
-            'key': 'Horror',
-            'value': '14:00',
-            'user_id': '1',
+            'specific_date': '2000-01-01',
+            'room_choice': room.id,
+            'time_slot': time_slot.id,
+            'user_id': 1,
         }
-        
+
+        data = CartTransform(raw_data)
+        # Set up session data
         session = self.client.session
         session['cart'] = [{'key': 'Horror', 'value': '14:00', 'specific_date': '2000-01-01'}]
         session.save()
 
         # Call the view function
+        url = reverse('posted')
+        url += f'?data={data}'  # Adjust the URL name as needed
         response = self.client.post(url, data=post_data)
 
-        # Assert that the response is successful
-        self.assertEqual(response.status_code, 200)
-        
-        data = CartTransform(raw_data)
+        # Assert that the response is a redirect
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/') 
+
+        # Assert that the form is valid
+        form = ReservationForm(data=post_data)
+        self.assertTrue(form.is_valid())
 
         # Assert that the data is saved to the database
         instances = Reservation.objects.all()
         self.assertEqual(instances.count(), 1)
         instance = instances.first()
-        self.assertEqual(instance.customer_name, 'John Doe')
-        self.assertEqual(instance.customer_email, 'john@example.com')
-        self.assertEqual(instance.phone_number, '+121234567890')
         self.assertEqual(instance.price, 100)
-        self.assertEqual(instance.date, date(2000, 1, 1))
-        self.assertEqual(instance.room_choice, 'Horror')
-        self.assertEqual(instance.time_slot, '14:00')
-        self.assertEqual(instance.comment, 'Test comment')
+        self.assertEqual(instance.date.strftime('%Y-%m-%d'), '2000-01-01')
+        self.assertEqual(instance.room_choice, room)
+        self.assertEqual(instance.time_slot, time_slot)
         self.assertEqual(instance.user_id, 1)
+
+        # Assert that the session data is cleared
         session = self.client.session
         self.assertNotIn('cart', session)
+        form = ReservationForm()
+        self.assertIsInstance(form, ReservationForm)
 
 
 class CartTransformTestCase(TestCase):
