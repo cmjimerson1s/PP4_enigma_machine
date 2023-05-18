@@ -98,11 +98,12 @@ def update_database(request):
             phone = request.POST.get('phone')
             price = request.POST.get('price')
             date = item['specific_date']
-            room = item['key']
-            time = item['value']
+            room_name = item['key']
+            time_slot = item['value']
             comment = request.POST.get('comment')
             user_id = request.POST.get('user_id')
-            
+            room = Room.objects.get(room_name=room_name)
+            time = GameTime.objects.get(game_slot=time_slot)
 
             # Create a new instance of the Reservation model and set its attributes
             instance = Reservation()
