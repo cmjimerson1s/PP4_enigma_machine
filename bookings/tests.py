@@ -9,6 +9,8 @@ from .views import ReservationView, ReservationChoice, CartTransform, CartView, 
 from django.urls import reverse
 from django.contrib.sessions.middleware import SessionMiddleware
 from django.core.exceptions import ObjectDoesNotExist
+from django.template.loader import render_to_string
+
 
 
 
@@ -217,13 +219,34 @@ class ReservationViewTestCase(TestCase):
         self.assertEqual(instance.room_choice, room)
         self.assertEqual(instance.time_slot, time_slot)
         self.assertEqual(instance.user_id, 1)
-
         # Assert that the session data is cleared
         session = self.client.session
         self.assertNotIn('cart', session)
-        form = ReservationForm()
-        self.assertIsInstance(form, ReservationForm)
+        
 
+class ReservationViewElseBlockTestCase(TestCase):
+    def test_else_block(self):
+        # Set up session data
+        session = self.client.session
+        session['cart'] = [{'key': 'Horror', 'value': '14:00', 'specific_date': '2000-01-01'}]
+        session.save()
+
+        # Call the view function with a POST request and empty data
+        post_data = {}
+        raw_data = "['key','value','specific_date']"
+        data = CartTransform(raw_data)
+        url = reverse('posted')
+        url += f'?data={data}'  
+        response = self.client.post(url, data=post_data)
+
+        # Assert that the response status code is 200 (OK)
+        self.assertEqual(response.status_code, 200)
+
+        # Assert that the correct template is used
+        self.assertTemplateUsed(response, 'reservations.html')
+
+        # Assert that the form is in the context
+        self.assertIsInstance(response.context['form'], ReservationForm)
 
 class CartTransformTestCase(TestCase):
 

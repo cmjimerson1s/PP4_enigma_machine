@@ -115,6 +115,8 @@ def update_database(request):
 
             else:
                 form = ReservationForm()
+                context = {'form': form, 'data': data}
+                return render(request, 'reservations.html', context)
 
         if 'cart' in request.session:
             del request.session['cart']
@@ -122,8 +124,7 @@ def update_database(request):
         return redirect('reservation')
 
 
-    context = {'form': form, 'data': data}
-    return render(request, 'reservations.html', context)
+
 
 
 def CartTransform(data):
