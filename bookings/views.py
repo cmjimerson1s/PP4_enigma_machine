@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Reservation
+from .models import Reservation, GameTime, Room
 from django.http import HttpResponse
 from django.utils import timezone
 from django.views import generic, View
@@ -16,8 +16,8 @@ class ReservationView(generic.ListView):
         context = super().get_context_data(**kwargs)
         date = timezone.now().date()
         context['today'] = date.strftime("%Y-%m-%d")
-        context['times'] = ['12:00', '14:00', '16:00','18:00']
-        context['rooms'] = ['Horror', 'Pirate']
+        context['times'] = GameTime.objects.all()
+        context['rooms'] = Room.objects.all()
         context['cart'] = []
 
         return context
@@ -65,8 +65,8 @@ class ReservationChoice(View):
 
         date = timezone.now().date()
         today = date.strftime("%Y-%m-%d")
-        times = ['12:00', '14:00', '16:00','18:00']
-        rooms = ['Horror', 'Pirate']
+        times = GameTime.objects.all()
+        rooms = Room.objects.all()
         queryset = Reservation.objects.all()
         cart = [item for item in request.session.get('cart', []) if item.get('key') and item.get('value') and item.get('specific_date')]
        
