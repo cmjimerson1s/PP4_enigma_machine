@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load res_tags %}
 {% block content %}
+<form method = POST action="{% url 'reservation_choice' %}">
+  {% csrf_token %}
+  <input type="date" name="new_date"><button type="submit">View Day</button>{{today}}
+</form>
 {% for room in rooms %}
 <h1>{{room}}</h1>
   {% for time in times %}

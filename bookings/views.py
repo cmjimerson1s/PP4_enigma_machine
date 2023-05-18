@@ -25,14 +25,13 @@ class ReservationView(generic.ListView):
 
     
 class ReservationChoice(View):
-    template = 'res_choice.html'
-
 
     def post(self, request):
         template = 'res_choice.html'
         specific_date = request.POST.get('picked_date')
         key = request.POST.get('room')
         value = request.POST.get('time')
+        new_date = request.POST.get('new_date')
 
         # Check if the item is already in the cart
         cart = request.session.get('cart', [])
@@ -72,6 +71,7 @@ class ReservationChoice(View):
         cart = [item for item in request.session.get('cart', []) if item.get('key') and item.get('value') and item.get('specific_date')]
        
         context = {
+            'new_date': new_date,
             'today': today,
             'times': times,
             'rooms': rooms,

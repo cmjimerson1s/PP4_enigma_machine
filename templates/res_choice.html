@@ -1,25 +1,54 @@
 {% extends "base.html" %}
 {% load res_tags %}
 {% block content %}
-{% for room in rooms %}
-<h1>{{room}}</h1>
-  {% for time in times %}
-    <h3>{{time}}</h3>
-    {% with bookings=queryset|res_date:today|res_room:room|res_time:time%}
-      {% if bookings %}
-        <button type="submit" disabled>Unavailable</button>
-      {% else %}
-      <form method="POST" action="{% url 'reservation_choice' %}">
-        {% csrf_token %}
-        <input type="hidden" name="picked_date" value="{{today}}">
-        <input type="hidden" name="time" value="{{time}}">
-        <input type="hidden" name="room" value="{{room}}">
-        <button type="submit">Available</button>
-      </form>
-      {% endif %}
-    {% endwith%}
-  {% endfor %}
-{% endfor %}
+<form method = POST action="{% url 'reservation_choice' %}">
+  {% csrf_token %}
+  <input type="date" name="new_date"><button type="submit">View Day</button>{{today}}{{new_date}}
+</form>
+{% if new_date %}
+  {% with new_date as today %}
+    {% for room in rooms %}
+    <h1>{{room}}</h1>
+      {% for time in times %}
+        <h3>{{time}}</h3>
+        {% with bookings=queryset|res_date:today|res_room:room|res_time:time%}
+          {% if bookings %}
+            <button type="submit" disabled>Unavailable</button>
+          {% else %}
+          <form method="POST" action="{% url 'reservation_choice' %}">
+            {% csrf_token %}
+            <input type="hidden" name="new_date" value="{{today}}">
+            <input type="hidden" name="picked_date" value="{{today}}">
+            <input type="hidden" name="time" value="{{time}}">
+            <input type="hidden" name="room" value="{{room}}">
+            <button type="submit">Available</button>
+          </form>
+          {% endif %}
+        {% endwith%}
+      {% endfor %}
+    {% endfor %}
+  {% endwith %}
+  {% else %}
+  {% for room in rooms %}
+    <h1>{{room}}</h1>
+      {% for time in times %}
+        <h3>{{time}}</h3>
+        {% with bookings=queryset|res_date:today|res_room:room|res_time:time%}
+          {% if bookings %}
+            <button type="submit" disabled>Unavailable</button>
+          {% else %}
+          <form method="POST" action="{% url 'reservation_choice' %}">
+            {% csrf_token %}
+            <input type="hidden" name="picked_date" value="{{today}}">
+            <input type="hidden" name="time" value="{{time}}">
+            <input type="hidden" name="room" value="{{room}}">
+            <button type="submit">Available</button>
+          </form>
+          {% endif %}
+        {% endwith%}
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
 
 {% if cart %}
       <h2>Shopping Cart</h2>
