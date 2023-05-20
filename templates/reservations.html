@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load res_tags %}
-{% load static %}
 {% block content %}
 <form method = POST action="{% url 'reservation_choice' %}">
   {% csrf_token %}

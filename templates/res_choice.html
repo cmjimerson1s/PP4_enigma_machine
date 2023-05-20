@@ -21,7 +21,7 @@
             <input type="hidden" name="picked_date" value="{{today}}">
             <input type="hidden" name="time" value="{{time}}">
             <input type="hidden" name="room" value="{{room}}">
-            <button type="submit">Available</button>
+            <button type="submit" id="{{room}}-{{time}}-{{today}}">Available</button>
           </form>
           {% endif %}
         {% endwith%}
@@ -42,7 +42,7 @@
             <input type="hidden" name="picked_date" value="{{today}}">
             <input type="hidden" name="time" value="{{time}}">
             <input type="hidden" name="room" value="{{room}}">
-            <button type="submit">Available</button>
+            <button type="submit" id="{{room}}-{{time}}-{{today}}">Available</button>
           </form>
           {% endif %}
         {% endwith%}
@@ -52,6 +52,7 @@
 
 {% if cart %}
       <h2>Shopping Cart</h2>
+      <h4>{{cart}}</h4>
       <ul>
           {% for item in cart %}
           <li>{{ item.key }}: {{ item.value }} ({{ item.specific_date }}) 
@@ -73,5 +74,19 @@
     </form>
 
   {% endif %}
+
+  <script>
+    var cartData = {{ cart|safe }};
+    for (var i = 0; i < cartData.length; i++) {
+      var item = cartData[i];
+      var buttonId = item.key + "-" + item.value + "-" + item.specific_date;
+      var button = document.getElementById(buttonId);
+      
+      if (button) {
+        button.disabled = true;
+        button.textContent = "Already in Cart";
+      }
+    }
+  </script>
 
 {% endblock %}
