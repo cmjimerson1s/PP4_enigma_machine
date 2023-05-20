@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+    <form method="post" action="account_update_view">
+        {% csrf_token %}
+        <h1>Account Page</h1>
+        <h1>Username: {{ username }}</h1>
+        <input type="hidden" name="username" value="">
+        <h1>Customer Name: {{ first_name }} {{ last_name }}</h1>
+        <input type="hidden" name="first_name" value="">
+        <input type="hidden" name="last_name" value="">
+        <h1>Email Address: {{ email }}</h1>
+        <input type="hidden" name="email" value="">
+        <input type="hidden" name="user_id" value="{{user_id}}">
+        <h3>Need to update your account information?</h3>
+        <button type=submit>Update Here</button>
+    </form>
+{% endblock %}
