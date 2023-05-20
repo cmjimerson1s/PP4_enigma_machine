@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from bookings.models import Reservation, GameTime, Room
+from datetime import datetime, date
+
 
 
 @login_required
@@ -21,5 +24,19 @@ def AccountOverview(request):
         'email': email,
         
     }
+
+    return render(request, template, context)
+
+def AccountReservations(request):
+    template = 'account_bookings.html'
+    user_id = request.user.id
+
+    reservations = Reservation.objects.filter(user_id=user_id)
+
+    current_datetime = datetime.now()
+    current_date = current_datetime.date()
+    current_time = current_datetime.time()
+
+    context = {'reservations': reservations, 'current_date': current_date, 'current_time': current_time}
 
     return render(request, template, context)

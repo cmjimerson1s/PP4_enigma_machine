@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    {% for reservation in reservations %}
+    {% if current_date > reservation.date %}
+        <h2>Past</h2>
+                <h1>{{ reservation.date}} {{ reservation.1}} {{ reservation.2}}</h1>
+    {% else %}
+    {% if current_time > res%}
+        <form method="post" action="">
+        {% csrf_token %}
+            <h2>Future</h2>{{current_time}}
+                <h1>{{ reservation.date}} {{ reservation.time_slot}} {{ reservation.room_choice}}</h1><button type="submit">Edit/Delete</button>
+                <input type="hidden" name="res_id" value="{{reservation.3}}">
+        </form>
+    {% endif %}
+    {% endfor %}
+    <a href="{% url 'account_overview' %}">Return to Account</a>
+{% endblock %}

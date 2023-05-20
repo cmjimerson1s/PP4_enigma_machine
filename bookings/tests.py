@@ -204,7 +204,7 @@ class ReservationViewTestCase(TestCase):
 
         # Assert that the response is a redirect
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/') 
+        self.assertEqual(response.url, '/reservation') 
 
         # Assert that the form is valid
         form = ReservationForm(data=post_data)

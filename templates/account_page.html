@@ -21,4 +21,18 @@
         <h3>Need to update your account information?</h3>
         <button type=submit>Update Here</button>
     </form>
+    <form action="{% url 'account_bookings'%}">
+        <button type="submit">Reservations</button>
+        <input type="hidden" name="username" value="">
+        <input type="hidden" name="first_name" value="">
+        <input type="hidden" name="last_name" value="">
+        <input type="hidden" name="email" value="">
+        <input type="hidden" name="user_id" value="{{user_id}}">
+    </form>
+    Don't forget to tell others about your time with us!
+    Review Here! 
+    <a href="www.facebook.com" target="_blank" aria-label="Opens link to Facebook.com in another window">Facebook</a>
+    <a href="www.tripadvisor.com" target="_blank" aria-label="Opens link to Tripadvisor.com in another window">TripAdvisor</a>
+    <a href="www.yelp.com" target="_blank" aria-label="Opens link to Yelp.com in another window">Yelp</a>
+    <a href="www.google.com" target="_blank" aria-label="Opens link to Google.com in another window">Google</a>
 {% endblock %}
