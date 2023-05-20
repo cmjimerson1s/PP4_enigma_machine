@@ -11,7 +11,8 @@
         <input type="hidden" name="time" value="{{ booking.value }}">
         <h3>Date: {{ booking.specific_date }}</h3>
         <input type="hidden" name="date" value="{{ booking.specific_date }}">
-        <h3>Group Size:<input name="number" id="numberDropdown" type="number" min="2" max="7"></h3>
+        <h3>Group Size:<input name="number" id="numberDropdown{{ forloop.counter }}" type="number" min="2" max="7"></h3>
+        <h3>Price:<input type="number" id="room_price{{ forloop.counter }}" class="room_price" readonly></h3>
     {% endfor %}
         <input type="text" name="user_id">
         {{ form.customer_name }}
@@ -25,23 +26,49 @@
 </form>
 
 <script>
-// Get the dropdown element
-const numberDropdown = document.getElementById("numberDropdown");
+    // Get the dropdown element
+    const numberDropdownInput = document.querySelectorAll('input[name="number"]');
+    const priceRoomTotals = document.querySelectorAll('.room_price');
+    const grandTotalPrice = document.querySelector('input[name="price"]');
+    
 
-// Get the result element
-const priceInput = document.getElementById("price");
+    numberDropdownInput.forEach(function(input, index) {
+        let numberDropdownId = "numberDropdown" + (index + 1);
+        let priceInputId = "room_price" + (index + 1);
+        let numberDropdown = document.getElementById(numberDropdownId);
+        let priceInput = document.getElementById(priceInputId);
 
-// Add event listener to the dropdown
-numberDropdown.addEventListener("change", function() {
-  // Get the selected value from the dropdown
-  const selectedValue = parseInt(numberDropdown.value);
+        numberDropdown.addEventListener("change", function() {
+            // Get the selected value from the dropdown
+            const selectedValue = parseInt(input.value);
+            
+            // Perform calculation based on the selected value
+            const result = selectedValue * 300; // Example calculation, multiply selected value by 300
+            
+            // Update the price input value with the calculated result
+            priceInput.value =  result;
 
-  // Perform calculation based on the selected value
-  const result = selectedValue * 300; // Example calculation, multiply selected value by 300
+            updateGrandTotalPrice();
+            
+        });
+    });
+    function updateGrandTotalPrice() {
+        // Initialize the total price
+        let totalPrice = 0;
 
-  // Update the price input value with the calculated result
-  priceInput.value = result;
-});
+        // Iterate through each input and add its value to the total price
+        priceRoomTotals.forEach(function(priceInput) {
+            const price = parseInt(priceInput.value);
+            if (!isNaN(price)) {
+            totalPrice += price;
+            }
+        });
+
+        // Update the grand total price input value
+        grandTotalPrice.value = totalPrice;
+    }
+
+    updateGrandTotalPrice();
 </script>
 
 
