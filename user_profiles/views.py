@@ -91,6 +91,13 @@ def BookingUpdate(request):
 
     return redirect('account_overview')
 
+def DeleteBooking(request):
+    res_id = request.POST.get('res_id')
+    res = Reservation.objects.filter(id=res_id)
+    res.delete()
+
+    return redirect('account_bookings')
+
 def AccountUpdateView(request):
     template = 'account_page_edit.html'
     user_id = request.user.id

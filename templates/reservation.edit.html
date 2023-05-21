@@ -9,6 +9,11 @@
     <input type="date" name="new_date" min="{{today}}"><button type="submit">View Day</button>{{today}}{{new_date}}
     <input type="hidden" name="res_id" value="{{booking.id}}">
   </form>
+<form id="deleteBookingForm" method="post" action="{% url 'delete_booking' %}">
+  {% csrf_token %}
+  <button id="deleteButton" type="button">Delete Booking</button>
+  <input type="hidden" name="res_id" value="{{ booking.id }}">
+</form>
 {% if new_date %}
   {% with new_date as today %}
     {% for room in rooms %}
@@ -53,4 +58,58 @@
   {% endfor %}
 
     <a href="{% url 'account_overview' %}">Return to Account</a>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Confirm Booking Deletion</h2>
+    <p>Are you sure you want to delete your booking?</p>
+    <button id="confirmButton">Confirm</button>
+    <button id="cancelButton">Cancel</button>
+  </div>
+</div>
+    
+<script>
+      // Get the form element
+      var form = document.getElementById('deleteBookingForm');
+    
+      // Get the delete button element
+      var deleteButton = document.getElementById('deleteButton');
+    
+      // Get the modal element
+      var modal = document.getElementById('myModal');
+    
+      // Get the close button element
+      var closeButton = document.getElementsByClassName('close')[0];
+    
+      // Get the confirm and cancel buttons
+      var confirmButton = document.getElementById('confirmButton');
+      var cancelButton = document.getElementById('cancelButton');
+    
+      // When the delete button is clicked, display the modal
+      deleteButton.addEventListener('click', function() {
+        modal.style.display = 'block';
+      });
+    
+      // When the close button is clicked or outside the modal, close the modal
+      closeButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+    
+      window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+          modal.style.display = 'none';
+        }
+      });
+    
+      // When the confirm button is clicked, submit the form
+      confirmButton.addEventListener('click', function() {
+        form.submit();
+      });
+    
+      // When the cancel button is clicked, close the modal
+      cancelButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+</script>
 {% endblock %}

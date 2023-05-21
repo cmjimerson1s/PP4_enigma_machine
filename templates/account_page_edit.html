@@ -13,7 +13,7 @@
 <form id="deleteAccountForm" method="post" action="{% url 'delete_account' %}">
     {% csrf_token %}
     <button id="deleteButton" type="button">Request Account Deletion</button>
-    <input type="hidden" name="user_id" value="{{ user_id }}">
+    <input type="hidden" name="res_id" value="{{ res_id }}">
   </form>
   
   <div id="myModal" class="modal">
