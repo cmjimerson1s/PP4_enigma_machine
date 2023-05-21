@@ -56,4 +56,18 @@ def BookingEditSelection(request):
     context = {'reservations': reservations, 'booked_res': booked_res, 'times': times, 'rooms': rooms, 'today': today,'new_date': new_date}
     return render(request, template, context) 
 
-    
+
+def BookingEditConfirmation(request):
+    template = 'reservation_edit_post.html'
+    res_id = request.POST.get('res_id')
+    old_booking = Reservation.objects.filter(id=res_id)
+    new_time = request.POST.get('time')
+    new_date = request.POST.get('picked_date')
+    new_room = request.POST.get('room')
+
+    context = {
+        'res_id': res_id, 'old_booking': old_booking, 'new_time': new_time, 'new_date': new_date, 'new_room': new_room
+    }
+
+    return render(request, template, context)
+

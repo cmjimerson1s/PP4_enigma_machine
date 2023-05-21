@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load res_tags %}
+{% block content %}
+<h1>Please review booking details below</h1>
+<h1>Current Reservation:</h1>
+{% for booking in old_booking %}
+<h2>Date: {{booking.date}}</h2>
+<h2>Time: {{booking.time_slot}}</h2>
+<h2>Room: {{booking.room_choice}}</h2>
+{% endfor %}
+<form method="POST" action="">
+<h1>New Reservation Details:</h1>
+<h2>Date: {{new_date}}</h2>
+<input type="hidden" name="new_date" value="{{new_date}}">
+<h2>Time: {{new_time}}</h2>
+<input type="hidden" name="new_time" value="{{new_time}}">
+<h2>Room: {{new_room}}</h2>
+<input type="hidden" name="new_room" value="{{new_room}}">
+<input type="hidden" name="res_id" value="{{res_id}}">
+<button type="submit">Update Reservation</button>
+</form>
+    <a href="{% url 'account_overview' %}">Return to Account</a>
+{% endblock %}
