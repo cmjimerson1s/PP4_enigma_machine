@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from bookings.models import Reservation, GameTime, Room
 from datetime import datetime, date
 from django.utils import timezone
+from django.contrib import messages
+
 
 
 
@@ -71,3 +73,20 @@ def BookingEditConfirmation(request):
 
     return render(request, template, context)
 
+def BookingUpdate(request):
+    res_id = request.POST.get('res_id')
+    new_time = request.POST.get('new_time')
+    new_date = request.POST.get('new_date')
+    new_room = request.POST.get('new_room')
+    room = Room.objects.get(room_name=new_room)
+    time = GameTime.objects.get(game_slot=new_time)
+
+    reservation = Reservation.objects.get(id=res_id)
+    reservation.date = new_date
+    reservation.time_slot = time
+    reservation.room_choice = room
+
+    messages.success(request, 'Form submitted successfully!')
+    reservation.save(update_fields=['date', 'time_slot','room_choice'])
+
+    return redirect('account_overview')

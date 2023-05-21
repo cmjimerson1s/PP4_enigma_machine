@@ -17,7 +17,7 @@
         {% with bookings=reservations|res_date:today|res_room:room|res_time:time%}
           {% if bookings %}
           {% else %}
-          <form method="POST" action="{% url 'account_booking_edit_post' %}">
+          <form method="POST" action="{% url 'account_booking_edit_confirm' %}">
             {% csrf_token %}
             <input type="hidden" name="new_date" value="{{today}}">
             <input type="hidden" name="picked_date" value="{{today}}">
@@ -38,7 +38,7 @@
         {% with bookings=reservations|res_date:booking.date|res_room:room|res_time:time%}
           {% if bookings %}
           {% else %}
-          <form method="POST" action="{% url 'account_booking_edit_post' %}">
+          <form method="POST" action="{% url 'account_booking_edit_confirm' %}">
             {% csrf_token %}
             <input type="hidden" name="picked_date" value="{{today}}">
             <input type="hidden" name="time" value="{{time}}">
