@@ -189,3 +189,66 @@ class BookingUpdateTestCase(TestCase):
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
         self.assertEqual(str(messages[0]), 'Form submitted successfully!')
+
+
+class AccountUpdateViewTestCase(TestCase):
+
+    def setUp(self):
+        # Create a test user
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+        self.url = reverse('account_update_view')
+
+    def test_account_update_view(self):
+        # Log in the user
+        self.client.login(username='testuser', password='testpassword')
+
+        # Send a GET request to the view
+        response = self.client.get(self.url)
+
+        # Assert that the response status code is 200 (OK)
+        self.assertEqual(response.status_code, 200)
+
+        # Assert that the correct template is used
+        self.assertTemplateUsed(response, 'account_page_edit.html')
+
+        # Assert that the context contains the user information
+        self.assertEqual(response.context['username'], 'testuser')
+        self.assertEqual(response.context['first_name'], '')
+        self.assertEqual(response.context['last_name'], '')
+        self.assertEqual(response.context['email'], '')
+
+
+class AccountUpdatePostingTestCase(TestCase):
+    def setUp(self):
+        # Create a test user
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+        self.url = reverse('account_update_post')
+
+    def test_account_update_posting(self):
+        # Log in the user
+        self.client.login(username='testuser', password='testpassword')
+
+        # Send a POST request to the view with updated user information
+        data = {
+            'user_id': self.user.id,
+            'new_username': 'newusername',
+            'new_first_name': 'John',
+            'new_last_name': 'Doe',
+            'new_email': 'newemail@example.com',
+        }
+        response = self.client.post(self.url, data=data)
+
+        # Assert that the response redirects to the account overview page
+        self.assertRedirects(response, '/user_profiles/account_overview')
+
+        # Assert that the user information is updated
+        self.user.refresh_from_db()
+        self.assertEqual(self.user.username, 'newusername')
+        self.assertEqual(self.user.first_name, 'John')
+        self.assertEqual(self.user.last_name, 'Doe')
+        self.assertEqual(self.user.email, 'newemail@example.com')
+
+        # Assert success message is displayed
+        messages = list(response.wsgi_request._messages)
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(str(messages[0]), 'Form submitted successfully!')
