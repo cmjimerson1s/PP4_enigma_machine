@@ -108,3 +108,21 @@ def AccountUpdateView(request):
     }
 
     return render(request, template, context)
+
+def AccountUpdatePosting(request):
+    user_id = int(request.POST.get('user_id'))
+    new_first_name = request.POST.get('new_first_name')
+    new_last_name = request.POST.get('new_last_name')
+    new_email = request.POST.get('new_email')
+    new_username = request.POST.get('new_username')
+
+    update = User.objects.get(id=user_id)
+    update.username = new_username
+    update.first_name = new_first_name
+    update.last_name = new_last_name
+    update.email = new_email
+    update.save(update_fields=['username', 'first_name','last_name', 'email'])
+
+    messages.success(request, 'Form submitted successfully!')
+
+    return redirect('account_overview')
