@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'bookings',
     'user_profiles',
+    'contact',
 ]
 
 SITE_ID = 1
