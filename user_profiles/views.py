@@ -127,3 +127,10 @@ def AccountUpdatePosting(request):
 
     return redirect('account_overview')
 
+def DeleteAccount(request):
+    if request.user.is_authenticated:
+        user_id = request.user.id
+        user = User.objects.get(id=user_id)
+        user.delete()
+        messages.success(request, 'Account Deleted!')
+        return redirect('reservation')
