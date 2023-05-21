@@ -131,6 +131,8 @@ def DeleteAccount(request):
     if request.user.is_authenticated:
         user_id = request.user.id
         user = User.objects.get(id=user_id)
+        reservations = Reservation.objects.filter(user_id=user_id)
+        reservations.delete()
         user.delete()
         messages.success(request, 'Account Deleted!')
         return redirect('reservation')
