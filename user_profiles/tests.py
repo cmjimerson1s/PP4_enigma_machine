@@ -94,3 +94,33 @@ class AccountReservationsTestCase(TestCase):
         current_date = response.context['current_date']
         self.assertEqual(current_date, date.today())
 
+
+class BookingEditSelectionTestCase(TestCase):
+
+    def setUp(self):
+        # Create test data
+        self.reservation = Reservation.objects.create(id=1, date=date(2023, 5, 1), price=100)
+        self.time = GameTime.objects.create()
+        self.room = Room.objects.create()
+        self.url = reverse('account_booking_edit')
+    
+    def test_booking_edit_selection(self):
+        # Send a POST request to the view
+        data = {
+            'res_id': self.reservation.id,
+            'new_date': '2023-05-30',
+        }
+        response = self.client.post(self.url, data=data)
+
+        # Assert that the response status code is 200 (OK)
+        self.assertEqual(response.status_code, 200)
+
+        # Assert that the correct template is used
+        self.assertTemplateUsed(response, 'reservation.edit.html')
+
+        # Assert the context data
+        self.assertEqual(response.context['reservations'].count(), 1)
+        self.assertEqual(list(response.context['booked_res']), [self.reservation])
+        self.assertEqual(response.context['times'].count(), 1)
+        self.assertEqual(response.context['rooms'].count(), 1)
+        self.assertEqual(response.context['new_date'], '2023-05-30')

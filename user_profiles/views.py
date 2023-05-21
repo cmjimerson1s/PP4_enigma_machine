@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from bookings.models import Reservation, GameTime, Room
 from datetime import datetime, date
+from django.utils import timezone
+
 
 
 
@@ -43,10 +45,15 @@ def AccountReservations(request):
 def BookingEditSelection(request):
     template = 'reservation.edit.html'
     res_id = request.POST.get('res_id')
+    new_date = request.POST.get('new_date')
     booked_res = Reservation.objects.filter(id=res_id)
     reservations = Reservation.objects.all()
     times = GameTime.objects.all()
     rooms = Room.objects.all()
+    date = timezone.now().date()
+    today = date.strftime("%Y-%m-%d")
 
-    context = {'reservations': reservations, 'booked_res': booked_res, 'times': times, 'rooms': rooms}
-    return render(request, template, context)
+    context = {'reservations': reservations, 'booked_res': booked_res, 'times': times, 'rooms': rooms, 'today': today,'new_date': new_date}
+    return render(request, template, context) 
+
+    
