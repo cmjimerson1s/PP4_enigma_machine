@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load res_tags %}
 {% block content %}
+{% if user.is_authenticated %}
 <form method = POST action="{% url 'reservation_choice' %}">
   {% csrf_token %}
   <input type="date" name="new_date" min="{{today}}"><button type="submit">View Day</button>{{today}}
@@ -8,7 +9,7 @@
 {% for room in rooms %}
 <h1>{{room}}</h1>
   {% for time in times %}
-    {% with bookings=reservation_list|res_date:today|res_room:room|res_time:time%}
+    {% with bookings=reservation|res_date:today|res_room:room|res_time:time%}
       {% if bookings %}
         <button type="submit" disabled>Unavailable</button>
       {% else %}
@@ -23,8 +24,9 @@
     {% endwith%}
   {% endfor %}
 {% endfor %}
-
-
+{% else %}
+<h1>Login</h1>
+{% endif %}
 {% endblock %}
 
 

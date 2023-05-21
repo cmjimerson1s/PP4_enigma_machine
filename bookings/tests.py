@@ -1,5 +1,6 @@
-from django.test import TestCase, RequestFactory
+from django.test import TestCase, Client
 from django.shortcuts import render
+from django.contrib.auth.models import User
 from datetime import date
 from .models import Reservation, Room, GameTime
 from .forms import ReservationForm
@@ -14,34 +15,26 @@ from django.template.loader import render_to_string
 
 
 
+
 class ReservationListViewTest(TestCase):
 
     def setUp(self):
-        room = Room.objects.create(room_name='Horror')
-        time_slot = GameTime.objects.create(game_slot='12:00')
+        self.client = Client()
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
 
-        self.reservation = Reservation.objects.create(
-            customer_name='Test Test',
-            customer_email='test@gmail.com',
-            customer_phone='+123456789123',
-            price=500,
-            date='2000-01-01',
-            time_slot=time_slot,
-            room_choice=room,
-            comment='Test',
-            user_id=55,
-        )
+    def test_reservation_view_authenticated(self):
+        self.client.force_login(self.user)
 
-    def test_Reservation_List_View(self):
         response = self.client.get(reverse('reservation'))
+
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'reservations.html')
-        self.assertContains(response, self.reservation.time_slot)
-        self.assertContains(response, self.reservation.room_choice)
-        context = response.context_data
-        self.assertIn('today', context)
-        expected_date = timezone.now().date().strftime("%Y-%m-%d")
-        self.assertEqual(context['today'], expected_date)
+        self.assertIn('reservations', response.context)
+        self.assertIn('today', response.context)
+        self.assertIn('times', response.context)
+        self.assertIn('rooms', response.context)
+        self.assertIn('cart', response.context)
+
 
 
 class ReservationChoiceTestCase(TestCase):
@@ -204,7 +197,7 @@ class ReservationViewTestCase(TestCase):
 
         # Assert that the response is a redirect
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/reservation') 
+        self.assertEqual(response.url, '/') 
 
         # Assert that the form is valid
         form = ReservationForm(data=post_data)

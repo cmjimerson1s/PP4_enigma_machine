@@ -5,23 +5,30 @@ from django.http import HttpResponse
 from django.utils import timezone
 from django.views import generic, View
 import ast
+from django.contrib.auth.decorators import login_required
 
 
+def home(request):
+    return render(request, 'index.html', {})
 
-class ReservationView(generic.ListView):
-    model = Reservation
+
+def ReservationView(request):
     queryset = Reservation.objects.all()
-    template_name = 'reservations.html'
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        date = timezone.now().date()
-        context['today'] = date.strftime("%Y-%m-%d")
-        context['times'] = GameTime.objects.all()
-        context['rooms'] = Room.objects.all()
-        context['cart'] = []
+    date = timezone.now().date()
+    today = date.strftime("%Y-%m-%d")
+    times = GameTime.objects.all()
+    rooms = Room.objects.all()
+    cart = []
 
-        return context
+    context = {
+        'reservations': queryset,
+        'today': today,
+        'times': times,
+        'rooms': rooms,
+        'cart': cart
+    }
+
+    return render(request, 'reservations.html', context)
 
 
     
@@ -121,7 +128,7 @@ def update_database(request):
         if 'cart' in request.session:
             del request.session['cart']
 
-        return redirect('reservation')
+        return redirect('home')
 
 
 

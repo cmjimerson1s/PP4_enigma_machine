@@ -286,7 +286,7 @@ class DeleteAccountTestCase(TestCase):
 
         # Check the response status code and redirect
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('reservation'))
+        self.assertRedirects(response, reverse('home'))
 
         # Check that the user and reservations are deleted
         self.assertFalse(User.objects.filter(id=self.user.id).exists())
@@ -306,7 +306,7 @@ class DeleteAccountTestCase(TestCase):
 
         # Check the response status code and redirect
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('reservation'))
+        self.assertRedirects(response, reverse('home'))
 
         # Check that the user is not deleted
         self.assertTrue(User.objects.filter(id=self.user.id).exists())
