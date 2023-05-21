@@ -17,9 +17,6 @@ def ContactUs(request):
 
 class ContactUsPost(View):
 
-    def get(self, request):
-        return render(request, 'contact.html')
-
     def post(self, request):
         new_form = ContactUsForm()
         contact_form = ContactUsForm(data=request.POST)

@@ -1,5 +1,9 @@
 from django.test import TestCase
 from .models import ContactUs
+from django.urls import reverse
+from django.contrib.messages import get_messages
+from django.contrib.sessions.middleware import SessionMiddleware
+from .views import ContactUsForm, ContactUsPost
 
 class ContactUsModelTest(TestCase):
 
@@ -29,4 +33,47 @@ class ContactUsModelTest(TestCase):
         max_length = inquiry._meta.get_field('phone_number').max_length
         self.assertEqual(max_length, 14)
 
+class ContactUsTestCase(TestCase):
+    def setUp(self):
+        self.url = reverse('contact_us')
 
+    def test_get_contact_us(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'contact.html')
+        self.assertIsInstance(response.context['form'], ContactUsForm)
+
+
+
+class ContactUsPostTestCase(TestCase):
+
+    def test_post_valid_form(self):
+        form_data = {
+            'inquiry_name': 'John Doe',
+            'inquiry_email': 'johndoe@example.com',
+            'phone_number': '1234567890',
+            'inquiry_message': 'Test message',
+        }
+        response = self.client.post(reverse('contact_us_post'), data=form_data)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'contact.html')
+
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(str(messages[0]), "Message has been sent")
+
+
+    def test_post_invalid_form(self):
+        form_data = {
+            'inquiry_name': 'John Doe',
+            'inquiry_email': 'johndoe@example.com',
+            'phone_number': '1234567890',
+            # Missing inquiry_message field
+        }
+        response = self.client.post(reverse('contact_us_post'), data=form_data)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'contact.html')
+
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(str(messages[0]), "Error: Please try again")
