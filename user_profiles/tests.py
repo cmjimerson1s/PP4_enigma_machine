@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from bookings.models import Reservation, Room, GameTime
 from datetime import datetime, date
 from .views import AccountOverview, AccountReservations
+from django.contrib.messages import get_messages
+
 
 
 class AccountOverviewTestCase(TestCase):
@@ -124,3 +126,66 @@ class BookingEditSelectionTestCase(TestCase):
         self.assertEqual(response.context['times'].count(), 1)
         self.assertEqual(response.context['rooms'].count(), 1)
         self.assertEqual(response.context['new_date'], '2023-05-30')
+
+
+class BookingEditConfirmationTestCase(TestCase):
+    def test_booking_edit_confirmation(self):
+        # Create test data
+        room = Room.objects.create(room_name='Room 2')
+        time = GameTime.objects.create(game_slot='18:00')
+        reservation = Reservation.objects.create(id=1, date='2000-01-01', room_choice=room, time_slot=time, price=100)
+
+        # Send a POST request to the view
+        data = {
+            'res_id': 1,
+            'time': '18:00',
+            'picked_date': '2023-06-15',
+            'room': 'Room 2',
+        }
+        url = reverse('account_booking_edit_confirm')
+        response = self.client.post(url, data=data)
+
+        # Assert that the response has a 200 status code (OK)
+        self.assertEqual(response.status_code, 200)
+
+        # Assert the rendered template
+        self.assertTemplateUsed(response, 'reservation_edit_post.html')
+
+        # Assert the context data
+        self.assertEqual(response.context['new_time'], '18:00')
+        self.assertEqual(response.context['new_date'], '2023-06-15')
+        self.assertEqual(response.context['new_room'], 'Room 2')
+        self.assertQuerysetEqual(response.context['old_booking'], [repr(reservation)])
+
+class BookingUpdateTestCase(TestCase):
+
+    def setUp(self):
+        # Create test data
+        self.room = Room.objects.create(room_name='Room 2')
+        self.time = GameTime.objects.create(game_slot='18:00')
+        self.reservation = Reservation.objects.create(id=1, date='2000-01-01', room_choice=self.room, time_slot=self.time, price=100)
+        self.url = reverse('account_booking_edit_post')
+
+
+    def test_booking_update(self):
+        # Send a POST request to the view
+        data = {
+            'res_id': self.reservation.id,
+            'new_time': '18:00',
+            'new_date': '2023-06-15',
+            'new_room': 'Room 2',
+        }
+        response = self.client.post(self.url, data=data)
+
+
+
+        # Assert the updated reservation values
+        updated_reservation = Reservation.objects.get(id=self.reservation.id)
+        self.assertEqual(updated_reservation.date.strftime('%Y-%m-%d'), '2023-06-15')
+        self.assertEqual(updated_reservation.time_slot, GameTime.objects.get(game_slot='18:00'))
+        self.assertEqual(updated_reservation.room_choice, Room.objects.get(room_name='Room 2'))
+
+        # Assert success message is displayed
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(str(messages[0]), 'Form submitted successfully!')
