@@ -7,6 +7,8 @@ from django.utils import timezone
 from django.contrib import messages
 
 
+def home(request):
+    return render(request, 'index.html', {})
 
 
 
@@ -142,4 +144,6 @@ def DeleteAccount(request):
         reservations.delete()
         user.delete()
         messages.success(request, 'Account Deleted!')
+        return redirect('reservation')
+    else:
         return redirect('reservation')

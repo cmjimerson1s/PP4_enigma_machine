@@ -1,10 +1,10 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from bookings.models import Reservation, Room, GameTime
 from datetime import datetime, date
-from .views import AccountOverview, AccountReservations
+from .views import AccountOverview, AccountReservations, DeleteBooking, DeleteAccount
 from django.contrib.messages import get_messages
 
 
@@ -190,6 +190,21 @@ class BookingUpdateTestCase(TestCase):
         self.assertEqual(len(messages), 1)
         self.assertEqual(str(messages[0]), 'Form submitted successfully!')
 
+class DeleteBookingTestCase(TestCase):
+    def setUp(self):
+        # Create a test reservation
+        self.reservation = Reservation.objects.create(id=1, price=100, date='2000-01-01')
+
+    def test_delete_booking(self):
+        # Send a POST request to the view with the reservation ID
+        response = self.client.post(reverse('delete_booking'), {'res_id': self.reservation.id})
+
+        # Assert that the response redirects to the account_bookings page
+        self.assertRedirects(response, reverse('account_bookings'))
+
+        # Assert that the reservation is deleted
+        self.assertFalse(Reservation.objects.filter(id=self.reservation.id).exists())
+
 
 class AccountUpdateViewTestCase(TestCase):
 
@@ -252,3 +267,46 @@ class AccountUpdatePostingTestCase(TestCase):
         messages = list(response.wsgi_request._messages)
         self.assertEqual(len(messages), 1)
         self.assertEqual(str(messages[0]), 'Form submitted successfully!')
+
+class DeleteAccountTestCase(TestCase):
+    def setUp(self):
+        # Create a test user
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+
+        # Create a test reservation associated with the user
+        self.reservation = Reservation.objects.create(user_id=self.user.id, price=100, date='2000-01-01')
+
+    def test_delete_account(self):
+        # Log in the user
+        client = Client()
+        client.login(username='testuser', password='testpassword')
+
+        # Send a POST request to the view
+        response = client.post(reverse('delete_account'))
+
+        # Check the response status code and redirect
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('reservation'))
+
+        # Check that the user and reservations are deleted
+        self.assertFalse(User.objects.filter(id=self.user.id).exists())
+        self.assertFalse(Reservation.objects.filter(user_id=self.user.id).exists())
+
+        # Check the success message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(str(messages[0]), 'Account Deleted!')
+    
+    def test_delete_account_not_authenticated(self):
+        # Create a new client
+        client = Client()
+
+        # Send a POST request to the view
+        response = client.post(reverse('delete_account'))
+
+        # Check the response status code and redirect
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('reservation'))
+
+        # Check that the user is not deleted
+        self.assertTrue(User.objects.filter(id=self.user.id).exists())
