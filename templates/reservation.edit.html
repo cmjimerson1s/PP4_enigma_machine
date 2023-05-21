@@ -1,26 +1,27 @@
 {% extends "base.html" %}
 {% load res_tags %}
 {% block content %}
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-    {% for reservation in reservations %}
-    {% compare_dates current_date reservation.date as is_past %}
-    {% if is_past %}
-        <h2>Past</h2>
-                <h1>{{ reservation.date}} {{ reservation.1}} {{ reservation.2}}</h1>
-    {% else %}
-        <form method="post" action="">
+<h1>Booking to Change:</h1>
+{% for booking in booked_res %}
+<h2>Date: {{booking.date}}</h2><h2>Time: {{booking.time_slot}}</h2><h2>Room: {{booking.room_choice}}</h2>
+{% for room in rooms %}
+<h1>{{room}}</h1>
+  {% for time in times %}
+    {% with bookings=reservations|res_date:booking.date|res_room:room|res_time:time%}
+      {% if bookings %}
+      {% else %}
+      <form method="POST" action="">
         {% csrf_token %}
-            <h2>Future</h2>{{current_time}}
-                <h1>{{ reservation.date}} {{ reservation.time_slot}} {{ reservation.room_choice}}</h1><button type="submit">Edit/Delete</button>
-                <input type="hidden" name="res_id" value="{{reservation.id}}">
-        </form>
-    {% endif %}
-    {% endfor %}
+        <input type="hidden" name="picked_date" value="{{today}}">
+        <input type="hidden" name="time" value="{{time}}">
+        <input type="hidden" name="room" value="{{room}}">
+        <button type="submit">Available</button>
+      </form>
+      {% endif %}
+    {% endwith%}
+  {% endfor %}
+{% endfor %}
+{% endfor %}
+
     <a href="{% url 'account_overview' %}">Return to Account</a>
 {% endblock %}

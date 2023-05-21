@@ -10,6 +10,7 @@
     <form method="post" action="account_update_view">
         {% csrf_token %}
         <h1>Account Page</h1>
+        <h1>User ID: {{user.id}}</h1>
         <h1>Username: {{ username }}</h1>
         <input type="hidden" name="username" value="">
         <h1>Customer Name: {{ first_name }} {{ last_name }}</h1>

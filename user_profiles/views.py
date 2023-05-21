@@ -43,7 +43,10 @@ def AccountReservations(request):
 def BookingEditSelection(request):
     template = 'reservation.edit.html'
     res_id = request.POST.get('res_id')
-    reservations = Reservation.objects.filter(id=res_id)
+    booked_res = Reservation.objects.filter(id=res_id)
+    reservations = Reservation.objects.all()
+    times = GameTime.objects.all()
+    rooms = Room.objects.all()
 
-    context = {'reservations': reservation}
-    return render(request, tempalte, context)
+    context = {'reservations': reservations, 'booked_res': booked_res, 'times': times, 'rooms': rooms}
+    return render(request, template, context)

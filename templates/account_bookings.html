@@ -14,9 +14,9 @@
         <h2>Past</h2>
                 <h1>{{ reservation.date}} {{ reservation.1}} {{ reservation.2}}</h1>
     {% else %}
-        <form method="post" action="">
+        <form method="post" action="{% url 'account_booking_edit' %}">
         {% csrf_token %}
-            <h2>Future</h2>{{current_time}}
+            <h2>Future</h2>{{reservation.id}}
                 <h1>{{ reservation.date}} {{ reservation.time_slot}} {{ reservation.room_choice}}</h1><button type="submit">Edit/Delete</button>
                 <input type="hidden" name="res_id" value="{{reservation.id}}">
         </form>
