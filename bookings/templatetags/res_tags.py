@@ -15,3 +15,7 @@ def res_time(value, arg):
 @register.filter
 def res_room(value, arg):
     return value.filter(room_choice=arg)
+
+@register.simple_tag
+def compare_dates(current_date, reservation_date):
+    return current_date >= reservation_date

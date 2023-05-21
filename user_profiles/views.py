@@ -35,8 +35,15 @@ def AccountReservations(request):
 
     current_datetime = datetime.now()
     current_date = current_datetime.date()
-    current_time = current_datetime.time()
 
-    context = {'reservations': reservations, 'current_date': current_date, 'current_time': current_time}
+    context = {'reservations': reservations, 'current_date': current_date}
 
     return render(request, template, context)
+
+def BookingEditSelection(request):
+    template = 'reservation.edit.html'
+    res_id = request.POST.get('res_id')
+    reservations = Reservation.objects.filter(id=res_id)
+
+    context = {'reservations': reservation}
+    return render(request, tempalte, context)
