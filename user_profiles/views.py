@@ -90,3 +90,21 @@ def BookingUpdate(request):
     reservation.save(update_fields=['date', 'time_slot','room_choice'])
 
     return redirect('account_overview')
+
+def AccountUpdateView(request):
+    template = 'account_page_edit.html'
+    user_id = request.user.id
+    username = request.user.username
+    first_name = request.user.first_name
+    last_name = request.user.last_name
+    email = request.user.email
+
+    context = {
+        'username': username,
+        'first_name': first_name,
+        'last_name': last_name,
+        'email': email,
+        'user_id': user_id
+    }
+
+    return render(request, template, context)
