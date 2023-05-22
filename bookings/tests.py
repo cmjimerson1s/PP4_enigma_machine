@@ -11,6 +11,7 @@ from django.urls import reverse
 from django.contrib.sessions.middleware import SessionMiddleware
 from django.core.exceptions import ObjectDoesNotExist
 from django.template.loader import render_to_string
+from django.core.exceptions import ValidationError
 
 
 
@@ -147,8 +148,11 @@ class ReservationChoiceTestCase(TestCase):
 class CartViewTestCase(TestCase):
     def test_cart_view(self):
         # Prepare the URL and data
+        user = User.objects.create_user(username='testuser', password='testpassword')
         url = reverse('booking_form')
         data = {'cart': "[{'key': 'Horror', 'value': '14:00', 'specific_date': '2023-05-17'}]"}
+        
+        self.client.login(username='testuser', password='testpassword')
 
         # Call the CartView function
         response = self.client.get(url, data)
@@ -266,3 +270,95 @@ class CartTransformTestCase(TestCase):
         result = CartTransform(data)
 
         self.assertEqual(result, expected_output)
+
+#Reservation Model unit tests below
+
+class ReservationModelTestCase(TestCase):
+    def setUp(self):
+        # Create valid GameTime and Room instances for testing
+        game_time = GameTime.objects.create(id=1)  # Replace with valid game time instance
+        room = Room.objects.create(id=1)  # Replace with valid room instance
+
+    def test_valid_phone_number(self):
+        # Test a valid phone number
+        phone_number = "+12345678901"
+        reservation = Reservation(
+            customer_name="John Doe",
+            customer_email="john@example.com",
+            customer_phone=phone_number,
+            price=100,
+            date="2023-05-21",
+            time_slot_id=1,
+            room_choice_id=1,
+            comment="Test",
+        )
+        reservation.full_clean()  # Validate the model
+        # No validation errors should be raised
+
+    def test_invalid_phone_number_no_plus(self):
+        # Test an invalid phone number without '+'
+        phone_number = "1234567890"
+        reservation = Reservation(
+            customer_name="John Doe",
+            customer_email="john@example.com",
+            customer_phone=phone_number,
+            price=100,
+            date="2023-05-21",
+            time_slot_id=1,
+            room_choice_id=1,
+            comment="Test",
+        )
+        with self.assertRaises(ValidationError) as cm:
+            reservation.full_clean()
+        self.assertEqual(cm.exception.message_dict, {'customer_phone': ["Phone number must start with '+'"]})
+
+    def test_invalid_phone_number_non_digit(self):
+        # Test an invalid phone number with non-digit characters
+        phone_number = "+1234abc567890"
+        reservation = Reservation(
+            customer_name="John Doe",
+            customer_email="john@example.com",
+            customer_phone=phone_number,
+            price=100,
+            date="2023-05-21",
+            time_slot_id=1,
+            room_choice_id=1,
+            comment="Test",
+        )
+        with self.assertRaises(ValidationError) as cm:
+            reservation.full_clean()
+        self.assertEqual(cm.exception.message_dict['customer_phone'], ["Phone number must contain only digits after '+'"])
+
+    def test_invalid_phone_number_length(self):
+        # Test an invalid phone number with incorrect length
+        phone_number = "+123456789"
+        reservation = Reservation(
+            customer_name="John Doe",
+            customer_email="john@example.com",
+            customer_phone=phone_number,
+            price=100,
+            date="2023-05-21",
+            time_slot_id=1,
+            room_choice_id=1,
+            comment="Test",
+        )
+        with self.assertRaises(ValidationError) as cm:
+            reservation.full_clean()
+        self.assertEqual(cm.exception.message_dict['customer_phone'], ["Phone number must be in the format '+###########'"])
+
+
+class GameTimeModelTestCase(TestCase):
+    
+    def test_duplicate_game_slot(self):
+        # Create a GameTime instance with an existing game_slot value
+        existing_game_slot = "12:00"
+        existing_game_time = GameTime.objects.create(game_slot=existing_game_slot)
+
+        # Create a new GameTime instance with the same game_slot value
+        new_game_slot = existing_game_slot
+        new_game_time = GameTime(game_slot=new_game_slot)
+
+        # Assert that a ValidationError is raised with the expected error message
+        with self.assertRaises(ValidationError) as cm:
+            new_game_time.clean()
+        self.assertEqual(cm.exception.message, "A slot already exists for this time.")

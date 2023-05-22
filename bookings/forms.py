@@ -42,12 +42,12 @@ class ReservationForm(forms.ModelForm):
         message = cleaned_data.get('comment')
 
         if not name:
-            self.add_error('name', 'Please enter your name.')
+            self.add_error('customer_name', 'Please enter your name.')
         if not emails:
-            self.add_error('emails', 'Please enter your email.')
+            self.add_error('customer_email', 'Please enter your email.')
         if not phone:
-            self.add_error('phone', 'Please enter your phone number.')
+            self.add_error('customer_phone', 'Please enter your phone number.')
         if not message:
-            self.add_error('message', 'Please enter your message.')
+            self.add_error('comment', 'Please enter your message.')
 
         return cleaned_data        
