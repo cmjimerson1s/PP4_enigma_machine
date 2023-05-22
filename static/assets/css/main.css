@@ -656,7 +656,20 @@ section {
   border-radius: 4px;
 }
 
+.contact-submit {
+  background: var(--color-primary);
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
 .get-started .php-email-form button[type=submit]:hover {
+  background: rgba(254, 185, 0, 0.8);
+}
+
+.contact-submit:hover {
   background: rgba(254, 185, 0, 0.8);
 }
 

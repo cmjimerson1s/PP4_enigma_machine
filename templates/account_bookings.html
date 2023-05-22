@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load res_tags %}
 {% block content %}
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+      <h2>Blog Posts</h2>
+    </div>
+  </div>
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
@@ -8,6 +13,7 @@
     {% endfor %}
 </ul>
 {% endif %}
+{% if reservations %}
     {% for reservation in reservations %}
     {% compare_dates current_date reservation.date as is_past %}
     {% if is_past %}
@@ -22,5 +28,9 @@
         </form>
     {% endif %}
     {% endfor %}
-    <a href="{% url 'account_overview' %}">Return to Account</a>
+{% else %}
+<h1>No Reservations found. If this is a mistake, Contact Us</h1>
+<h1>To make a reservation, Book Now</h1>
+{% endif %}
+    <a href="{% url 'account_overview' %}">Return to My Account</a>
 {% endblock %}
