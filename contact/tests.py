@@ -1,9 +1,12 @@
 from django.test import TestCase
 from .models import ContactUs
+from .forms import ContactUsForm
 from django.urls import reverse
 from django.contrib.messages import get_messages
 from django.contrib.sessions.middleware import SessionMiddleware
 from .views import ContactUsForm, ContactUsPost
+from django.contrib.auth.models import User
+
 
 class ContactUsModelTest(TestCase):
 
@@ -79,3 +82,47 @@ class ContactUsPostTestCase(TestCase):
         self.assertEqual(str(messages[0]), "Error: Please try again")
 
 #Model form unit tests below
+
+
+class ContactFormTestCase(TestCase):
+
+    def test_form_init(self):
+        form = ContactUsForm()
+
+        # Assert that the form fields have the expected attributes
+        self.assertEqual(form.fields['inquiry_name'].widget.attrs['class'], 'form-control')
+        self.assertEqual(form.fields['inquiry_name'].widget.attrs['placeholder'], 'Enter Your Name')
+
+        self.assertEqual(form.fields['inquiry_email'].widget.attrs['class'], 'form-control')
+        self.assertEqual(form.fields['inquiry_email'].widget.attrs['placeholder'], 'Enter Your Email')
+
+        self.assertEqual(form.fields['phone_number'].widget.attrs['class'], 'form-control')
+        self.assertEqual(form.fields['phone_number'].widget.attrs['placeholder'], 'Enter Your Phone Number')
+
+        self.assertEqual(form.fields['inquiry_message'].widget.attrs['class'], 'form-control')
+        self.assertEqual(form.fields['inquiry_message'].widget.attrs['rows'], 6)
+        self.assertEqual(form.fields['inquiry_message'].widget.attrs['placeholder'], 'What is your Question?')
+
+    def test_form_clean(self):
+        # Test when all fields are empty
+        form = ContactUsForm(data={})
+        form.is_valid()  # Trigger the clean method
+
+        # Assert that the expected errors are added
+        self.assertTrue('inquiry_name' in form.errors)
+        self.assertTrue('inquiry_email' in form.errors)
+        self.assertTrue('phone_number' in form.errors)
+        self.assertTrue('inquiry_message' in form.errors)
+
+        # Test when all fields are filled
+        data = {
+            'inquiry_name': 'John Doe',
+            'inquiry_email': 'johndoe@example.com',
+            'phone_number': '1234567890',
+            'inquiry_message': 'Hello, this is my message.',
+        }
+        form = ContactUsForm(data=data)
+        form.is_valid()  # Trigger the clean method
+
+        # Assert that no errors are present
+        self.assertFalse(form.errors)
