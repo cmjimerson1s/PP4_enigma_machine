@@ -1,7 +1,10 @@
 from django import forms
 from .models import Reservation, GameTime, Room
+from django.contrib.auth.models import User
+
 
 class ReservationForm(forms.ModelForm):
+
     class Meta:
         model = Reservation
         fields = [
@@ -18,27 +21,33 @@ class ReservationForm(forms.ModelForm):
             'comment': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Comment or Request'}),
         }
 
-        def __init__(self, *args, **kwargs):
-                super().__init__(*args, **kwargs)
-                self.fields['customer_name'].widget.attrs.update({'autofocus': True})
-                self.fields['customer_email'].widget.attrs.update({'autofocus': True})
-                self.fields['customer_phone'].widget.attrs.update({'autofocus': True})
-                self.fields['comment'].widget.attrs.update({'autofocus': True})
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super().__init__(*args, **kwargs)
+        self.fields['customer_name'].widget.attrs.update({'autofocus': True})
+        if user:
+            self.fields['customer_name'].initial = f"{user.first_name} {user.last_name}"
+        self.fields['customer_email'].widget.attrs.update({'autofocus': True})
+        if user:
+            self.fields['customer_email'].initial = user.email
+        self.fields['customer_phone'].widget.attrs.update({'autofocus': True})
+        self.fields['comment'].widget.attrs.update({'autofocus': True})
 
-        def clean(self):
-            cleaned_data = super().clean()
-            name = cleaned_data.get('customer_name')
-            emails = cleaned_data.get('customer_email')
-            phone = cleaned_data.get('customer_phone')
-            message = cleaned_data.get('comment')
 
-            if not name:
-                self.add_error('name', 'Please enter your name.')
-            if not emails:
-                self.add_error('emails', 'Please enter your email.')
-            if not phone:
-                self.add_error('phone', 'Please enter your phone number.')
-            if not message:
-                self.add_error('message', 'Please enter your message.')
+    def clean(self):
+        cleaned_data = super().clean()
+        name = cleaned_data.get('customer_name')
+        emails = cleaned_data.get('customer_email')
+        phone = cleaned_data.get('customer_phone')
+        message = cleaned_data.get('comment')
 
-            return cleaned_data        
+        if not name:
+            self.add_error('name', 'Please enter your name.')
+        if not emails:
+            self.add_error('emails', 'Please enter your email.')
+        if not phone:
+            self.add_error('phone', 'Please enter your phone number.')
+        if not message:
+            self.add_error('message', 'Please enter your message.')
+
+        return cleaned_data        

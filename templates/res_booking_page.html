@@ -2,7 +2,7 @@
 {% block content %}
 {{data}}
 {{data.key}}
-<form method="POST" form action="{% url 'posted' %}?data={{ data }}">
+<form method="POST" form action="{% url 'posted' %}?data={{ data }}"> 
     <input type="hidden" name="data" value="{{data}}">
     {% for booking in data %}
         <h3>Room: {{ booking.key }}</h3>
@@ -14,7 +14,7 @@
         <h3>Group Size:<input name="number" id="numberDropdown{{ forloop.counter }}" type="number" min="2" max="7"></h3>
         <h3>Price:<input type="number" id="room_price{{ forloop.counter }}" class="room_price" readonly></h3>
     {% endfor %}
-        <input type="text" name="user_id">
+        <input type="hidden" name="user_id" value="{{ user.id }}">
         {{ form.customer_name }}
         {{ form.customer_email }}
         {{ form.customer_phone }}

@@ -6,6 +6,8 @@ from django.utils import timezone
 from django.views import generic, View
 import ast
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+
 
 
 def home(request):
@@ -91,11 +93,13 @@ class ReservationChoice(View):
 
 def CartView(request):
     data = request.GET.get('cart')
+    user_id = request.POST.get('user_id')
     cart = CartTransform(data)
-    form = ReservationForm()
+    user = User.objects.filter(id=user_id)
+    form = ReservationForm(user=request.user)
     template = 'res_booking_page.html'
 
-    return render(request, template, {'data': cart, 'form': form})
+    return render(request, template, {'data': cart, 'form': form, 'user': user})
 
 def update_database(request):
     data = request.GET.get('data')

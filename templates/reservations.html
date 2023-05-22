@@ -9,7 +9,7 @@
 {% for room in rooms %}
 <h1>{{room}}</h1>
   {% for time in times %}
-    {% with bookings=reservation|res_date:today|res_room:room|res_time:time%}
+    {% with bookings=reservations|res_date:today|res_room:room|res_time:time%}
       {% if bookings %}
         <button type="submit" disabled>Unavailable</button>
       {% else %}
