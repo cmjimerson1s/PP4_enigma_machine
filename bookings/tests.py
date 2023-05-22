@@ -276,74 +276,44 @@ class CartTransformTestCase(TestCase):
 class ReservationModelTestCase(TestCase):
     def setUp(self):
         # Create valid GameTime and Room instances for testing
-        game_time = GameTime.objects.create(id=1)  # Replace with valid game time instance
-        room = Room.objects.create(id=1)  # Replace with valid room instance
+        game_time = GameTime.objects.create(id=1) 
+        room = Room.objects.create(id=1) 
+
+        self.reservation = Reservation(
+            customer_name="John Doe",
+            customer_email="john@example.com",
+            customer_phone="+12345678111",
+            price=100,
+            date="2023-05-21",
+            time_slot_id=1,
+            room_choice_id=1,
+            comment="Test",
+        )
 
     def test_valid_phone_number(self):
         # Test a valid phone number
-        phone_number = "+12345678901"
-        reservation = Reservation(
-            customer_name="John Doe",
-            customer_email="john@example.com",
-            customer_phone=phone_number,
-            price=100,
-            date="2023-05-21",
-            time_slot_id=1,
-            room_choice_id=1,
-            comment="Test",
-        )
-        reservation.full_clean()  # Validate the model
-        # No validation errors should be raised
+        self.reservation.customer_phone = "+12345678901"
+        self.reservation.full_clean()  
 
     def test_invalid_phone_number_no_plus(self):
         # Test an invalid phone number without '+'
-        phone_number = "1234567890"
-        reservation = Reservation(
-            customer_name="John Doe",
-            customer_email="john@example.com",
-            customer_phone=phone_number,
-            price=100,
-            date="2023-05-21",
-            time_slot_id=1,
-            room_choice_id=1,
-            comment="Test",
-        )
+        self.reservation.customer_phone = "1234567890"
         with self.assertRaises(ValidationError) as cm:
-            reservation.full_clean()
+            self.reservation.full_clean()
         self.assertEqual(cm.exception.message_dict, {'customer_phone': ["Phone number must start with '+'"]})
 
     def test_invalid_phone_number_non_digit(self):
         # Test an invalid phone number with non-digit characters
-        phone_number = "+1234abc567890"
-        reservation = Reservation(
-            customer_name="John Doe",
-            customer_email="john@example.com",
-            customer_phone=phone_number,
-            price=100,
-            date="2023-05-21",
-            time_slot_id=1,
-            room_choice_id=1,
-            comment="Test",
-        )
+        self.reservation.customer_phone = "+1234abc567890"
         with self.assertRaises(ValidationError) as cm:
-            reservation.full_clean()
+            self.reservation.full_clean()
         self.assertEqual(cm.exception.message_dict['customer_phone'], ["Phone number must contain only digits after '+'"])
 
     def test_invalid_phone_number_length(self):
         # Test an invalid phone number with incorrect length
-        phone_number = "+123456789"
-        reservation = Reservation(
-            customer_name="John Doe",
-            customer_email="john@example.com",
-            customer_phone=phone_number,
-            price=100,
-            date="2023-05-21",
-            time_slot_id=1,
-            room_choice_id=1,
-            comment="Test",
-        )
+        self.reservation.customer_phone = "+123456789"
         with self.assertRaises(ValidationError) as cm:
-            reservation.full_clean()
+            self.reservation.full_clean()
         self.assertEqual(cm.exception.message_dict['customer_phone'], ["Phone number must be in the format '+###########'"])
 
 
