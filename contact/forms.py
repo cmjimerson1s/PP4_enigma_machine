@@ -15,7 +15,7 @@ class ContactUsForm(forms.ModelForm):
             'inquiry_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Name'}),
             'inquiry_email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Email'}),
             'phone_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Phone Number'}),
-            'inquiry_message': forms.Textarea(attrs={'class': 'form-control', 'rows': 6, 'placeholder': 'What is your Question?'}),
+            'inquiry_message': forms.Textarea(attrs={'class': 'form-control', 'rows': 6, 'placeholder': 'What is your Question?'}), 
         }
 
         def clean(self):
