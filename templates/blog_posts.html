@@ -1,14 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Blog Posts</h1>
+  <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+      <h2>Blog Posts</h2>
+    </div>
+  </div>
 {% if blogpost_list%}
-  {% for blogpost in blogpost_list %}
-      <a href="{% url 'detail_view' blogpost.slug %}">
-      <h2>{{ blogpost.blog_title }}</h2>
-      <h2>{{ blogpost.blog_blurb}}</h2>
-    </a>
-  {% endfor %}
-{% else %}
-  <h1>No blog posts are available</h1>
-{% endif %}
-{% endblock %}
+<div class="container mt-3">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for blogpost in blogpost_list %}
+    <div class="col">
+      <div class="card h-100">
+        {% if "placeholder" in blogpost.blog_image.url %}
+        <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" class="card-img-top img-fluid aspect-ratio-16x9" alt="Image">
+        {% else %}
+        <img src="{{ blogpost.blog_image.url }}" class="card-img-top img-fluid aspect-ratio-16x9" alt="Image">
+        {% endif %}
+        <div class="card-body">
+          <a href="{% url 'detail_view' blogpost.slug %}">
+            <h2 class="card-title">{{ blogpost.blog_title }}</h2>
+            <p class="card-text">{{ blogpost.blog_blurb }}</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <h1>No blog posts are available</h1>
+  {% endif %}
+  {% endblock %}
