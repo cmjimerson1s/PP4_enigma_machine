@@ -29,8 +29,10 @@
     {% endif %}
     {% endfor %}
 {% else %}
-<h1>No Reservations found. If this is a mistake, Contact Us</h1>
-<h1>To make a reservation, Book Now</h1>
+<div class="d-flex mb-4 flex-column align-items-center mb-4">
+<h1>No Reservations found. If this is a mistake, <a href="{% url 'contact_us' %}">Contact Us</a></h1>
+<h1>To make a reservation, <a href="{% url 'reservation' %}">Book Now</a></h1>
+</div>
 {% endif %}
-    <a href="{% url 'account_overview' %}">Return to My Account</a>
+    <h3><a href="{% url 'account_overview' %}">Return to My Account</a></h3>
 {% endblock %}

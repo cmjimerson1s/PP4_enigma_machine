@@ -75,7 +75,7 @@
       <form form action="{% url 'booking_form'%}?cart={{ cart }}" method="post"> 
         {% csrf_token %}
         <input type="hidden" name="cart" value={{cart}}>
-        <input type="hidden" name="user_id" value="{{user.id}}">
+        <input type="text" name="user_id" value="{{user.id}}">
         <button type="submit">Continue to Booking</button> 
     </form>
 

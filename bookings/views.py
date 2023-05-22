@@ -7,6 +7,8 @@ from django.views import generic, View
 import ast
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib import messages
+
 
 
 
@@ -99,7 +101,7 @@ def CartView(request):
     form = ReservationForm(user=request.user)
     template = 'res_booking_page.html'
 
-    return render(request, template, {'data': cart, 'form': form, 'user': user})
+    return render(request, template, {'data': cart, 'form': form})
 
 def update_database(request):
     data = request.GET.get('data')
@@ -125,18 +127,17 @@ def update_database(request):
                 instance.save()
 
             else:
-                form = ReservationForm()
-                context = {'form': form, 'data': data}
-                return render(request, 'reservations.html', context)
+                user_id = request.POST.get('user_id')
+                user = User.objects.filter(id=user_id)
+                form = ReservationForm(user=request.user)
+                context = {'form': form, 'data': dataset}
+                messages.error(request, "Booking failed. Please try again.")
+                return render(request, 'res_booking_page.html', context)
 
         if 'cart' in request.session:
             del request.session['cart']
 
         return redirect('home')
-
-
-
-
 
 def CartTransform(data):
     string = data.replace('[', '').replace(']', '').replace('"', '')
