@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+  <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+    <h2>Contact Us</h2>
+  </div>
+</div>
 {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -28,8 +33,8 @@
         <div class="col-lg-5" data-aos="fade">
           <form action="{% url 'contact_us_post' %}" method="post">
             {% csrf_token %}
-            <h3>Get a quote</h3>
-            <p>Vel nobis odio laboriosam et hic voluptatem. Inventore vitae totam. Rerum repellendus enim linead sero park flows.</p>
+            <h3>Have Questions? Get in Touch!</h3>
+            <p>If you have any question, concerns, or requests we want to know!</p>
             <div class="row gy-3">
                 <div class="col-md-12">
                    <div class="form-control">{{ form.inquiry_name }}</div>
@@ -51,10 +56,10 @@
 
             </div>
           </form>
-        </div><!-- End Quote Form -->
+        </div>
 
       </div>
 
     </div>
-  </section><!-- End Get Started Section -->
+  </section>
 {% endblock %}

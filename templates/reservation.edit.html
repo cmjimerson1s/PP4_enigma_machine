@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load res_tags %}
 {% block content %}
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+  <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+    <h2>Blog Posts</h2>
+  </div>
+</div>
 <h1>Booking to Change:</h1>
 {% for booking in booked_res %}
 <h2>Date: {{booking.date}}</h2><h2>Time: {{booking.time_slot}}</h2><h2>Room: {{booking.room_choice}}</h2>
