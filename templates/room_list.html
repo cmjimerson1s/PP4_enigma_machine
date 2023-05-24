@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% block scripts %}
+  <!-- Pass the active page variable to the base template -->
+  {% with active_page='rooms' %} 
+    {{ block.super }}
+  {% endwith %}
+{% endblock %}
 {% block content %}
 <div class="breadcrumbs d-flex align-items-center" style="background-image: url('https://res.cloudinary.com/dl02kivmy/image/upload/v1684932341/shutterstock_17767779562_lsiwbv.jpg');">
     <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">

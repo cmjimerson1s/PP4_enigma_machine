@@ -54,21 +54,24 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="about.html">About US</a></li>
-          <li><a href="{% url 'rooms' %}">Rooms</a></li>
-          <li><a href="{% url 'blog-post-list' %}">Blog</a></li>
-          <li><a href="{% url 'reservation' %}">Book Now</a></li>
-          <li><a href="{% url 'contact_us' %}">Contact</a></li>
+          {% block scripts %}
+          <li><a {% if active_page == 'home' %} class="active" {% endif %} href="{% url 'home' %}">Home</a></li>
+          <li><a {% if active_page == 'faq' %} class="active" {% endif %} href="about.html">FAQs</a></li>
+          <li><a {% if active_page == 'rooms' %} class="active" {% endif %} href="{% url 'rooms' %}">Rooms</a></li>
+          <li><a {% if active_page == 'blog' %} class="active" {% endif %} href="{% url 'blog-post-list' %}">Blog</a></li>
+          <li><a {% if active_page == 'reservation' %} class="active" {% endif %}  href="{% url 'reservation' %}">Book Now</a></li>
+          <li><a {% if active_page == 'contact' %} class="active" {% endif %} href="{% url 'contact_us' %}">Contact</a></li>
+
           {% if user.is_authenticated %}
-          <li><a href="{% url 'account_logout' %}">Logout</a></li>
-          <li><a href="{% url 'account_overview' %}">Account</a></li>
+          <li><a {% if active_page == 'logout' %} class="active" {% endif %} href="{% url 'account_logout' %}">Logout</a></li>
+          <li><a {% if active_page == 'account' %} class="active" {% endif %} href="{% url 'account_overview' %}">Account</a></li>
           {% else %}
-          <li><a href="{% url 'account_signup' %}">Register</a></li>
-          <li><a href="{% url 'account_login' %}">Login</a></li>
+          <li><a {% if active_page == 'signup' %} class="active" {% endif %} href="{% url 'account_signup' %}">Register</a></li>
+          <li><a {% if active_page == 'login' %} class="active" {% endif %} href="{% url 'account_login' %}">Login</a></li>
           {% endif %}
         </ul>
       </nav><!-- .navbar -->
+          {% endblock %}
 
     </div>
   </header><!-- End Header -->

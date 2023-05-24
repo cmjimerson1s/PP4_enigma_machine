@@ -3,6 +3,12 @@
 {% load i18n %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
+{% block scripts %}
+  <!-- Pass the active page variable to the base template -->
+  {% with active_page='signup' %} 
+    {{ block.super }}
+  {% endwith %}
+{% endblock %}
 
 {% block content %}
 <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">

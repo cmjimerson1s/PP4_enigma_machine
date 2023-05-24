@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% block scripts %}
+  <!-- Pass the active page variable to the base template -->
+  {% with active_page='home' %} 
+    {{ block.super }}
+  {% endwith %}
+{% endblock %}
 {% block content %}
   <section id="hero" class="hero">
 

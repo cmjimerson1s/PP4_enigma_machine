@@ -4,6 +4,12 @@
 {% load account socialaccount %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block scripts %}
+  <!-- Pass the active page variable to the base template -->
+  {% with active_page='login' %} 
+    {{ block.super }}
+  {% endwith %}
+{% endblock %}
 
 {% block content %}
 <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">

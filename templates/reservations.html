@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% load res_tags %}
+{% block scripts %}
+  <!-- Pass the active page variable to the base template -->
+  {% with active_page='reservation' %} 
+    {{ block.super }}
+  {% endwith %}
+{% endblock %}
 {% block content %}
 <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
   <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
