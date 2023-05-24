@@ -13,7 +13,8 @@ from django.contrib import messages
 
 
 def home(request):
-    return render(request, 'index.html', {})
+    rooms = Room.objects.count()
+    return render(request, 'index.html', {'rooms': rooms})
 
 
 def ReservationView(request):
