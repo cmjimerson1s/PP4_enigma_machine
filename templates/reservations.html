@@ -7,30 +7,48 @@
   </div>
 </div>
 {% if user.is_authenticated %}
-<form method = POST action="{% url 'reservation_choice' %}">
+<form method="POST" action="{% url 'reservation_choice' %}">
   {% csrf_token %}
-  <input type="date" name="new_date" min="{{today}}"><button type="submit">View Day</button>{{today}}
+  <div class="row">
+    <div class="col-md-3">
+      <div class="mb-3">
+        <label for="newDate" class="form-label">Choose a Date</label>
+        <input type="date" class="form-control" id="newDate" name="new_date" min="{{ today }}">
+      </div>
+    </div>
+    <div class="col-md-9">
+      <button type="submit" class="btn btn-primary">View Day</button>
+      <span>{{ today }}</span>
+    </div>
+  </div>
 </form>
-{% for room in rooms %}
-<h1>{{room}}</h1>
-  {% for time in times %}
-    {% with bookings=reservations|res_date:today|res_room:room|res_time:time%}
+
+<div class="row mt-4">
+  {% for room in rooms %}
+  <div class="col-md-3">
+    <h1>{{ room }}</h1>
+    {% for time in times %}
+    {% with bookings=reservations|res_date:today|res_room:room|res_time:time %}
+    <div class="mb-2">
       {% if bookings %}
-        <button type="submit" disabled>Unavailable</button>
+      <button type="submit" class="btn btn-secondary" disabled>Unavailable</button>
       {% else %}
       <form method="POST" action="{% url 'reservation_choice' %}">
         {% csrf_token %}
-        <input type="hidden" name="picked_date" value="{{today}}">
-        <input type="hidden" name="time" value="{{time}}">
-        <input type="hidden" name="room" value="{{room}}">
-        <button type="submit">Available</button>
+        <input type="hidden" name="picked_date" value="{{ today }}">
+        <input type="hidden" name="time" value="{{ time }}">
+        <input type="hidden" name="room" value="{{ room }}">
+        <button type="submit" class="btn btn-success">Available</button>
       </form>
       {% endif %}
-    {% endwith%}
+    </div>
+    {% endwith %}
+    {% endfor %}
+  </div>
   {% endfor %}
-{% endfor %}
+</div>
 {% else %}
-<h1>To view available events please <a href="{% url 'account_login' %}">Login</a></h1>
+<h1>To view available events, please <a href="{% url 'account_login' %}">Login</a></h1>
 {% endif %}
 {% endblock %}
 

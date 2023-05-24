@@ -12,74 +12,73 @@
 </form>
 {% if new_date %}
   {% with new_date as today %}
-    {% for room in rooms %}
-    <h1>{{room}}</h1>
-      {% for time in times %}
-        <h3>{{time}}</h3>
-        {% with bookings=queryset|res_date:today|res_room:room|res_time:time%}
-          {% if bookings %}
-            <button type="submit" disabled>Unavailable</button>
-          {% else %}
-          <form method="POST" action="{% url 'reservation_choice' %}">
-            {% csrf_token %}
-            <input type="hidden" name="new_date" value="{{today}}">
-            <input type="hidden" name="picked_date" value="{{today}}">
-            <input type="hidden" name="time" value="{{time}}">
-            <input type="hidden" name="room" value="{{room}}">
-            <button type="submit" id="{{room}}-{{time}}-{{today}}">Available</button>
-          </form>
-          {% endif %}
-        {% endwith%}
-      {% endfor %}
-    {% endfor %}
+    <div class="row">
+      <div class="col-md-3">
+        <h1>Date: {{ today }}</h1>
+      </div>
+    </div>
   {% endwith %}
-  {% else %}
+{% endif %}
+
+<div class="row mt-4">
   {% for room in rooms %}
-    <h1>{{room}}</h1>
-      {% for time in times %}
-        <h3>{{time}}</h3>
-        {% with bookings=queryset|res_date:today|res_room:room|res_time:time%}
-          {% if bookings %}
-            <button type="submit" disabled>Unavailable</button>
-          {% else %}
-          <form method="POST" action="{% url 'reservation_choice' %}">
-            {% csrf_token %}
-            <input type="hidden" name="picked_date" value="{{today}}">
-            <input type="hidden" name="time" value="{{time}}">
-            <input type="hidden" name="room" value="{{room}}">
-            <button type="submit" id="{{room}}-{{time}}-{{today}}">Available</button>
-          </form>
-          {% endif %}
-        {% endwith%}
-      {% endfor %}
+  <div class="col-md-3">
+    <h1>{{ room }}</h1>
+    {% for time in times %}
+    <h3>{{ time }}</h3>
+    {% with bookings=queryset|res_date:today|res_room:room|res_time:time %}
+    <div class="mb-2">
+      {% if bookings %}
+      <button type="submit" class="btn btn-secondary" disabled>Unavailable</button>
+      {% else %}
+      <form method="POST" action="{% url 'reservation_choice' %}">
+        {% csrf_token %}
+        {% if new_date %}
+        <input type="hidden" name="new_date" value="{{ today }}">
+        {% endif %}
+        <input type="hidden" name="picked_date" value="{{ today }}">
+        <input type="hidden" name="time" value="{{ time }}">
+        <input type="hidden" name="room" value="{{ room }}">
+        <button type="submit" class="btn btn-success" id="{{ room }}-{{ time }}-{{ today }}">Available</button>
+      </form>
+      {% endif %}
+    </div>
+    {% endwith %}
     {% endfor %}
-  {% endif %}
+  </div>
+  {% endfor %}
+</div>
 
 {% if cart %}
-      <h2>Shopping Cart</h2>
-      <h4>{{cart}}</h4>
-      <ul>
-          {% for item in cart %}
-          <li>{{ item.key }}: {{ item.value }} ({{ item.specific_date }}) 
-          <form method="POST">
-              {% csrf_token %}
-              <button type="submit" class="btn btn-danger" name="delete-item" value="{{ item.key }}|{{ item.value }}|{{ item.specific_date }}">Delete</button>
-          </form>
-          </li>        
-          {% endfor %}
-      </ul>
-      <form method="POST">
+<div class="row mt-4">
+  <div class="col-md-12">
+    <h2>Shopping Cart</h2>
+    <ul>
+      {% for item in cart %}
+      <li>
+        {{ item.key }}: {{ item.value }} ({{ item.specific_date }})
+        <form method="POST">
           {% csrf_token %}
-          <button type="submit" class="btn btn-danger" name="delete-all" value="true">Delete All Items</button>
-      </form>
-      <form form action="{% url 'booking_form'%}?cart={{ cart }}" method="post"> 
-        {% csrf_token %}
-        <input type="hidden" name="cart" value={{cart}}>
-        <input type="text" name="user_id" value="{{user.id}}">
-        <button type="submit">Continue to Booking</button> 
+          <button type="submit" class="btn btn-danger" name="delete-item" value="{{ item.key }}|{{ item.value }}|{{ item.specific_date }}">Delete</button>
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+    <form method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger" name="delete-all" value="true">Delete All Items</button>
     </form>
+    <form action="{% url 'booking_form' %}?cart={{ cart }}" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="cart" value="{{ cart }}">
+      <input type="hidden" name="user_id" value="{{ user.id }}">
+      <button type="submit" class="btn btn-primary">Continue to Booking</button>
+    </form>
+  </div>
+</div>
+{% endif %}
 
-  {% endif %}
+
 
   <script>
     var cartData = {{ cart|safe }};

@@ -5,37 +5,46 @@
       <h2>Blog Posts</h2>
     </div>
   </div>
-{{data}}
-{{data.key}}
-<form method="POST" form action="{% url 'posted' %}?data={{ data }}">  
-    <input type="hidden" name="data" value="{{data}}">
+<form method="POST" form action="{% url 'posted' %}?data={{ data }}">
+    <input type="hidden" name="data" value="{{ data }}">
     {% for booking in data %}
+    <div class="mb-4">
         <h3>Room: {{ booking.key }}</h3>
         <input type="hidden" name="room" value="{{ booking.key }}">
         <h3>Time: {{ booking.value }}</h3>
         <input type="hidden" name="time" value="{{ booking.value }}">
         <h3>Date: {{ booking.specific_date }}</h3>
         <input type="hidden" name="date" value="{{ booking.specific_date }}">
-        <h3>Group Size:<input name="number" id="numberDropdown{{ forloop.counter }}" type="text" list="people" required></h3>
-        <datalist id="people">
-            <option value=2>
-            <option value=3>
-            <option value=4>
-            <option value=5>
-            <option value=6>
-            <option value=7>
+        <h3>Group Size:</h3>
+        <div class="input-group mb-3">
+            <input name="number" id="numberDropdown{{ forloop.counter }}" type="text" list="people" class="form-control" required>
+            <datalist id="people">
+                <option value="2">
+                <option value="3">
+                <option value="4">
+                <option value="5">
+                <option value="6">
+                <option value="7">
             </datalist>
-        <h3>Price:<input type="number" id="room_price{{ forloop.counter }}" class="room_price" readonly></h3>
+        </div>
+        <h3>Price:</h3>
+        <div class="input-group mb-3">
+            <input type="number" id="room_price{{ forloop.counter }}" class="form-control room_price" readonly>
+        </div>
+    </div>
     {% endfor %}
-        <input type="text" name="user_id" value="{{ user.id }}">
-        {{ form.customer_name }}
-        {{ form.customer_email }}
-        <input type="number" name="price" id="price" min="300">
-        {{ form.comment}}
+    <input type="text" name="user_id" value="{{ user.id }}">
+    {{ form.customer_name }}
+    {{ form.customer_email }}
+    <div class="input-group mb-3">
+        <span class="input-group-text">Price</span>
+        <input type="number" name="price" id="price" min="300" class="form-control">
+    </div>
+    {{ form.comment }}
     {% csrf_token %}
-
-    <button type="submit">Complete Booking</button> 
+    <button type="submit" class="btn btn-primary">Complete Booking</button>
 </form>
+
 <script>
     // Get the dropdown element
     const numberDropdownInput = document.querySelectorAll('input[name="number"]');
