@@ -23,8 +23,11 @@ class Reservation(models.Model):
 
 class Room(models.Model):
     room_name = models.CharField(max_length=200, unique=True)
+    short_room_description = models.CharField(max_length=250, unique=True, null=True)
     room_description = models.TextField()
-    blog_image = CloudinaryField('image', default='placeholder')
+    small_image = CloudinaryField('small image', default='placeholder')
+    detail_image = CloudinaryField('large image', default='placeholder')
+
 
     class Meta:
         ordering = ['room_name']

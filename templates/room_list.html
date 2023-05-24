@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('https://res.cloudinary.com/dl02kivmy/image/upload/v1684932341/shutterstock_17767779562_lsiwbv.jpg');">
     <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
       <h2>Our Rooms</h2>
     </div>
@@ -9,28 +9,29 @@
   <div class="container" data-aos="fade-up">
 
     <div class="section-header">
-      <h2>Our Rooms</h2>
-      <p>These are our Rooms</p>
+      <h2>Current Room Selections</h2>
+      <p>Each story is unique, so choose your adventure and get lost in the enigma!</p>
     </div>
-    {% for room in room_list %}
     <div class="row gy-4">
+      {% for room in room_list %}
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
         <div class="card-item">
           <div class="row">
             <div class="col-xl-5">
-              <div class="card-bg" style="background-image: url({{room.blog_image.url}});"></div>
+              <div class="card-bg" style="background-image: url({{room.small_image.url}});"></div>
             </div>
             <div class="col-xl-7 d-flex align-items-center">
               <div class="card-body">
                 <h4 class="card-title">{{ room.room_name }}</h4>
-                <p>{{ room.room_description }}</p>
+                <p>{{ room.short_room_description }}</p>
               </div>
             </div>
           </div>
         </div>
       </div><!-- End Card Item -->
+      {% endfor %}
     </div>
-    {% endfor %}
+   
   </div>
 </section><!-- End Constructions Section -->
 
