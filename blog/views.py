@@ -14,9 +14,13 @@ class BlogDetailView(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = BlogPost.objects.all()
         blog = get_object_or_404(queryset, slug=slug)
+        content = blog.blog_content
+        content_parts = content.split('\n')
         template = 'blog_post_detail.html'
         context = {
-            'blog': blog
+            'blog': blog,
+            'content_parts': content_parts,
+            'blog_list': queryset,
         }
         return render(request, template, context)
     

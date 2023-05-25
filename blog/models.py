@@ -20,7 +20,7 @@ class BlogPost(models.Model):
     blog_image = CloudinaryField('image', default='placeholder')
     blog_blurb = models.TextField(blank=True)
     blog_content = models.TextField()
-    posted_date = models.DateField(auto_now=True)
+    posted_date = models.DateField(auto_now=False)
     meta_tags = models.CharField(max_length=255, blank=True)
 
     class Meta:

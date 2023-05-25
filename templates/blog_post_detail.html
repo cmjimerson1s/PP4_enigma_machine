@@ -1,11 +1,88 @@
 {% extends "base.html" %}
+{% block scripts %}
+  <!-- Pass the active page variable to the base template -->
+  {% with active_page='blog' %} 
+    {{ block.super }}
+  {% endwith %}
+{% endblock %}
 {% block content %}
 <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
     <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
       <h2>Blog Posts</h2>
     </div>
   </div>
-<h1>{{ blog.blog_title }}</h1>
-<h3>{{ blog.blog_blurb}}</h3>
-<p>{{ blog.blog_content }}</p>
+<section id="blog" class="blog">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row g-5">
+
+      <div class="col-lg-8">
+
+        <article class="blog-details">
+
+          <div class="post-img">
+            <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+          </div>
+
+          <h2 class="title">{{ blog.blog_title }}</h2>
+
+          <div class="meta-top">
+            <ul>
+              <li class="d-flex align-items-center"><i class="bi bi-clock"></i> Jan 1, 2022</li>
+            </ul>
+          </div><!-- End meta top -->
+
+          <div class="content">
+            {% for paragraph in content_parts %}
+              {% if forloop.counter == 4 %}
+                <blockquote><p>{{blog.blog_blurb}}</p></blockquote>
+                <p>{{ paragraph }}</p>
+              {% else %}
+                <p>{{paragraph}}</p>
+              {% endif %}
+            {% endfor %}
+          </div><!-- End post content -->
+
+          <div class="meta-bottom">
+            <i class="bi bi-folder"></i>
+            <ul class="cats">
+              <li><a href="#">{{blog.tags}}</a></li>
+            </ul>
+          </div><!-- End meta bottom -->
+
+        </article><!-- End blog post -->
+
+
+
+      </div>
+
+      <div class="col-lg-4">
+
+        <div class="sidebar">
+
+          <div class="sidebar-item recent-posts">
+            <h3 class="sidebar-title">Recent Posts</h3>
+
+            <div class="mt-3">
+              {% for blog in blog_list %}
+              <div class="post-item mt-3">
+                <img src="{{blog.blog_image.url}}" alt="">
+                <div>
+                  <h4><a href="{% url 'detail_view' blog.slug %}">{{blog.blog_title}}</a></h4>
+                  <time>{{blog.posted_date}}</time>
+                </div>
+              </div><!-- End recent post item-->
+              {% endfor %}
+            </div>
+
+          
+
+        </div><!-- End Blog Sidebar -->
+
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Blog Details Section -->
+
 {% endblock %}
