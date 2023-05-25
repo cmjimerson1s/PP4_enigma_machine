@@ -4,6 +4,7 @@ from cloudinary.models import CloudinaryField
 
 class BlogPost(models.Model):
     TAGS = [
+        ('Blog','Blog'),
         ('Promotion','Promotion'),
         ('Sale','Sale'),
         ('News', 'News'),
