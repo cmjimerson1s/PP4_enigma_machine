@@ -1795,6 +1795,20 @@ section {
   transform: translate(-50%, -50%);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-base {
+  display: none;
+  position: fixed;
+  z-index: 9800;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 /*--------------------------------------------------------------
