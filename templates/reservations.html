@@ -56,6 +56,82 @@
 {% else %}
 <h1>To view available events, please <a href="{% url 'account_login' %}">Login</a></h1>
 {% endif %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Time</th>
+          {% for room in rooms %}
+          <th scope="col">{{room}}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for time in times %}
+        <tr>
+          <th scope="row">{{time}}</th>
+          {% for room in rooms %}
+            {% with bookings=reservations|res_date:today|res_room:room|res_time:time %}
+              {% if bookings %}
+              <td> 
+                <button type="submit" class="btn btn-secondary" disabled>Unavailable</button>
+              </td>
+              {% else %}
+              <form method="POST" action="{% url 'reservation_choice' %}">
+              {% csrf_token %}
+              <td>
+                <input type="hidden" name="picked_date" value="{{ today }}">
+                <input type="hidden" name="time" value="{{ time }}">
+                <input type="hidden" name="room" value="{{ room }}">
+                <button type="submit" class="btn btn-success">Available</button>
+              </td>  
+              </form>
+              {% endif %}
+            {% endwith %}
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 {% endblock %}
+<div class="row mt-4">
+  <div class="col-md-3">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Time</th>
+          {% for room in rooms %}
+          <th scope="col">{{room}}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for time in times %}
+        <tr>
+          <th scope="row">{{time}}</th>
+          {% for room in rooms %}
+            {% with bookings=reservations|res_date:today|res_room:room|res_time:time %}
+              {% if bookings %}
+              <td> 
+                <button type="submit" class="btn btn-secondary" disabled>Unavailable</button>
+              </td>
+              {% else %}
+              <form method="POST" action="{% url 'reservation_choice' %}">
+              <td>
+                <input type="hidden" name="picked_date" value="{{ today }}">
+                <input type="hidden" name="time" value="{{ time }}">
+                <input type="hidden" name="room" value="{{ room }}">
+                <button type="submit" class="btn btn-success">Available</button>
+              </td>  
+              </form>
+              {% endif %}
+            {% endwith %}
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
 
 
