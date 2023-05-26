@@ -7,5 +7,8 @@ class ReservationAdmin(admin.ModelAdmin):
     search_fields = ('customer_name', 'customer_email')
     list_filter = ('room_choice', 'date')
 
-admin.site.register(Room)
-admin.site.register(GameTime)
+@admin.register(Room)
+class RoomAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('room_name',)} 
+
+admin.site.register(GameTime) 
