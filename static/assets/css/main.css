@@ -1811,13 +1811,35 @@ section {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.res:nth-of-type(odd) {
-  background-color: red;
+/* div.row:nth-child(-n+3) {
+  filter: brightness(50%) ;
+} */
+
+/* div.booking {
+  background-color: #059652;
+  filter: brightness(50%);
+} */
+
+
+
+.calendar div.row:nth-child(1n+2) {
+  background-color: rgba(105, 105, 105, 0.5);
 }
 
-.calendar >*:nth-child(even) {
-  background-color: yellow;
+.calendar div.row:nth-child(even) {
+  background-color: rgba(128, 128, 128, 0.5);
 }
+
+div.row div.booking:nth-child(odd) {
+  background-color: inherit;
+}
+
+.btn-success {
+  background-color: var(--color-primary);
+  border:#000 solid ;
+}
+
+
 
 
 

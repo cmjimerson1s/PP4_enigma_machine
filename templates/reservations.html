@@ -58,16 +58,14 @@
 {% endif %}
 <div class="container calendar">
   <div class="row">
-    <div class="col-1 d-flex justify-content-center align-items-center">Time</div>
     {% for room in rooms %}
-    <div class="col d-flex justify-content-center align-items-center">{{room}}</div>
+    <div class="col d-flex justify-content-center align-items-center"><h4>{{room}}</h4></div>
     {% endfor %}
   </div>
   {% for time in times %}
     <div class="row res">
-      <div class="col-1 d-flex justify-content-center align-items-center time">{{time}}</div>
           {% for room in rooms %}
-          <div class="col d-flex justify-content-center align-items-center ">
+          <div class="col d-flex justify-content-center align-items-center booking">
             {% with bookings=reservations|res_date:today|res_room:room|res_time:time %}
               {% if bookings %}
               <button type="submit" class="btn btn-secondary" disabled>Unavailable</button>
@@ -76,7 +74,7 @@
                   <input type="hidden" name="picked_date" value="{{ today }}">
                   <input type="hidden" name="time" value="{{ time }}">
                   <input type="hidden" name="room" value="{{ room }}">
-                  <button type="submit" class="btn btn-success">Available</button>
+                  <button type="submit" class="btn btn-success">{{time}}</button>
               </form>
               {% endif %}
             {% endwith %}
