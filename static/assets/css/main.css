@@ -1811,6 +1811,15 @@ section {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+.res:nth-of-type(odd) {
+  background-color: red;
+}
+
+.calendar >*:nth-child(even) {
+  background-color: yellow;
+}
+
+
 
 
 
