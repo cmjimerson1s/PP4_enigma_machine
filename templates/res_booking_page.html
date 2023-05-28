@@ -1,53 +1,123 @@
 {% extends "base.html" %}
+{% block scripts %}
+  <!-- Pass the active page variable to the base template -->
+  {% with active_page='reservation' %} 
+    {{ block.super }}
+  {% endwith %}
+{% endblock %}
 {% block content %}
 <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
-    <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
-      <h2>Blog Posts</h2>
+  <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+    <h2>Make a Booking</h2>
+  </div>
+</div>
+<div class="row m-3 justify-content-center">
+  <div class="col-9 d-flex justify-content-center">
+    <div class="col-3 icon-text text-center m-3">
+      <i class="bi bi-gear-wide fs-1"></i><br>
+      <span>1. Choose Bookings</span>
+    </div>
+    <div class="col-3 icon-text text-center m-3">
+      <i class="bi bi-gear-wide fs-1 step"></i><br>
+      <span>2. Booking Info</span>
+    </div>
+    <div class="col-3 icon-text text-center m-3">
+      <i class="bi bi-gear-wide fs-1"></i><br>
+      <span>3. Confirmation</span>
     </div>
   </div>
-<form method="POST" form action="{% url 'posted' %}?data={{ data }}">
-    <input type="hidden" name="data" value="{{ data }}">
-    {% for booking in data %}
-    <div class="mb-4">
-        <h3>Room: {{ booking.key }}</h3>
-        <input type="hidden" name="room" value="{{ booking.key }}">
-        <h3>Time: {{ booking.value }}</h3>
-        <input type="hidden" name="time" value="{{ booking.value }}">
-        <h3>Date: {{ booking.specific_date }}</h3>
-        <input type="hidden" name="date" value="{{ booking.specific_date }}">
-        <h3>Group Size:</h3>
-        <div class="input-group mb-3">
-            <input name="number" id="numberDropdown{{ forloop.counter }}" type="text" list="people" class="form-control" required>
-            <datalist id="people">
-                <option value="2">
-                <option value="3">
-                <option value="4">
-                <option value="5">
-                <option value="6">
-                <option value="7">
-            </datalist>
-        </div>
-        <h3>Price:</h3>
-        <div class="input-group mb-3">
-            <input type="number" id="room_price{{ forloop.counter }}" class="form-control room_price" readonly>
-        </div>
-    </div>
-    {% endfor %}
-    <input type="text" name="user_id" value="{{ user.id }}">
-    {{ form.customer_name }}
-    {{ form.customer_email }}
-    <div class="input-group mb-3">
-        <span class="input-group-text">Price</span>
-        <input type="number" name="price" id="price" min="300" class="form-control">
-    </div>
-    {{ form.comment }}
+  </div>
+<div class="selected-games p-3 m-5 d-flex justify-content-center">
+  <form method="POST" form action="{% url 'posted' %}?data={{ data }}">
     {% csrf_token %}
+    <div class="card">
+      <div class="card-body">
+        <input type="hidden" name="data" value="{{ data }}">
+        <hr>
+        {% for booking in data %}
+        <div class="selected-games-list">
+          <div class="card-text">
+            <div><strong>Rooms: </strong>{{ booking.key }}</div>
+            <div><strong>Time: </strong>{{ booking.value }}</div>
+            <div><strong>Date: </strong>{{ booking.specific_date }}</div>
+            <div>
+              <select name="number" id="numberDropdown{{ forloop.counter }}" class="form-select w-100">
+                <option selected>Select</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+            </div>
+            <div><input type="number" id="room_price{{ forloop.counter }}" class="room_price form-control w-100" placeholder="Price" readonly></div>
+          </div>
+        </div>
+        {% endfor %}
+        <div class="card-footer">
+          <div class="card-text">Total Price: <input type="number" name="price" id="price" min="300" class="form-control border-0" readonly></div>
+        </div>
+      </div>
+    </div>
+<div class="row user-info d-flex justify-content-center m-5 p-3">
+    <input type="hidden" name="user_id" value="{{ user.id }}">
+    <div class="col d-flex text-center"><h4>Full Name: {{ form.customer_name }}</h4></div>
+    <div class="col d-flex text-center"><h4>Email: {{ form.customer_email }}</h4></div>
+    <div class="col d-flex text-center">{{ form.comment }}</div>
+</div>
+<div class="row d-flex justify-content-center">
+  <div class="col d-flex justify-content-center m-5">
     <button type="submit" class="btn btn-primary">Complete Booking</button>
-</form>
+  </div>
+  </form>
+</div>
+<div class="row g-0">
+  <div class="col-lg-8 d-flex align-items-center">
+    <form action="" method="post" role="form" data-aos="fade-up" data-aos-delay="100">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 m-3">
+          {{ form.customer_name }}
+        </div>
+      </div>
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 m-3">
+          {{ form.customer_email }}
+        </div>
+      </div>
+        <div class="col-lg-4 col-md-6">
+        </div>
+        <div class="col-lg-4 col-md-6">
+        </div>
+        <div class="col-lg-4 col-md-6">
+        </div>
+        <div class="col-lg-4 col-md-6">
+        </div>
+      </div>
+      <div class="mt-3">
+        {{ form.comment }}
+      </div>
+      <div class="text-center"><button type="submit">Book a Table</button></div>
+    </form>
+  </div><!-- End Reservation Form -->
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
 
 <script>
     // Get the dropdown element
-    const numberDropdownInput = document.querySelectorAll('input[name="number"]');
+    const numberDropdownInput = document.querySelectorAll('select[name="number"]');
     const priceRoomTotals = document.querySelectorAll('.room_price');
     const grandTotalPrice = document.querySelector('input[name="price"]');
     
@@ -60,10 +130,10 @@
 
         numberDropdown.addEventListener("change", function() {
             // Get the selected value from the dropdown
-            const selectedValue = parseInt(input.value);
+            const selectedOption = parseInt(numberDropdown.value);
             
             // Perform calculation based on the selected value
-            const result = selectedValue * 300; // Example calculation, multiply selected value by 300
+            const result = selectedOption * 300; // Example calculation, multiply selected value by 300
             
             // Update the price input value with the calculated result
             priceInput.value =  result;
@@ -89,6 +159,9 @@
     }
 
     updateGrandTotalPrice();
+
+
+    
 </script>
 
 

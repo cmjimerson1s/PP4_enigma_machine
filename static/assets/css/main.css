@@ -1854,7 +1854,28 @@ div.row div.booking:nth-child(odd) {
   font-weight: bold;
 }
 
+.bi-x-circle-fill {
+  color: red;
+}
 
+.cart-box {
+  background-color: rgba(105, 105, 105, 0.3);
+}
+
+.selected-games {
+  background-color: #F0F0F0; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  font-family: var(--font-primary);
+}
+
+.selected-games-list {
+  font-size: small;
+}
+
+.user-info {
+  background-color: rgba(254, 185, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
 
 
 /*--------------------------------------------------------------

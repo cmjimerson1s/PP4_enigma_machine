@@ -25,12 +25,9 @@ class ReservationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
-        self.fields['customer_name'].widget.attrs.update({'autofocus': True})
         if user:
             self.fields['customer_name'].initial = f"{user.first_name} {user.last_name}"
-        self.fields['customer_email'].widget.attrs.update({'autofocus': True})
         if user:
             self.fields['customer_email'].initial = user.email
-        self.fields['comment'].widget.attrs.update({'autofocus': True})
         
 
