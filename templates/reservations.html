@@ -13,6 +13,22 @@
   </div>
 </div>
 {% if user.is_authenticated %}
+<div class="row m-3 justify-content-center">
+  <div class="col-9 d-flex justify-content-center">
+    <div class="col-3 icon-text text-center m-3">
+      <i class="bi bi-gear-wide fs-1 step"></i><br>
+      <span>1. Choose Bookings</span>
+    </div>
+    <div class="col-3 icon-text text-center m-3">
+      <i class="bi bi-gear-wide fs-1"></i><br>
+      <span>2. Booking Info</span>
+    </div>
+    <div class="col-3 icon-text text-center m-3">
+      <i class="bi bi-gear-wide fs-1"></i><br>
+      <span>3. Confirmation</span>
+    </div>
+  </div>
+</div>
 <form method="POST" action="{% url 'reservation_choice' %}">
   {% csrf_token %}
   <div class="container">

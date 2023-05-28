@@ -1849,6 +1849,10 @@ div.row div.booking:nth-child(odd) {
   }
 }
 
+.step {
+  color: var(--color-primary);
+  font-weight: bold;
+}
 
 
 
