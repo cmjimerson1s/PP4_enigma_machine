@@ -7,6 +7,7 @@ from django.core.exceptions import ValidationError
 class Reservation(models.Model):
     customer_name = models.CharField(max_length=200)
     customer_email = models.EmailField()
+    player_number = models.IntegerField(null=True)
     price = models.IntegerField()
     date = models.DateField(auto_created=False)
     time_slot = models.ForeignKey('GameTime', on_delete=models.CASCADE, related_name="time_slot", null=True)

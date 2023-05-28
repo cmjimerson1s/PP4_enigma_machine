@@ -117,16 +117,18 @@ def update_database(request):
                 date = item['specific_date']
                 room_name = item['key']
                 time_slot = item['value']
-                price = request.POST.get('price')
+                price = request.POST.get('booked_price')
                 user_id = request.POST.get('user_id')
                 room = Room.objects.get(room_name=room_name)
                 time = GameTime.objects.get(game_slot=time_slot)
+                number = request.POST.get('number')
 
                 instance = form.save(commit=False)
                 instance.date = date
                 instance.room_choice = room
                 instance.time_slot = time
                 instance.price = price
+                instance.player_number = number
                 instance.user_id = user_id
                 instance.save()
 

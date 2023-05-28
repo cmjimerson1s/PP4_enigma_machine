@@ -27,6 +27,17 @@
     </div>
   </div>
   </div>
+
+{% if messages %}
+  <div>
+    {% for message in messages %}
+    <div>
+      <h3>{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</h3>
+    </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
 <div class="selected-games p-3 mt-3 d-flex justify-content-center">
   <form method="POST" form action="{% url 'posted' %}?data={{ data }}">
     {% csrf_token %}
@@ -50,7 +61,7 @@
               <input type="hidden" name="date" value="{{ booking.specific_date }}">
             </div>
             <div>
-              <select name="number" id="numberDropdown{{ forloop.counter }}" class="form-select-md">
+              <select name="number" id="numberDropdown{{ forloop.counter }}" class="form-select-md" required>
                 <option selected>Select</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -60,7 +71,7 @@
                 <option value="7">7</option>
               </select>
             </div>
-              <input type="hidden" id="room_price{{ forloop.counter }}" class="room_price form-control-md w-100" placeholder="Price" readonly>
+              <input type="hidden" name="booked_price" id="room_price{{ forloop.counter }}" class="room_price form-control-md w-100" placeholder="Price" readonly>
           </div>
           <hr>
       {% endfor %}
