@@ -11,7 +11,7 @@ class Reservation(models.Model):
     date = models.DateField(auto_created=False)
     time_slot = models.ForeignKey('GameTime', on_delete=models.CASCADE, related_name="time_slot", null=True)
     room_choice = models.ForeignKey('Room', on_delete=models.CASCADE, related_name="room_choice", null=True)
-    comment = models.TextField(max_length=300, default='')
+    comment = models.TextField(max_length=300, default='', blank=True)
     user_id = models.IntegerField(default=0)
 
     class Meta:
