@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from bookings.models import Reservation, GameTime, Room
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from django.utils import timezone
 from django.contrib import messages
 
@@ -51,7 +51,8 @@ def BookingEditSelection(request):
     times = GameTime.objects.all()
     rooms = Room.objects.all()
     date = timezone.now().date()
-    today = date.strftime("%Y-%m-%d")
+    tomorrow = date + timedelta(days=2)
+    today = tomorrow.strftime("%Y-%m-%d")
 
     context = {'reservations': reservations, 'booked_res': booked_res, 'times': times, 'rooms': rooms, 'today': today,'new_date': new_date}
     return render(request, template, context) 

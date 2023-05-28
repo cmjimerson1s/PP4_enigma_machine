@@ -6,63 +6,109 @@
     <h2>Blog Posts</h2>
   </div>
 </div>
-<h1>Booking to Change:</h1>
+<h1 class="text-center">Booking to Change: {{booking.id}}</h1>
 {% for booking in booked_res %}
-<h2>Date: {{booking.date}}</h2><h2>Time: {{booking.time_slot}}</h2><h2>Room: {{booking.room_choice}}</h2>
-<form method = POST action="{% url 'account_booking_edit' %}">
+<div class=" row justify-content-center correct">
+  <h3 class="d-flex justify-content-center">Date: {{booking.date}}</h3><h3 class="d-flex justify-content-center">Time: {{booking.time_slot}}</h3><h3 class="d-flex justify-content-center">Room: {{booking.room_choice}}</h3>
+</div>
+  <form method="POST" action="{% url 'account_booking_edit' %}">
     {% csrf_token %}
-    <input type="date" name="new_date" min="{{today}}"><button type="submit">View Day</button>{{today}}{{new_date}}
-    <input type="hidden" name="res_id" value="{{booking.id}}">
+    <div class="container">
+      <div class="row m-3 justify-content-center">
+        <div class="col-md-6 col-lg-6">
+          <div class="row">
+            <div class="col d-flex justify-content-center align-items-center">
+              <input type="hidden" name="res_id" value="{{booking.id}}">
+              <input type="date" class="form-control" id="newDate" name="new_date" min="{{ today }}">
+            </div>
+            <div class="col m-sm-2 d-flex justify-content-center align-items-center">
+              <button type="submit" class="btn btn-primary">View Day</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </form>
-<form id="deleteBookingForm" method="post" action="{% url 'delete_booking' %}">
-  {% csrf_token %}
-  <button id="deleteButton" type="button">Delete Booking</button>
-  <input type="hidden" name="res_id" value="{{ booking.id }}">
-</form>
 {% if new_date %}
   {% with new_date as today %}
+  <div class="row m-md-5 m-sm-3 justify-content-md-center">
+    <div class="col-sm-12 col-md-12 col-lg-6 d-flex justify-content-center">
+      <h3>Earliest Availability: <span>{{today}}</span></h3>
+    </div>
+  </div>
+    <div class="container calendar mb-3">
+    <div class="row">
+      {% for room in rooms %}
+      <div class="col d-flex justify-content-center align-items-center"><h4>{{room}}</h4></div>
+      {% endfor %}
+    </div>
+    {% for time in times %}
+      <div class="row res">
+            {% for room in rooms %}
+            <div class="col d-flex justify-content-center align-items-center booking p-2">
+              {% with bookings=reservations|res_date:today|res_room:room|res_time:time %}
+                {% if bookings %}
+                <button type="submit" class="btn btn-secondary nonslot" disabled><span>Unavailable</span></button>
+                {% else %}
+                <form method="POST" action="{% url 'account_booking_edit_confirm' %}">
+                {% csrf_token %}
+                {% if new_date %}
+                  <input type="hidden" name="new_date" value="{{ today }}">
+                {% endif %}
+                    <input type="hidden" name="res_id" value="{{booking.id}}">
+                    <input type="hidden" name="new_date" value="{{today}}">
+                    <input type="hidden" name="picked_date" value="{{ today }}">
+                    <input type="hidden" name="time" value="{{ time }}">
+                    <input type="hidden" name="room" value="{{ room }}">
+                    <button type="submit" class="btn btn-success" id="{{ room }}-{{ time }}-{{ today }}">{{time}}</button>
+                </form>
+                {% endif %}
+              {% endwith %}
+            </div>
+            {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+{% endwith %}
+{% else %}
+<div class="row m-md-5 m-sm-3 justify-content-md-center">
+  <div class="col-sm-12 col-md-12 col-lg-6 d-flex justify-content-center">
+    <h3>Earliest Availability: <span>{{today}}</span></h3>
+  </div>
+</div>
+<div class="container calendar mb-3">
+  <div class="row">
     {% for room in rooms %}
-    <h1>{{room}}</h1>
-      {% for time in times %}
-        {% with bookings=reservations|res_date:today|res_room:room|res_time:time%}
-          {% if bookings %}
-          {% else %}
-          <form method="POST" action="{% url 'account_booking_edit_confirm' %}">
-            {% csrf_token %}
-            <input type="hidden" name="new_date" value="{{today}}">
-            <input type="hidden" name="picked_date" value="{{today}}">
-            <input type="hidden" name="time" value="{{time}}">
-            <input type="hidden" name="room" value="{{room}}">
-            <input type="hidden" name="res_id" value="{{booking.id}}">
-            <button type="submit" id="{{room}}-{{time}}-{{today}}">Available</button>
-          </form>
-          {% endif %}
-        {% endwith%}
-      {% endfor %}
+    <div class="col d-flex justify-content-center align-items-center"><h4>{{room}}</h4></div>
     {% endfor %}
-  {% endwith %}
-  {% else %}
-  {% for room in rooms %}
-    <h1>{{room}}</h1>
-      {% for time in times %}
-        {% with bookings=reservations|res_date:booking.date|res_room:room|res_time:time%}
-          {% if bookings %}
-          {% else %}
-          <form method="POST" action="{% url 'account_booking_edit_confirm' %}">
-            {% csrf_token %}
-            <input type="hidden" name="picked_date" value="{{today}}">
-            <input type="hidden" name="time" value="{{time}}">
-            <input type="hidden" name="room" value="{{room}}">
-            <button type="submit" id="{{room}}-{{time}}-{{today}}">Available</button>
-          </form>
-          {% endif %}
-        {% endwith%}
-      {% endfor %}
-    {% endfor %}
-  {% endif %}
+  </div>
+  {% for time in times %}
+    <div class="row res">
+          {% for room in rooms %}
+          <div class="col d-flex justify-content-center align-items-center booking p-2">
+            {% with bookings=reservations|res_date:today|res_room:room|res_time:time %}
+              {% if bookings %}
+              <button type="submit" class="btn btn-secondary nonslot" disabled><span>Unavailable</span></button>
+              {% else %}
+              <form method="POST" action="{% url 'account_booking_edit_confirm' %}">
+              {% csrf_token %}
+                  <input type="hidden" name="picked_date" value="{{ today }}">
+                  <input type="hidden" name="time" value="{{ time }}">
+                  <input type="hidden" name="room" value="{{ room }}">
+                  <button type="submit" class="btn btn-success" id="{{ room }}-{{ time }}-{{ today }}">{{time}}</button>
+              </form>
+              {% endif %}
+            {% endwith %}
+          </div>
+          {% endfor %}
+    </div>
   {% endfor %}
+</div>
+{% endif %}
+{% endfor %}
 
-    <a href="{% url 'account_overview' %}">Return to Account</a>
+<a href="{% url 'account_overview' %}">Return to Account</a>
+{% endblock %}
 
 <div id="myModal" class="modal">
   <div class="modal-content">
@@ -73,7 +119,7 @@
     <button id="cancelButton">Cancel</button>
   </div>
 </div>
-    
+
 <script>
       // Get the form element
       var form = document.getElementById('deleteBookingForm');
@@ -117,4 +163,3 @@
         modal.style.display = 'none';
       });
 </script>
-{% endblock %}

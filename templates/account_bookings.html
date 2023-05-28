@@ -6,23 +6,21 @@
       <h2>Blog Posts</h2>
     </div>
   </div>
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
+  {% if messages %}
+  <div class="row">
+  {% for message in messages %}
+      <div class="col d-flex justify-content-center mt-4 correct"><h4>{{ message }}</h4></div>
+  {% endfor %}
+  </div>
 {% endif %}
 {% if reservations %}
     {% for reservation in reservations %}
     {% compare_dates current_date reservation.date as is_past %}
     {% if is_past %}
-        <h2>Past</h2>
                 <h1>{{ reservation.date}} {{ reservation.1}} {{ reservation.2}}</h1>
     {% else %}
         <form method="post" action="{% url 'account_booking_edit' %}">
         {% csrf_token %}
-            <h2>Future</h2>{{reservation.id}}
                 <h1>{{ reservation.date}} {{ reservation.time_slot}} {{ reservation.room_choice}}</h1><button type="submit">Edit/Delete</button>
                 <input type="hidden" name="res_id" value="{{reservation.id}}">
         </form>

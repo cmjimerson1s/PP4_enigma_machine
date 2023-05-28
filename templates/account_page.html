@@ -12,32 +12,30 @@
     </div>
 </div>
 {% if messages %}
-<ul class="messages">
+    <div class="row">
     {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-        {% endfor %}
-</ul>
+        <div class="col d-flex justify-content-center mt-4 correct"><h4>{{ message }}</h4></div>
+    {% endfor %}
+    </div>
 {% endif %}
 <form method="post" action="account_update_view" class="container">
     {% csrf_token %}
-
+<div class="mt-5">
     <div class="mb-3">
-        <h1>Username: {{ username }}</h1>
+        <h3><i class="bi bi-person-circle m-2"></i>Username: {{ username }}</h3>
         <input type="hidden" name="username" value="">
     </div>
-
     <div class="mb-3">
-        <h1>Customer Name: {{ first_name }} {{ last_name }}</h1>
+        <h3><i class="bi bi-person-vcard-fill m-2"></i>Customer Name: {{ first_name }} {{ last_name }}</h3>
         <input type="hidden" name="first_name" value="">
         <input type="hidden" name="last_name" value="">
     </div>
-
     <div class="mb-3">
-        <h1>Email Address: {{ email }}</h1>
+        <h3><i class="bi bi-envelope-at-fill m-2"></i>Email Address: {{ email }}</h3>
         <input type="hidden" name="email" value="">
         <input type="hidden" name="user_id" value="{{user_id}}">
     </div>
-
+</div>
     <div class="mb-3">
         {% csrf_token %}
         <button type="submit" class="btn btn-link">Update Account Information Here</button>
@@ -46,16 +44,17 @@
 <form action="{% url 'account_bookings'%}" class="container">
     <div class="d-flex mb-4 flex-column align-items-center mb-4">
         <h3 class="mb-3">Click here to view booked events!</h3>
-        <button type="submit" class="btn-lg">See Reservations</button>
+        <button type="submit" class="btn btn-success">See Reservations</button>
         <input type="hidden" name="user_id" value="{{user_id}}">
     </div>
 </form>
 
-<div class="mt-4 d-flex justify-content-center">
-    <p>Don't forget to tell others about your time with us! Review Here!</p>
-    <a href="www.facebook.com" target="_blank" aria-label="Opens link to Facebook.com in another window">Facebook</a>
-    <a href="www.tripadvisor.com" target="_blank" aria-label="Opens link to Tripadvisor.com in another window">TripAdvisor</a>
-    <a href="www.yelp.com" target="_blank" aria-label="Opens link to Yelp.com in another window">Yelp</a>
-    <a href="www.google.com" target="_blank" aria-label="Opens link to Google.com in another window">Google</a>
+<div class="row mt-4 d-flex justify-content-center">
+    <h5 class="text-center">Don't forget to tell others about your time with us! Review Here!</h5>
+    <div class="col d-flex justify-content-center mb-3">
+        <a href="www.facebook.com" target="_blank" aria-label="Opens link to Facebook.com in another window"><i class="bi bi-facebook m-3"></i></a>
+        <a href="www.yelp.com" target="_blank" aria-label="Opens link to Yelp.com in another window"><i class="bi bi-yelp m-3"></i></a>
+        <a href="www.google.com" target="_blank" aria-label="Opens link to Google.com in another window"><i class="bi bi-google m-3"></i></a>
+    </div>
 </div>
 {% endblock %}

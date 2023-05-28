@@ -1892,6 +1892,10 @@ div.row div.booking:nth-child(odd) {
   font-size: x-small;
 }
 
+.correct {
+  background-color: rgba(254, 185, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
 /*--------------------------------------------------------------
 # Recent Blog Posts Section
