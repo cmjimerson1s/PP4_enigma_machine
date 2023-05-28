@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Reservation, GameTime, Room
 from .forms import ReservationForm
+from datetime import datetime, timedelta
 from django.http import HttpResponse
 from django.utils import timezone
 from django.views import generic, View
@@ -20,7 +21,8 @@ def home(request):
 def ReservationView(request):
     queryset = Reservation.objects.all()
     date = timezone.now().date()
-    today = date.strftime("%Y-%m-%d")
+    tomorrow = date + timedelta(days=1)
+    today = tomorrow.strftime("%Y-%m-%d")
     times = GameTime.objects.all()
     rooms = Room.objects.all()
     cart = []
@@ -77,7 +79,8 @@ class ReservationChoice(View):
 
 
         date = timezone.now().date()
-        today = date.strftime("%Y-%m-%d")
+        tomorrow = date + timedelta(days=1)
+        today = tomorrow.strftime("%Y-%m-%d")
         times = GameTime.objects.all()
         rooms = Room.objects.all()
         queryset = Reservation.objects.all()

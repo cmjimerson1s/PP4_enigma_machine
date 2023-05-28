@@ -30,18 +30,27 @@
 <div class="selected-games p-3 m-5 d-flex justify-content-center">
   <form method="POST" form action="{% url 'posted' %}?data={{ data }}">
     {% csrf_token %}
-    <div class="card">
-      <div class="card-body">
-        <input type="hidden" name="data" value="{{ data }}">
-        <hr>
-        {% for booking in data %}
-        <div class="selected-games-list">
-          <div class="card-text">
-            <div><strong>Rooms: </strong>{{ booking.key }}</div>
-            <div><strong>Time: </strong>{{ booking.value }}</div>
-            <div><strong>Date: </strong>{{ booking.specific_date }}</div>
+      <input type="hidden" name="data" value="{{ data }}">
+      {% for booking in data %}
+        <div class="selected-games-list m-3">
+          <div>
+            <strong>Game #{{forloop.counter}}</strong>
+          </div>
+          <br>
             <div>
-              <select name="number" id="numberDropdown{{ forloop.counter }}" class="form-select w-100">
+              {{ booking.key }}
+              <input type="hidden" name="room" value="{{ booking.key }}">
+            </div>
+            <div>
+              {{ booking.value }}
+                <input type="hidden" name="time" value="{{ booking.value }}">
+            </div>
+            <div>
+              {{ booking.specific_date }}
+              <input type="hidden" name="date" value="{{ booking.specific_date }}">
+            </div>
+            <div>
+              <select name="number" id="numberDropdown{{ forloop.counter }}" class="form-select-md">
                 <option selected>Select</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -51,19 +60,18 @@
                 <option value="7">7</option>
               </select>
             </div>
-            <div><input type="number" id="room_price{{ forloop.counter }}" class="room_price form-control w-100" placeholder="Price" readonly></div>
+              <input type="hidden" id="room_price{{ forloop.counter }}" class="room_price form-control-md w-100" placeholder="Price" readonly>
           </div>
-        </div>
-        {% endfor %}
-        <div class="card-footer">
-          <div class="card-text">Total Price: <input type="number" name="price" id="price" min="300" class="form-control border-0" readonly></div>
-        </div>
-      </div>
+          <hr>
+      {% endfor %}
+      <div class=" row-3 d-flex justify-content-center m-3">
+        <div>Total Price: <input type="number" name="price" id="price" min="300" class="form-control-md boarder-0" readonly></div>
     </div>
+</div>
 <div class="row user-info d-flex justify-content-center m-5 p-3">
     <input type="hidden" name="user_id" value="{{ user.id }}">
-    <div class="col d-flex text-center"><h4>Full Name: {{ form.customer_name }}</h4></div>
-    <div class="col d-flex text-center"><h4>Email: {{ form.customer_email }}</h4></div>
+    <div class="col d-flex text-center"><h5>Full Name: {{ form.customer_name }}</h5></div>
+    <div class="col d-flex text-center"><h5>Email: {{ form.customer_email }}</h5></div>
     <div class="col d-flex text-center">{{ form.comment }}</div>
 </div>
 <div class="row d-flex justify-content-center">
@@ -72,48 +80,6 @@
   </div>
   </form>
 </div>
-<div class="row g-0">
-  <div class="col-lg-8 d-flex align-items-center">
-    <form action="" method="post" role="form" data-aos="fade-up" data-aos-delay="100">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 m-3">
-          {{ form.customer_name }}
-        </div>
-      </div>
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 m-3">
-          {{ form.customer_email }}
-        </div>
-      </div>
-        <div class="col-lg-4 col-md-6">
-        </div>
-        <div class="col-lg-4 col-md-6">
-        </div>
-        <div class="col-lg-4 col-md-6">
-        </div>
-        <div class="col-lg-4 col-md-6">
-        </div>
-      </div>
-      <div class="mt-3">
-        {{ form.comment }}
-      </div>
-      <div class="text-center"><button type="submit">Book a Table</button></div>
-    </form>
-  </div><!-- End Reservation Form -->
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
 
 <script>
     // Get the dropdown element

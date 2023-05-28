@@ -1868,9 +1868,9 @@ div.row div.booking:nth-child(odd) {
   font-family: var(--font-primary);
 }
 
-.selected-games-list {
+/* .selected-games-list {
   font-size: small;
-}
+} */
 
 .user-info {
   background-color: rgba(254, 185, 0, 0.3);
