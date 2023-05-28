@@ -5,7 +5,6 @@ from django.core.exceptions import ValidationError
 
 
 class ReservationForm(forms.ModelForm):
-
     class Meta:
         model = Reservation
         fields = [
