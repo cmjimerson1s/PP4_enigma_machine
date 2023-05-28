@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load res_tags %}
+{% block scripts %}
+  <!-- Pass the active page variable to the base template -->
+  {% with active_page='reservation' %} 
+    {{ block.super }}
+  {% endwith %}
+{% endblock %}
+{% block content %}
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+  <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+    <h2>Success!</h2>
+  </div>
+</div>
+<div class="row m-3 justify-content-center">
+  <div class="col-9 d-flex justify-content-center">
+    <div class="col-3 icon-text text-center m-3">
+      <i class="bi bi-gear-wide fs-1"></i><br>
+      <span>1. Choose Bookings</span>
+    </div>
+    <div class="col-3 icon-text text-center m-3">
+      <i class="bi bi-gear-wide fs-1"></i><br>
+      <span>2. Booking Info</span>
+    </div>
+    <div class="col-3 icon-text text-center m-3">
+      <i class="bi bi-gear-wide fs-1 step"></i><br>
+      <span>3. Confirmation</span>
+    </div>
+  </div>
+  </div>
+  <div>
+    <div class="text-center m-5">
+        <h1>Booking Complete!</h1>
+        <h2>To view your booking information visit your <a href="{% url 'account_overview' %}">Account</a> page.</h2>
+        <h2>If you have any questions or concerns with your booking please don't hesitate to <a href="{% url 'contact_us' %}">contact us!</a></h2>
+    </div>
+  </div>
+  {% endblock %}

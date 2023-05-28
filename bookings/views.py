@@ -141,7 +141,14 @@ def update_database(request):
         if 'cart' in request.session:
             del request.session['cart']
 
-        return redirect('home')
+        return redirect('confirmed')
+
+
+def ConfirmView(request):
+    template = "result.html"
+
+    return render(request, template)
+
 
 def CartTransform(data):
     string = data.replace('[', '').replace(']', '').replace('"', '')

@@ -27,7 +27,7 @@
     </div>
   </div>
   </div>
-<div class="selected-games p-3 m-5 d-flex justify-content-center">
+<div class="selected-games p-3 mt-3 d-flex justify-content-center">
   <form method="POST" form action="{% url 'posted' %}?data={{ data }}">
     {% csrf_token %}
       <input type="hidden" name="data" value="{{ data }}">
@@ -65,14 +65,15 @@
           <hr>
       {% endfor %}
       <div class=" row-3 d-flex justify-content-center m-3">
-        <div>Total Price: <input type="number" name="price" id="price" min="300" class="form-control-md boarder-0" readonly></div>
+        <div><strong>Total Price*: </strong><input type="number" name="price" id="price" min="300" class="form-control-md boarder-0" readonly></div>
     </div>
+    <div class="info-text text-center">*This is due when you arrive to play.</div>
 </div>
-<div class="row user-info d-flex justify-content-center m-5 p-3">
+<div class="row user-info d-flex justify-content-center mt-5 p-3">
     <input type="hidden" name="user_id" value="{{ user.id }}">
     <div class="col d-flex text-center"><h5>Full Name: {{ form.customer_name }}</h5></div>
     <div class="col d-flex text-center"><h5>Email: {{ form.customer_email }}</h5></div>
-    <div class="col d-flex text-center">{{ form.comment }}</div>
+    <div class="col d-flex justify-content-center text-center">{{ form.comment }}</div>
 </div>
 <div class="row d-flex justify-content-center">
   <div class="col d-flex justify-content-center m-5">
