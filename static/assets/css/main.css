@@ -1839,7 +1839,15 @@ div.row div.booking:nth-child(odd) {
   border:#000 solid ;
 }
 
+@media (max-width: 414px) {
+  button.nonslot span {
+    display: none;
+  }
 
+  button.nonslot::after {
+    content: "N/A";
+  }
+}
 
 
 

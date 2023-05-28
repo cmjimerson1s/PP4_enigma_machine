@@ -17,8 +17,6 @@
         <h1>Date: {{ today }}</h1>
       </div>
     </div>
-  {% endwith %}
-{% endif %}
 
 <div class="row mt-4">
   {% for room in rooms %}
@@ -48,6 +46,42 @@
   </div>
   {% endfor %}
 </div>
+{% endwith %}
+{% else %}
+<div class="row">
+  <div class="col-md-3">
+    <h1>Date: {{ today }}</h1>
+  </div>
+</div>
+<div class="row mt-4">
+  {% for room in rooms %}
+  <div class="col-md-3">
+    <h1>{{ room }}</h1>
+    {% for time in times %}
+    <h3>{{ time }}</h3>
+    {% with bookings=queryset|res_date:today|res_room:room|res_time:time %}
+    <div class="mb-2">
+      {% if bookings %}
+      <button type="submit" class="btn btn-secondary" disabled>Unavailable</button>
+      {% else %}
+      <form method="POST" action="{% url 'reservation_choice' %}">
+        {% csrf_token %}
+        {% if new_date %}
+        <input type="hidden" name="new_date" value="{{ today }}">
+        {% endif %}
+        <input type="hidden" name="picked_date" value="{{ today }}">
+        <input type="hidden" name="time" value="{{ time }}">
+        <input type="hidden" name="room" value="{{ room }}">
+        <button type="submit" class="btn btn-success" id="{{ room }}-{{ time }}-{{ today }}">Available</button>
+      </form>
+      {% endif %}
+    </div>
+    {% endwith %}
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
 
 {% if cart %}
 <div class="row mt-4">
