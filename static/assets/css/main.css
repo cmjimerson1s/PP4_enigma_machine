@@ -1839,6 +1839,11 @@ div.row div.booking:nth-child(odd) {
   border:#000 solid ;
 }
 
+.btn-success:hover {
+  background-color: rgba(100, 149, 237, 0.5);
+  border-color: #000;
+}
+
 @media (max-width: 414px) {
   button.nonslot span {
     display: none;

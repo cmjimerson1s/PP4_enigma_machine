@@ -25,7 +25,7 @@ def ReservationView(request):
     today = tomorrow.strftime("%Y-%m-%d")
     times = GameTime.objects.all()
     rooms = Room.objects.all()
-    cart = []
+    cart = request.session.get('cart', {})
 
     context = {
         'reservations': queryset,

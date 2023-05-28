@@ -79,48 +79,18 @@
     </div>
   {% endfor %}
 </div>
+<form method="POST" action="{% url 'reservation_choice' %}">
+{% csrf_token %}
+<div class="row">
+  <div class="col d-flex justify-content-center">
+    <button type="submit" class="btn btn-success m-3">View Cart</button>
+  </div>
+</div>
+</form>
 {% else %}
 <h1>To view available events, please <a href="{% url 'account_login' %}">Login</a></h1>
 {% endif %}
 
-{% if cart %}
-<div class="cart-box">
-  <div class="row mt-4">
-    <div class="col-md-12 d-flex justify-content-center pt-3">
-      <h2>Selected Games</h2>
-    </div>
-    <div class="col-md-12 d-flex justify-content-center">
-      <ul>
-        {% for item in cart %}
-        <li class="d-flex align-items-center m-2">
-          <div><h5>{{forloop.counter}}.)    {{ item.key }}    {{ item.value }}    {{ item.specific_date }}</h5></div>
-          <form method="POST">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-unstyled" name="delete-item" value="{{ item.key }}|{{ item.value }}|{{ item.specific_date }}"><i class="bi bi-x-circle-fill fs-4"></i></button>
-          </form>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    </div class="row mt-4">
-      <div class="col-md-12 d-flex justify-content-center pb-3">
-        <form method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn btn-danger" name="delete-all" value="true">Empty Cart</button>
-        </form>
-      </div>
-      <div class="col-md-12 d-flex justify-content-center pb-3">
-        <form action="{% url 'booking_form' %}?cart={{ cart }}" method="post">
-          {% csrf_token %}
-          <input type="hidden" name="cart" value="{{ cart }}">
-          <input type="hidden" name="user_id" value="{{ user.id }}">
-          <button type="submit" class="btn btn-success">Continue to Booking</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-{% endif %}
 
 {% endblock %}
 <div class="row mt-4">
