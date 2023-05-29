@@ -30,6 +30,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ALLOWED_HOSTS = ["pp4-enigma-machine.herokuapp.com", "localhost", "8000-cmjimerson1-pp4enigmama-euj4cv35q5k.ws-eu97.gitpod.io"]
 
 
