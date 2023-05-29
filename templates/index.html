@@ -1,190 +1,208 @@
 {% extends "base.html" %}
 {% block scripts %}
-  <!-- Pass the active page variable to the base template -->
-  {% with active_page='home' %} 
-    {{ block.super }}
-  {% endwith %}
+<!-- Passes the active page variable to the base template -->
+{% with active_page='home' %}
+{{ block.super }}
+{% endwith %}
 {% endblock %}
+<!-- Clears active messages from login/logoff/signup -->
 {% block content %}
-  <section id="hero" class="hero">
+{% if messages %}
+{% for message in messages %}
+<p style="display: none;">{{ message }}</p>
+{% endfor %}
 
-    <div class="info d-flex align-items-center">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-6 text-center">
-            <h2 data-aos="fade-down">Welcome to <span>EnigmaMachine</span></h2>
-            <p data-aos="fade-up">Unlock the thrill and test your wits in our heart-pounding escape room adventure!</p>
-            <a data-aos="fade-up" data-aos-delay="200" href="{% url 'reservation' %}" class="btn-get-started">Book Now!</a>
+{% endif %}
+<section id="hero" class="hero">
+
+  <div class="info d-flex align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 text-center">
+          <h2 data-aos="fade-down">Welcome to <span>EnigmaMachine</span></h2>
+          <p data-aos="fade-up">Unlock the thrill and test your wits in our heart-pounding escape room adventure!</p>
+          <a data-aos="fade-up" data-aos-delay="200" href="{% url 'reservation' %}" class="btn-get-started">Book
+            Now!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+    <div class="carousel-item active"
+      style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684932288/shutterstock_6402576492_bi9ewl.jpg)">
+    </div>
+    <div class="carousel-item"
+      style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684931868/shutterstock_1402345220_tpljmz.jpg)">
+    </div>
+    <div class="carousel-item"
+      style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684932490/shutterstock_19883385622_wzvlza.jpg)">
+    </div>
+    <div class="carousel-item"
+      style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684932491/shutterstock_7309814472_zgtffr.jpg)">
+    </div>
+    <div class="carousel-item"
+      style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684932495/shutterstock_19523947782_d0yvxg.jpg)">
+    </div>
+    <div class="carousel-item"
+      style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684932493/shutterstock_6402434352_xuoo55.jpg)">
+    </div>
+
+    <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+    </a>
+
+    <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+    </a>
+
+  </div>
+  <!-- ======= Stats Counter Section ======= -->
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+
+      <div class="row position-relative">
+
+
+        <div class="col-lg-7 about-img"
+          style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684931865/shutterstock_1285856470_tkdwgp.jpg);">
+        </div>
+
+
+        <div class="col-lg-7">
+          <h2>Learn More About Our Enigmatic History!</h2>
+          <div class="our-story">
+            <h4>Est 2009</h4>
+            <h3>Our Story</h3>
+            <p>Founded in 2009, EnigmaMachine has a rich history of pioneering the escape room phenomenon. As one of the
+              earliest entrants into the industry, we have been at the forefront of shaping the immersive entertainment
+              landscape. Our passion for creating unique and thrilling experiences led us to introduce the concept of
+              escape rooms to a captivated audience. Inovaters at our core, we proudly have many record firsts.</p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> <span>The first escape room to use full immersive
+                  storytelling.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>The first escape room to introduce live actors to the
+                  game.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>The first escape room to be played by a President of the
+                  United States!</span></li>
+            </ul>
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </section>
+  <!-- ======= Stats Section ======= -->
+  <section id="stats-counter" class="stats-counter section-bg">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item d-flex align-items-center w-100 h-100">
+            <i class="bi bi-puzzle color-blue flex-shrink-0"></i>
+            <div>
+              <span>{{rooms}}</span>
+              <p>Escape Rooms</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item d-flex align-items-center w-100 h-100">
+            <i class="bi bi-calendar-check color-orange flex-shrink-0"></i>
+            <div>
+              <span>12,000</span>
+              <p>Events Per Year</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item d-flex align-items-center w-100 h-100">
+            <i class="bi bi-people  color-green flex-shrink-0"></i>
+            <div>
+              <span>+50,000</span>
+              <p>Happy Customers</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item d-flex align-items-center w-100 h-100">
+            <i class="bi bi-clock color-pink flex-shrink-0"></i>
+            <div>
+              <span>1</span>
+              <p>Unforgettable Hour</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-
-      <div class="carousel-item active" style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684932288/shutterstock_6402576492_bi9ewl.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684931868/shutterstock_1402345220_tpljmz.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684932490/shutterstock_19883385622_wzvlza.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684932491/shutterstock_7309814472_zgtffr.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684932495/shutterstock_19523947782_d0yvxg.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684932493/shutterstock_6402434352_xuoo55.jpg)"></div>
-
-      <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-      </a>
-
-      <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-      </a>
-
-    </div>
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-
-        <div class="row position-relative">
-
-
-          <div class="col-lg-7 about-img" style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684931865/shutterstock_1285856470_tkdwgp.jpg);"></div>
-
-
-          <div class="col-lg-7">
-            <h2>Learn More About Our Enigmatic History!</h2>
-            <div class="our-story">
-              <h4>Est 2009</h4>
-              <h3>Our Story</h3>
-              <p>Founded in 2009, EnigmaMachine has a rich history of pioneering the escape room phenomenon. As one of the earliest entrants into the industry, we have been at the forefront of shaping the immersive entertainment landscape. Our passion for creating unique and thrilling experiences led us to introduce the concept of escape rooms to a captivated audience. Inovaters at our core, we proudly have many record firsts.</p>
-              <ul>
-                <li><i class="bi bi-check-circle"></i> <span>The first escape room to use full immersive storytelling.</span></li>
-                <li><i class="bi bi-check-circle"></i> <span>The first escape room to introduce live actors to the game.</span></li>
-                <li><i class="bi bi-check-circle"></i> <span>The first escape room to be played by a President of the United States!</span></li>
-              </ul>
-              <p>Want to know more about many other firsts, watch a brief history of our company below!</p>
-              
-
-              <div class="watch-video d-flex align-items-center position-relative">
-                <i class="bi bi-play-circle"></i>
-                <a href="https://www.youtube.com/embed/dQw4w9WgXcQ" >Watch Video</a>
-              </div>
+  </section>
+  <!-- ======= Team Section ======= -->
+  <section id="team" class="team">
+    <div class="container" data-aos="fade-up">
+      <div class="section-header">
+        <h2>Our Team</h2>
+        <p>Meet the minds behind our brilliant rooms!</p>
+      </div>
+      <div class="row gy-5">
+        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
+          <div class="member-img">
+            <img
+              src="https://res.cloudinary.com/dl02kivmy/image/upload/v1684939528/pexels-dinielle-de-veyra-4195342_qmuve42_c7rzg3.jpg"
+              class="img-fluid" alt="">
+            <div class="social">
+              <a href="#"><i class="bi bi-twitter"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
-
-
+          <div class="member-info text-center">
+            <h4>Alan Turing</h4>
+            <span>Chief Executive Officer</span>
+            <p>Founder and Visionary behind Enigma Machine</p>
+          </div>
         </div>
-
-
+        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
+          <div class="member-img">
+            <img
+              src="https://res.cloudinary.com/dl02kivmy/image/upload/v1684938661/pexels-edmond-dant%C3%A8s-4342352_xmboez.jpg"
+              class="img-fluid" alt="">
+            <div class="social">
+              <a href="#"><i class="bi bi-twitter"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info text-center">
+            <h4>Edith Windsor</h4>
+            <span>Chief Technical Officer</span>
+            <p>Pioneer of Technological Advances Implemeneted within our Games</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
+          <div class="member-img">
+            <img
+              src="https://res.cloudinary.com/dl02kivmy/image/upload/v1684939715/pexels-ketut-subiyanto-4350057_niydgt2_buosc5.jpg"
+              class="img-fluid" alt="">
+            <div class="social">
+              <a href="#"><i class="bi bi-twitter"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info text-center">
+            <h4>Margaret Zia </h4>
+            <span>Chief Creative Officer</span>
+            <p>Creative Tour de Force behind the Narrative and Immersive Story</p>
+          </div>
+        </div>
       </div>
-    </section>
-    <!-- ======= Stats Counter Section ======= -->
-    <section id="stats-counter" class="stats-counter section-bg">
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-puzzle color-blue flex-shrink-0"></i>
-              <div>
-                <span>{{rooms}}</span>
-                <p>Escape Rooms</p>
-              </div>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-calendar-check color-orange flex-shrink-0"></i>
-              <div>
-                <span>12,000</span>
-                <p>Events Per Year</p>
-              </div>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-people  color-green flex-shrink-0"></i>
-              <div>
-                <span>+50,000</span>
-                <p>Happy Customers</p>
-              </div>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-clock color-pink flex-shrink-0"></i>
-              <div>
-                <span>1</span>
-                <p>Unforgettable Hour</p>
-              </div>
-            </div>
-          </div><!-- End Stats Item -->
-
-        </div>
-
-      </div>
-    </section><!-- End Stats Counter Section -->
-    <section id="team" class="team">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Our Team</h2>
-          <p>Meet the minds behind our brilliant rooms!</p>
-        </div>
-
-        <div class="row gy-5">
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
-            <div class="member-img">
-              <img src="https://res.cloudinary.com/dl02kivmy/image/upload/v1684939528/pexels-dinielle-de-veyra-4195342_qmuve42_c7rzg3.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Alan Turing</h4>
-              <span>Chief Executive Officer</span>
-              <p>Founder and Visionary behind Enigma Machine</p>
-            </div>
-          </div><!-- End Team Member -->
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
-            <div class="member-img">
-              <img src="https://res.cloudinary.com/dl02kivmy/image/upload/v1684938661/pexels-edmond-dant%C3%A8s-4342352_xmboez.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Edith Windsor</h4>
-              <span>Chief Technical Officer</span>
-              <p>Pioneer of Technological Advances Implemeneted within our Games</p>
-            </div>
-          </div><!-- End Team Member -->
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
-            <div class="member-img">
-              <img src="https://res.cloudinary.com/dl02kivmy/image/upload/v1684939715/pexels-ketut-subiyanto-4350057_niydgt2_buosc5.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Margaret Zia </h4>
-              <span>Chief Creative Officer</span>
-              <p>Creative Tour de Force behind the Narrative and Immersive Story</p>
-            </div>
-          </div><!-- End Team Member -->
-        </div>
-
-      </div>
-    </section><!-- End Our Team Section -->
-{% endblock %}
+    </div>
+  </section>
+  {% endblock %}
