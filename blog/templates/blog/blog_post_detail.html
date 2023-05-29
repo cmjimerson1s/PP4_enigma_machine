@@ -1,16 +1,17 @@
 {% extends "base.html" %}
+<!-- Pass the active page variable to the base template -->
 {% block scripts %}
-  <!-- Pass the active page variable to the base template -->
-  {% with active_page='blog' %} 
-    {{ block.super }}
-  {% endwith %}
+{% with active_page='blog' %}
+{{ block.super }}
+{% endwith %}
 {% endblock %}
 {% block content %}
-<div class="breadcrumbs d-flex align-items-center" style="background-image: url('https://res.cloudinary.com/dl02kivmy/image/upload/v1685035190/vintage-keyboard-typewriter-old_miyhex.jpg');">
-    <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
-      <h2>Blog Posts</h2>
-    </div>
+<div class="breadcrumbs d-flex align-items-center"
+  style="background-image: url('https://res.cloudinary.com/dl02kivmy/image/upload/v1685035190/vintage-keyboard-typewriter-old_miyhex.jpg');">
+  <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+    <h2>Blog Posts</h2>
   </div>
+</div>
 <section id="blog" class="blog">
   <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -34,12 +35,14 @@
 
           <div class="content">
             {% for paragraph in content_parts %}
-              {% if forloop.counter == 4 %}
-                <blockquote><p>{{blog.blog_blurb}}</p></blockquote>
-                <p>{{ paragraph }}</p>
-              {% else %}
-                <p>{{paragraph}}</p>
-              {% endif %}
+            {% if forloop.counter == 4 %}
+            <blockquote>
+              <p>{{blog.blog_blurb}}</p>
+            </blockquote>
+            <p>{{ paragraph }}</p>
+            {% else %}
+            <p>{{paragraph}}</p>
+            {% endif %}
             {% endfor %}
           </div><!-- End post content -->
 
@@ -75,14 +78,14 @@
               {% endfor %}
             </div>
 
-          
 
-        </div><!-- End Blog Sidebar -->
 
+          </div><!-- End Blog Sidebar -->
+
+        </div>
       </div>
-    </div>
 
-  </div>
+    </div>
 </section><!-- End Blog Details Section -->
 
 {% endblock %}
