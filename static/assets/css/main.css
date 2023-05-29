@@ -1916,6 +1916,18 @@ div.row div.booking:nth-child(odd) {
   max-width: 450px;
 }
 
+.old-res {
+  background-color: rgba(105, 105, 105, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logging {
+  min-height: 300px;
+}
+
 /*--------------------------------------------------------------
 # Recent Blog Posts Section
 --------------------------------------------------------------*/

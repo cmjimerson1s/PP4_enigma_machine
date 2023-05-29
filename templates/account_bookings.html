@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load res_tags %}
 {% block content %}
-<div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('https://res.cloudinary.com/dl02kivmy/image/upload/v1685362312/06_17_2013_book-smell_ipn9yw.jpg');">
     <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
-      <h2>Blog Posts</h2>
+      <h2>My Reservations</h2>
     </div>
   </div>
   {% if messages %}
@@ -17,13 +17,25 @@
     {% for reservation in reservations %}
     {% compare_dates current_date reservation.date as is_past %}
     {% if is_past %}
-                <h1>{{ reservation.date}} {{ reservation.1}} {{ reservation.2}}</h1>
+        <div class="row old-res d-flex justify-content-center mt-4">
+            <h3 class="text-center">Previous Bookings</h3>
+            <div class="text-center">
+                <h5>{{ reservation.date}} {{ reservation.1}} {{ reservation.2}}</h5>
+            </div>
+        </div>
+     
     {% else %}
-        <form method="post" action="{% url 'account_booking_edit' %}">
-        {% csrf_token %}
-                <h1>{{ reservation.date}} {{ reservation.time_slot}} {{ reservation.room_choice}}</h1><button type="submit">Edit/Delete</button>
-                <input type="hidden" name="res_id" value="{{reservation.id}}">
-        </form>
+    <div class="row user-info d-flex justify-content-center mt-4 p-4">
+        <h3 class="text-center">Future Bookings</h3>
+        <div class="text-center">
+            <form method="post" action="{% url 'account_booking_edit' %}">
+                {% csrf_token %}
+                        <h5>{{ reservation.date}} {{ reservation.time_slot}} {{ reservation.room_choice}}</h5><button type="submit" class="btn btn-success m-2">Edit/Delete</button>
+                        <input type="hidden" name="res_id" value="{{reservation.id}}">
+            </form>
+        </div>
+    </div>  
+    <hr class="line mt-4">
     {% endif %}
     {% endfor %}
 {% else %}
@@ -32,5 +44,5 @@
 <h1>To make a reservation, <a href="{% url 'reservation' %}">Book Now</a></h1>
 </div>
 {% endif %}
-    <h3><a href="{% url 'account_overview' %}">Return to My Account</a></h3>
+    <h3 class="text-center m-5"><a href="{% url 'account_overview' %}">Return to My Account</a></h3>
 {% endblock %}
