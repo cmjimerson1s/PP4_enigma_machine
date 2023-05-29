@@ -6,16 +6,30 @@
     <h2>Blog Posts</h2>
   </div>
 </div>
-<h1 class="text-center">Booking to Change: {{booking.id}}</h1>
+<h1 class="text-center mb-3">Booking to Change: {{booking.id}}</h1>
 {% for booking in booked_res %}
-<div class=" row justify-content-center correct">
+<div class=" row justify-content-center correct p-2">
   <h3 class="d-flex justify-content-center">Date: {{booking.date}}</h3><h3 class="d-flex justify-content-center">Time: {{booking.time_slot}}</h3><h3 class="d-flex justify-content-center">Room: {{booking.room_choice}}</h3>
 </div>
+<div class="row m-5">
+  <div>
+    <h5 class="text-center">Do you want to delete the booking?</h5>
+  </div>
+  <div class="col d-flex justify-content-center align-items-center">
+    <form id="deleteBookingForm" method="post" action="{% url 'delete_booking' %}">
+      {% csrf_token %}
+      <button id="deleteButton" type="button" class="btn btn-danger">Delete Booking</button>
+      <input type="hidden" name="res_id" value="{{ booking.id }}">
+    </form>
+  </div>
+</div>
+<hr class="line">
   <form method="POST" action="{% url 'account_booking_edit' %}">
     {% csrf_token %}
     <div class="container">
       <div class="row m-3 justify-content-center">
         <div class="col-md-6 col-lg-6">
+          <h3 class="text-center mb-3">Choose new reservation</h3>
           <div class="row">
             <div class="col d-flex justify-content-center align-items-center">
               <input type="hidden" name="res_id" value="{{booking.id}}">
@@ -33,7 +47,7 @@
   {% with new_date as today %}
   <div class="row m-md-5 m-sm-3 justify-content-md-center">
     <div class="col-sm-12 col-md-12 col-lg-6 d-flex justify-content-center">
-      <h3>Earliest Availability: <span>{{today}}</span></h3>
+      <h5>Availability On: <span>{{today}}</span></h5>
     </div>
   </div>
     <div class="container calendar mb-3">
@@ -108,17 +122,18 @@
 {% endfor %}
 
 <a href="{% url 'account_overview' %}">Return to Account</a>
-{% endblock %}
 
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
     <h2>Confirm Booking Deletion</h2>
     <p>Are you sure you want to delete your booking?</p>
-    <button id="confirmButton">Confirm</button>
-    <button id="cancelButton">Cancel</button>
+    <button id="confirmButton" class="btn btn-danger">Confirm</button>
+    <button id="cancelButton" class="btn btn-secondary">Cancel</button>
   </div>
 </div>
+
+
 
 <script>
       // Get the form element
@@ -163,3 +178,4 @@
         modal.style.display = 'none';
       });
 </script>
+{% endblock %}

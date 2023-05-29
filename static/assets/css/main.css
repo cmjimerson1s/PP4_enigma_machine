@@ -1897,6 +1897,17 @@ div.row div.booking:nth-child(odd) {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.line {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.div-box {
+  background-color: rgba(254, 185, 0, 0.3);
+  padding: 10px; /* Adjust padding as needed */
+  max-width: 450px;
+}
+
 /*--------------------------------------------------------------
 # Recent Blog Posts Section
 --------------------------------------------------------------*/

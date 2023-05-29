@@ -94,6 +94,7 @@ def DeleteBooking(request):
     res_id = request.POST.get('res_id')
     res = Reservation.objects.filter(id=res_id)
     res.delete()
+    messages.success(request, 'Reservation Deleted!')
 
     return redirect('account_bookings')
 
