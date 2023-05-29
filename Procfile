@@ -1,2 +1,2 @@
-web: gunicorn PROJ_NAME.wsgi
+web: gunicorn enigma_machine.wsgi
 
