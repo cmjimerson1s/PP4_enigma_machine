@@ -9,7 +9,7 @@ from django.contrib import messages
 
 @login_required
 def AccountOverview(request):
-    template = "account_page.html"
+    template = "user_profiles/account_page.html"
 
     username = request.user.username
     first_name = request.user.first_name
@@ -29,7 +29,7 @@ def AccountOverview(request):
 
 
 def AccountReservations(request):
-    template = "account_bookings.html"
+    template = "user_profiles/account_bookings.html"
     user_id = request.user.id
 
     reservations = Reservation.objects.filter(user_id=user_id)
@@ -43,7 +43,7 @@ def AccountReservations(request):
 
 
 def BookingEditSelection(request):
-    template = "reservation.edit.html"
+    template = "user_profiles/reservation.edit.html"
     res_id = request.POST.get("res_id")
     new_date = request.POST.get("new_date")
     booked_res = Reservation.objects.filter(id=res_id)
@@ -66,7 +66,7 @@ def BookingEditSelection(request):
 
 
 def BookingEditConfirmation(request):
-    template = "reservation_edit_post.html"
+    template = "user_profiles/reservation_edit_post.html"
     res_id = request.POST.get("res_id")
     old_booking = Reservation.objects.filter(id=res_id)
     new_time = request.POST.get("time")
@@ -113,7 +113,7 @@ def DeleteBooking(request):
 
 
 def AccountUpdateView(request):
-    template = "account_page_edit.html"
+    template = "user_profiles/account_page_edit.html"
     user_id = request.user.id
     username = request.user.username
     first_name = request.user.first_name

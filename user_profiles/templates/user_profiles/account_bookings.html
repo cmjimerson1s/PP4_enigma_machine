@@ -27,14 +27,14 @@
 {% compare_dates current_date reservation.date as is_past %}
 {% if is_past %}
 <div class="row old-res d-flex justify-content-center mt-4">
-    <h3 class="text-center">Previous Bookings</h3>
+    <h3 class="text-center">Previous Booking</h3>
     <div class="text-center">
-        <h5>{{ reservation.date}} {{ reservation.1}} {{ reservation.2}}</h5>
+        <h5>{{ reservation.date}} {{ reservation.time_slot}} {{ reservation.room_choice}}</h5>
     </div>
 </div>
 {% else %}
 <div class="row user-info d-flex justify-content-center mt-4 p-4">
-    <h3 class="text-center">Future Bookings</h3>
+    <h3 class="text-center">Future Booking</h3>
     <div class="text-center">
         <form method="post" action="{% url 'account_booking_edit' %}">
             {% csrf_token %}
@@ -44,7 +44,6 @@
         </form>
     </div>
 </div>
-<hr class="line mt-4">
 {% endif %}
 {% endfor %}
 {% else %}
