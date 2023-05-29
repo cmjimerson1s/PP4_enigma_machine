@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+{% load res_tags %}
+{% block scripts %}
+<!-- Pass the active page variable to the base template -->
+{% with active_page='reservation' %}
+{{ block.super }}
+{% endwith %}
+{% endblock %}
+{% block content %}
+<div class="breadcrumbs d-flex align-items-center"
+  style="background-image: url('https://res.cloudinary.com/dl02kivmy/image/upload/v1685362923/Escape-Game-For-Team-Building-Image-ERR_dknqc6.jpg'); background-position: 50% 80%;">
+  <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+    <h2>Make a Booking</h2>
+  </div>
+</div>
+<div class="row m-3 justify-content-center">
+  <div class="col-9 d-flex justify-content-center">
+    <div class="col-3 icon-text text-center m-3">
+      <i class="bi bi-gear-wide fs-1 step"></i><br>
+      <span>1. Choose Bookings</span>
+    </div>
+    <div class="col-3 icon-text text-center m-3">
+      <i class="bi bi-gear-wide fs-1"></i><br>
+      <span>2. Booking Info</span>
+    </div>
+    <div class="col-3 icon-text text-center m-3">
+      <i class="bi bi-gear-wide fs-1"></i><br>
+      <span>3. Confirmation</span>
+    </div>
+  </div>
+</div>
+<form method="POST" action="{% url 'reservation_choice' %}">
+  {% csrf_token %}
+  <div class="container">
+    <div class="row m-3 justify-content-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="row">
+          <div class="col d-flex justify-content-center align-items-center">
+            <input type="date" class="form-control" id="newDate" name="new_date" min="{{ today }}">
+          </div>
+          <div class="col m-sm-2 d-flex justify-content-center align-items-center">
+            <button type="submit" class="btn btn-primary">View Day</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+{% if new_date %}
+{% with new_date as today %}
+<div class="row m-md-5 m-sm-3 justify-content-md-center">
+  <div class="col-sm-12 col-md-12 col-lg-6 d-flex justify-content-center">
+    <h3>Availability on: <span>{{today}}</span></h3>
+  </div>
+</div>
+<div class="container calendar mb-3">
+  <div class="row">
+    {% for room in rooms %}
+    <div class="col d-flex justify-content-center align-items-center">
+      <h4>{{room}}</h4>
+    </div>
+    {% endfor %}
+  </div>
+  {% for time in times %}
+  <div class="row res">
+    {% for room in rooms %}
+    <div class="col d-flex justify-content-center align-items-center booking p-2">
+      {% with bookings=queryset|res_date:today|res_room:room|res_time:time %}
+      {% if bookings %}
+      <button type="submit" class="btn btn-secondary nonslot" disabled><span>Unavailable</span></button>
+      {% else %}
+      <form method="POST" action="{% url 'reservation_choice' %}">
+        {% csrf_token %}
+        {% if new_date %}
+        <input type="hidden" name="new_date" value="{{ today }}">
+        {% endif %}
+        <input type="hidden" name="picked_date" value="{{ today }}">
+        <input type="hidden" name="time" value="{{ time }}">
+        <input type="hidden" name="room" value="{{ room }}">
+        <button type="submit" class="btn btn-success" id="{{ room }}-{{ time }}-{{ today }}">{{time}}</button>
+      </form>
+      {% endif %}
+      {% endwith %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+{% endwith %}
+{% else %}
+<div class="row m-md-5 m-sm-3 justify-content-md-center">
+  <div class="col-sm-12 col-md-12 col-lg-6 d-flex justify-content-center">
+    <h3>Availability on: {{today}}</h3>
+  </div>
+</div>
+</form>
+<div class="container calendar mb-3">
+  <div class="row">
+    {% for room in rooms %}
+    <div class="col d-flex justify-content-center align-items-center">
+      <h4>{{room}}</h4>
+    </div>
+    {% endfor %}
+  </div>
+  {% for time in times %}
+  <div class="row res">
+    {% for room in rooms %}
+    <div class="col d-flex justify-content-center align-items-center booking p-2">
+      {% with bookings=queryset|res_date:today|res_room:room|res_time:time %}
+      {% if bookings %}
+      <button type="submit" class="btn btn-secondary nonslot" disabled><span>Unavailable</span></button>
+      {% else %}
+      <form method="POST" action="{% url 'reservation_choice' %}">
+        {% csrf_token %}
+        <input type="hidden" name="picked_date" value="{{ today }}">
+        <input type="hidden" name="time" value="{{ time }}">
+        <input type="hidden" name="room" value="{{ room }}">
+        <button type="submit" class="btn btn-success" id="{{ room }}-{{ time }}-{{ today }}">{{time}}</button>
+      </form>
+      {% endif %}
+      {% endwith %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if cart %}
+<div class="cart-box">
+  <div class="row mt-4">
+    <div class="col-md-12 d-flex justify-content-center pt-3">
+      <h2>Selected Games</h2>
+    </div>
+    <div class="col-md-12 d-flex justify-content-center">
+      <ul>
+        {% for item in cart %}
+        <li class="d-flex align-items-center m-2">
+          <div>
+            <h5>{{forloop.counter}}.) {{ item.key }} {{ item.value }} {{ item.specific_date }}</h5>
+          </div>
+          <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-unstyled" name="delete-item"
+              value="{{ item.key }}|{{ item.value }}|{{ item.specific_date }}"><i
+                class="bi bi-x-circle-fill fs-4"></i></button>
+          </form>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div class="row mt-4">
+  <div class="col-md-12 d-flex justify-content-center pb-3">
+    <form method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger" name="delete-all" value="true">Empty Cart</button>
+    </form>
+  </div>
+  <div class="col-md-12 d-flex justify-content-center pb-3">
+    <form action="{% url 'booking_form' %}?cart={{ cart }}" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="cart" value="{{ cart }}">
+      <input type="hidden" name="user_id" value="{{ user.id }}">
+      <button type="submit" class="btn btn-success">Continue to Booking</button>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+{% else %}
+<div class="cart-box">
+  <div class="row mt-4">
+    <div class="col-md-12 d-flex justify-content-center pt-3">
+      <h2>Selected Games</h2>
+    </div>
+    <div class="col-md-12 d-flex justify-content-center">
+      <h3>You've selected no games yet.</h3>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<script>
+  // Accesses Django variable and injected as Javascript variable declaration
+  var cartData = {{cart|safe}};  
+  for (var i = 0; i < cartData.length; i++) {
+    var item = cartData[i];
+    var buttonId = item.key + "-" + item.value + "-" + item.specific_date;
+    var button = document.getElementById(buttonId);
+    
+    if (button) {
+      button.style.cursor = "not-allowed";
+      button.style.backgroundColor = "rgba(100, 149, 237, 0.5)";
+      button.textContent = "Selected";
+      button.addEventListener("click", function(event) {
+        event.preventDefault();  // Prevent button click behavior
+    });
+    }
+  }
+</script>
+
+{% endblock %}

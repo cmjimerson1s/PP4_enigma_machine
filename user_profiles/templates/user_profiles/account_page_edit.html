@@ -1,6 +1,13 @@
 {% extends "base.html" %}
+<!-- Pass the active page variable to the base template -->
+{% block scripts %}
+{% with active_page='account' %}
+{{ block.super }}
+{% endwith %}
+{% endblock %}
 {% block content %}
-<div class="breadcrumbs d-flex align-items-center" style="background-image: url('https://res.cloudinary.com/dl02kivmy/image/upload/v1685362312/06_17_2013_book-smell_ipn9yw.jpg');">
+<div class="breadcrumbs d-flex align-items-center"
+  style="background-image: url('https://res.cloudinary.com/dl02kivmy/image/upload/v1685362312/06_17_2013_book-smell_ipn9yw.jpg');">
   <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
     <h2>Account Update</h2>
   </div>
@@ -15,7 +22,7 @@
         <input type="text" class="form-control" id="newUsername" name="new_username" value="{{ username }}">
       </div>
     </div>
-    <div class="col-md-3 col-sm-3" >
+    <div class="col-md-3 col-sm-3">
       <div class="mb-3">
         <label for="newFirstName" class="form-label">First Name</label>
         <input type="text" class="form-control" id="newFirstName" name="new_first_name" value="{{ first_name }}">
@@ -63,49 +70,49 @@
     <button id="cancelButton" class="btn btn-secondary">Cancel</button>
   </div>
 </div>
-  
-  <script>
-    // Get the form element
-    var form = document.getElementById('deleteAccountForm');
-  
-    // Get the delete button element
-    var deleteButton = document.getElementById('deleteButton');
-  
-    // Get the modal element
-    var modal = document.getElementById('myModal');
-  
-    // Get the close button element
-    var closeButton = document.getElementsByClassName('close')[0];
-  
-    // Get the confirm and cancel buttons
-    var confirmButton = document.getElementById('confirmButton');
-    var cancelButton = document.getElementById('cancelButton');
-  
-    // When the delete button is clicked, display the modal
-    deleteButton.addEventListener('click', function() {
-      modal.style.display = 'block';
-    });
-  
-    // When the close button is clicked or outside the modal, close the modal
-    closeButton.addEventListener('click', function() {
+
+<script>
+  // Get the form element
+  var form = document.getElementById('deleteAccountForm');
+
+  // Get the delete button element
+  var deleteButton = document.getElementById('deleteButton');
+
+  // Get the modal element
+  var modal = document.getElementById('myModal');
+
+  // Get the close button element
+  var closeButton = document.getElementsByClassName('close')[0];
+
+  // Get the confirm and cancel buttons
+  var confirmButton = document.getElementById('confirmButton');
+  var cancelButton = document.getElementById('cancelButton');
+
+  // When the delete button is clicked, display the modal
+  deleteButton.addEventListener('click', function() {
+    modal.style.display = 'block';
+  });
+
+  // When the close button is clicked or outside the modal, close the modal
+  closeButton.addEventListener('click', function() {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', function(event) {
+    if (event.target == modal) {
       modal.style.display = 'none';
-    });
-  
-    window.addEventListener('click', function(event) {
-      if (event.target == modal) {
-        modal.style.display = 'none';
-      }
-    });
-  
-    // When the confirm button is clicked, submit the form
-    confirmButton.addEventListener('click', function() {
-      form.submit();
-    });
-  
-    // When the cancel button is clicked, close the modal
-    cancelButton.addEventListener('click', function() {
-      modal.style.display = 'none';
-    });
-  </script>
+    }
+  });
+
+  // When the confirm button is clicked, submit the form
+  confirmButton.addEventListener('click', function() {
+    form.submit();
+  });
+
+  // When the cancel button is clicked, close the modal
+  cancelButton.addEventListener('click', function() {
+    modal.style.display = 'none';
+  });
+</script>
 
 {% endblock %}

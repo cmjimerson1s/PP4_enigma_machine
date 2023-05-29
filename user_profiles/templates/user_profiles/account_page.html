@@ -1,6 +1,6 @@
 {% extends "base.html" %}
+<!-- Pass the active page variable to the base template -->
 {% block scripts %}
-  <!-- Pass the active page variable to the base template -->
   {% with active_page='account' %} 
     {{ block.super }}
   {% endwith %}
