@@ -259,6 +259,7 @@ section {
   margin-right: 6px;
 }
 
+
 .header .logo h1 {
   font-size: 24px;
   font-weight: 700;
@@ -2760,6 +2761,11 @@ div.row div.booking:nth-child(odd) {
   line-height: 1;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.footer .logo img {
+  max-height: 30px;
+  margin-right: 6px;
 }
 
 .footer .footer-content .footer-info h3 span {
