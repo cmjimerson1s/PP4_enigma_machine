@@ -85,7 +85,7 @@ def BookingUpdate(request):
     reservation.time_slot = time
     reservation.room_choice = room
 
-    messages.success(request, 'Form submitted successfully!')
+    messages.success(request, 'Reservation updated successfuly!')
     reservation.save(update_fields=['date', 'time_slot','room_choice'])
 
     return redirect('account_overview')

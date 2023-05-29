@@ -106,6 +106,8 @@
               {% else %}
               <form method="POST" action="{% url 'account_booking_edit_confirm' %}">
               {% csrf_token %}
+                  <input type="hidden" name="res_id" value="{{booking.id}}">
+                  <input type="hidden" name="new_date" value="{{today}}">
                   <input type="hidden" name="picked_date" value="{{ today }}">
                   <input type="hidden" name="time" value="{{ time }}">
                   <input type="hidden" name="room" value="{{ room }}">

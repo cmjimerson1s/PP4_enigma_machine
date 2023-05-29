@@ -10,27 +10,32 @@
 <h1 class="text-center m-3">Please review booking details below</h1>
 <div class="row user_info d-flex justify-content-center mt-4">
   <div class="div-box text-center">
-    <h1>Current Reservation:</h1>
+    <h3>Current Reservation:</h3>
     {% for booking in old_booking %}
-    <h2>Date: {{booking.date}}</h2>
-    <h2>Time: {{booking.time_slot}}</h2>
-    <h2>Room: {{booking.room_choice}}</h2>
+    <h5>Date: {{booking.date}}</h5>
+    <h5>Time: {{booking.time_slot}}</h5>
+    <h5>Room: {{booking.room_choice}}</h5>
     {% endfor %}
   </div>
 </div>
 <br>
 <hr class="line">
-<form method="POST" action="{% url 'account_booking_edit_post' %}"> 
-{% csrf_token %}
-<h1>New Reservation Details:</h1>
-<h2>Date: {{new_date}}</h2>
-<input type="hidden" name="new_date" value="{{new_date}}">
-<h2>Time: {{new_time}}</h2>
-<input type="hidden" name="new_time" value="{{new_time}}">
-<h2>Room: {{new_room}}</h2>
-<input type="hidden" name="new_room" value="{{new_room}}">
-<input type="hidden" name="res_id" value="{{res_id}}">
-<button type="submit">Update Reservation</button>
-</form>
+<div class="row user_info d-flex justify-content-center mt-4">
+  <div class="div-box-new text-center">
+    <form method="POST" action="{% url 'account_booking_edit_post' %}"> 
+      {% csrf_token %}
+      <h3>New Reservation Details:</h3>
+      <h5>Date: {{new_date}}</h5>
+      <input type="hidden" name="new_date" value="{{new_date}}">
+      <h5>Time: {{new_time}}</h5>
+      <input type="hidden" name="new_time" value="{{new_time}}">
+      <h5>Room: {{new_room}}</h5>
+      <input type="hidden" name="new_room" value="{{new_room}}">
+      <input type="hidden" name="res_id" value="{{res_id}}">
+      <button type="submit" class="btn btn-success m-3">Update Reservation</button>
+      </form>
+  </div>
+</div>
+
     <a href="{% url 'account_overview' %}">Return to Account</a>
 {% endblock %}
