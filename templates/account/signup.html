@@ -13,20 +13,22 @@
 {% block content %}
 <div class="breadcrumbs d-flex align-items-center" style="background-image: url('https://res.cloudinary.com/dl02kivmy/image/upload/v1685364210/maxresdefault_nzndaj.jpg');">
   <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
-    <h2>Sign Up</h2>
+    <h2>Register</h2>
   </div>
 </div>
-<h1>{% trans "Sign Up" %}</h1>
-
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
+<div class="row old-res d-flex justify-content-center mt-5 mb-5">
+  <div>
+    <h1>{% trans "Sign Up" %}</h1>
+    <p>{% blocktrans %}Already have an account? Then please <a class="log-link" href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <button type="submit" class="btn btn-success m-3">{% trans "Sign Up" %} &raquo;</button>
+    </form>    
+  </div>
+</div>
 
 {% endblock %}

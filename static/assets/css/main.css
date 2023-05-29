@@ -1928,6 +1928,12 @@ div.row div.booking:nth-child(odd) {
   min-height: 300px;
 }
 
+.log-link {
+  color: white;
+  background-color: var(--color-primary);
+  padding: 2px;
+
+}
 /*--------------------------------------------------------------
 # Recent Blog Posts Section
 --------------------------------------------------------------*/
