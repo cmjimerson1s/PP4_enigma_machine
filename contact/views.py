@@ -6,7 +6,7 @@ from django.views import View
 
 # Create your views here.
 def ContactUs(request):
-    template = "contact.html"
+    template = "contact/contact.html"
     form = ContactUsForm()
 
     context = {"form": form}
@@ -22,8 +22,8 @@ class ContactUsPost(View):
             form = contact_form.save(commit=False)
             form.save()
             messages.success(request, "Message has been sent")
-            return render(request, "contact.html", {"form": new_form})
+            return render(request, "contact/contact.html", {"form": new_form})
         else:
             new_form = ContactUs(request)
             messages.error(request, "Error: Please try again")
-            return render(request, "contact.html", {"form": new_form})
+            return render(request, "contact/contact.html", {"form": new_form})
