@@ -13,13 +13,13 @@
 {% endfor %}
 {% endif %}
 
-<section id="hero" class="hero">
+<div id="hero" class="hero">
 
   <div class="info d-flex align-items-center">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
-          <h2 data-aos="fade-down">Welcome to <span>EnigmaMachine</span></h2>
+          <h2 data-aos="fade-down">Welcome to <br><span>Enigma Machine</span></h2>
           <p data-aos="fade-up">Unlock the thrill and test your wits in our heart-pounding escape room adventure!</p>
           <a data-aos="fade-up" data-aos-delay="200" href="{% url 'reservation' %}" class="btn-get-started">Book
             Now!</a>
@@ -58,19 +58,14 @@
     </a>
 
   </div>
-  <!-- ======= Stats Counter Section ======= -->
+</div>
+  <!-- ======= About Section ======= -->
   <section id="about" class="about">
     <div class="container" data-aos="fade-up">
-
-
       <div class="row position-relative">
-
-
         <div class="col-lg-7 about-img"
           style="background-image: url(https://res.cloudinary.com/dl02kivmy/image/upload/v1684931865/shutterstock_1285856470_tkdwgp.jpg);">
         </div>
-
-
         <div class="col-lg-7">
           <h2>Learn More About Our Enigmatic History!</h2>
           <div class="our-story">
@@ -141,10 +136,10 @@
     </div>
   </section>
   <!-- ======= Team Section ======= -->
-  <section id="team" class="team">
+  <div id="team" class="team mb-5">
     <div class="container" data-aos="fade-up">
       <div class="section-header">
-        <h2>Our Team</h2>
+        <h2 class="mt-5">Our Team</h2>
         <p>Meet the minds behind our brilliant rooms!</p>
       </div>
       <div class="row gy-5">
@@ -204,5 +199,5 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
   {% endblock %}

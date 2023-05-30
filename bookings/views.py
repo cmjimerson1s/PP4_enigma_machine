@@ -91,7 +91,8 @@ class ReservationChoice(View):
         cart = [
             item
             for item in request.session.get("cart", [])
-            if item.get("key") and item.get("value") and item.get("specific_date")
+            if item.get("key") and item.get("value") and item.get(
+                "specific_date")
         ]
 
         context = {
@@ -148,7 +149,8 @@ def update_database(request):
                 form = ReservationForm(user=request.user)
                 context = {"form": form, "data": dataset}
                 messages.error(request, "Booking failed. Please try again.")
-                return render(request, "bookings/res_booking_page.html", context)
+                return render(
+                    request, "bookings/res_booking_page.html", context)
 
         if "cart" in request.session:
             del request.session["cart"]

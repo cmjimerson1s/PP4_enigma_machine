@@ -1,15 +1,4 @@
-/**
-* Template Name: UpConstruction
-* Updated: Mar 10 2023 with Bootstrap v5.2.3
-* Template URL: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# Set main reusable colors and fonts using CSS variables
-# Learn more about CSS variables at https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
---------------------------------------------------------------*/
 /* Fonts */
 :root {
   --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -238,7 +227,7 @@ section {
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
-    transition-delay: 0 !important;
+    transition-delay: 0s !important;
   }
 }
 
@@ -252,6 +241,7 @@ section {
   top: 0;
   left: 0;
   right: 0;
+  background-color: #000;
 }
 
 .header .logo img {
@@ -1210,7 +1200,7 @@ section {
 .about .our-story h4 {
   text-transform: uppercase;
   font-size: 18px;
-  color: #838893;
+  color: #30333a;
 }
 
 .about .our-story h3 {
@@ -1571,11 +1561,7 @@ section {
   transform: scale(-1, -1);
 }
 
-.project-details .portfolio-description .testimonial-item p {
-  font-style: italic;
-  margin: 0 0 15px 0 0 0;
-  padding: 0;
-}
+
 
 /*--------------------------------------------------------------
 # Service Details Section
@@ -1771,170 +1757,6 @@ section {
   }
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 60%;
-  max-width: 500px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  max-height: 80vh;
-  overflow-y: auto;
-}
-
-.modal-base {
-  display: none;
-  position: fixed;
-  z-index: 9800;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-/* div.row:nth-child(-n+3) {
-  filter: brightness(50%) ;
-} */
-
-/* div.booking {
-  background-color: #059652;
-  filter: brightness(50%);
-} */
-
-
-
-.calendar div.row:nth-child(1n+2) {
-  background-color: rgba(105, 105, 105, 0.5);
-}
-
-.calendar div.row:nth-child(even) {
-  background-color: rgba(128, 128, 128, 0.5);
-}
-
-div.row div.booking:nth-child(odd) {
-  background-color: inherit;
-}
-
-.btn-success {
-  background-color: var(--color-primary);
-  border:#000 solid ;
-}
-
-.btn-success:hover {
-  background-color: rgba(100, 149, 237, 0.5);
-  border-color: #000;
-}
-
-@media (max-width: 414px) {
-  button.nonslot span {
-    display: none;
-  }
-
-  button.nonslot::after {
-    content: "N/A";
-  }
-}
-
-.step {
-  color: var(--color-primary);
-  font-weight: bold;
-}
-
-.bi-x-circle-fill {
-  color: red;
-}
-
-.cart-box {
-  background-color: rgba(105, 105, 105, 0.3);
-}
-
-.selected-games {
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #F0F0F0; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
-  font-family: var(--font-primary);
-}
-
-/* .selected-games-list {
-  font-size: small;
-} */
-
-.user-info {
-  background-color: rgba(254, 185, 0, 0.3);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.info-text {
-  font-size: x-small;
-}
-
-.correct {
-  background-color: rgba(254, 185, 0, 0.3);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.line {
-  width: 50%;
-  margin: 0 auto;
-}
-
-.div-box {
-  background-color: rgba(254, 185, 0, 0.3);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  padding: 10px; /* Adjust padding as needed */
-  max-width: 450px;
-}
-
-.div-box-new {
-  background-color: rgba(105, 105, 105, 0.5);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  padding: 10px; /* Adjust padding as needed */
-  max-width: 450px;
-}
-
-.old-res {
-  background-color: rgba(105, 105, 105, 0.5);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.logging {
-  min-height: 300px;
-}
-
-.log-link {
-  color: white;
-  background-color: var(--color-primary);
-  padding: 2px;
-
-}
 /*--------------------------------------------------------------
 # Recent Blog Posts Section
 --------------------------------------------------------------*/
@@ -2016,6 +1838,8 @@ div.row div.booking:nth-child(odd) {
 .hero {
   overflow-x: hidden;
   padding: 0;
+  background-color: #000;
+
 }
 
 .hero .carousel {
@@ -2039,7 +1863,7 @@ div.row div.booking:nth-child(odd) {
 
 .hero .carousel-item::before {
   content: "";
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
   position: absolute;
   inset: 0;
 }
@@ -2741,6 +2565,7 @@ div.row div.booking:nth-child(odd) {
   font-size: 14px;
   padding: 80px 0 60px 0;
   position: relative;
+  background-color: #000;
 }
 
 .footer:before {
@@ -2848,4 +2673,166 @@ div.row div.booking:nth-child(odd) {
 
 .footer .footer-legal .credits a {
   color: var(--color-primary);
+}
+
+/*--------------------------------------------------------------
+# CSS Not Provided by Template
+--------------------------------------------------------------*/
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  max-width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-base {
+  display: none;
+  position: fixed;
+  z-index: 9800;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+.calendar div.row:nth-child(1n+2) {
+  background-color: rgba(105, 105, 105, 0.5);
+}
+
+.calendar div.row:nth-child(even) {
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+div.row div.booking:nth-child(odd) {
+  background-color: inherit;
+}
+
+.btn-success {
+  background-color: var(--color-primary);
+  border:#000 solid ;
+}
+
+.btn-success:hover {
+  background-color: rgba(100, 149, 237, 0.5);
+  border-color: #000;
+}
+
+@media (max-width: 414px) {
+  button.nonslot span {
+    display: none;
+  }
+
+  button.nonslot::after {
+    content: "N/A";
+  }
+}
+
+.step {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.bi-x-circle-fill {
+  color: red;
+}
+
+.cart-box {
+  background-color: rgba(105, 105, 105, 0.3);
+}
+
+.selected-games {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #F0F0F0; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  font-family: var(--font-primary);
+}
+
+.user-info {
+  background-color: rgba(254, 185, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-text {
+  font-size: x-small;
+}
+
+.correct {
+  background-color: rgba(254, 185, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.line {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.div-box {
+  background-color: rgba(254, 185, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px; /* Adjust padding as needed */
+  max-width: 450px;
+}
+
+.div-box-new {
+  background-color: rgba(105, 105, 105, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px; /* Adjust padding as needed */
+  max-width: 450px;
+}
+
+.old-res {
+  background-color: rgba(105, 105, 105, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logging {
+  min-height: 300px;
+}
+
+.log-link {
+  color: white;
+  background-color: var(--color-primary);
+  padding: 2px;
+
+}
+
+.blog_time {
+  display: block;
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(54, 77, 89, 0.4);
 }

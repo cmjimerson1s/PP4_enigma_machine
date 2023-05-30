@@ -11,7 +11,8 @@ class Reservation(models.Model):
     price = models.IntegerField()
     date = models.DateField(auto_created=False)
     time_slot = models.ForeignKey(
-        "GameTime", on_delete=models.CASCADE, related_name="time_slot", null=True
+        "GameTime",
+        on_delete=models.CASCADE, related_name="time_slot", null=True
     )
     room_choice = models.ForeignKey(
         "Room", on_delete=models.CASCADE, related_name="room_choice", null=True

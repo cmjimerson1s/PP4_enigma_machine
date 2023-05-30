@@ -72,7 +72,7 @@
                 <img src="{{blog.blog_image.url}}" alt="">
                 <div>
                   <h4><a href="{% url 'detail_view' blog.slug %}">{{blog.blog_title}}</a></h4>
-                  <time>{{blog.posted_date}}</time>
+                  <div class="blog_time">{{blog.posted_date}}</div>
                 </div>
               </div><!-- End recent post item-->
               {% endfor %}
@@ -81,11 +81,10 @@
 
 
           </div><!-- End Blog Sidebar -->
-
         </div>
       </div>
-
     </div>
-</section><!-- End Blog Details Section -->
+  </div>
+</section>
 
 {% endblock %}
