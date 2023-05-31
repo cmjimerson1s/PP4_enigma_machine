@@ -4,7 +4,7 @@
 
 **Developer: Christopher Jimerson**
 
-💻 [Visit live website]()
+💻 [Visit live website](https://pp4-enigma-machine.herokuapp.com/)
 
 
 
@@ -36,15 +36,26 @@
 
 ### About
 
+Enigma Machine is a fictitious business where users can learn about escape rooms, view the current room offerings, create and manage an account, and make bookings for escape room events. 
 <hr>
 
 ### User Goals
 
-- 
+- Create bookings for escape room games.
+- Educate themselves on what an escape room is.
+- View the current rooms that the company has available for booking.
+- View promotions or sales currently going on.
+- Easily communicate with business.
 
 ### Site Owner Goals
 
-- 
+- Allow users to create accounts and make reservations.
+- Be able to track booking data in an easy way.
+- Provide responsive and quality applications to drive sales and user engagement.
+- Make it as simple and clear as possible for users to book.
+- Track communication through the website 
+- Advertise news, promotions, or sales in a clear and easy way.
+
 
 <hr>
 
@@ -52,11 +63,23 @@
 ## User Experience
 
 ### Target Audience
-- 
+
+- Corporate clients who are looking for team building events
+- Escape Room enthusiasts
+- Families looking for events for their families, of all ages. 
+- Tourists looking for things to do in the city.
+- Friends looking for unique experiences for their next bachelor or bachelorette party. 
+- Teachers or schools looking for age appropriate activities.
 
 ### User Requirements and Expectations
 
-- 
+- Easy to use and navigable site.
+- Responsive design.
+- Easy to understand and labeled information channels.
+- Accessable.
+- Account management with booking history.
+- Edit/Cancel bookings.
+- Easily and clear communication channels.
 
 ##### Back to [top](#table-of-contents)<hr>
 
@@ -65,20 +88,8 @@
 
 ### Users
 
-1. 
 
 
-
-
-### Admin / Authorised User
-
-1. 
-
-
-
-### Site Owner  
-
-1. 
 
 ### Kanban, Epics & User Stories
 - GitHub Kanban was used to track all open user stories
