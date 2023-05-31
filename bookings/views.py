@@ -119,7 +119,7 @@ def CartView(request):
 
 
 def update_database(request):
-    data = request.GET.get("data")
+    data = request.POST.get("data")
     dataset = CartTransform(data)
     if request.method == "POST":
         for item in dataset:

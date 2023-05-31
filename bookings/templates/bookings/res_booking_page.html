@@ -29,7 +29,7 @@
   </div>
 </div>
 <div>    
-  <form method="POST" action="{% url 'posted' %}?data=({{ data }})">
+  <form method="POST" action="{% url 'posted' %}">
     {% csrf_token %}
     <input type="hidden" name="data" value="{{ data }}">
       <div class="selected-games p-3 mt-3">
