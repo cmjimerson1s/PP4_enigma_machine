@@ -67,6 +67,7 @@
         <hr>
         {% endfor %}
         <div class=" row-3 d-flex justify-content-center m-3">
+          <label for="price" class="hidden">price</label>
           <div><strong>Total Price*: </strong><input type="number" name="price" id="price" min="300" class="form-control-md boarder-0" readonly></div>
         </div>
         <div class="info-text text-center">*This is due when you arrive to play.</div>
@@ -74,11 +75,14 @@
       <div class="row user-info d-flex justify-content-center mt-5 p-3">
           <input type="hidden" name="user_id" value="{{ user.id }}">
           <div class="col d-flex text-center">
+            <label for="name" class="hidden">date</label>
             <h5>Full Name: {{ form.customer_name }}</h5>
           </div>
           <div class="col d-flex text-center">
+            <label for="email" class="hidden">email</label>
             <h5>Email: {{ form.customer_email }}</h5>
           </div>
+          <label for="comment" class="hidden">comment</label>
           <div class="col d-flex justify-content-center text-center">{{ form.comment }}</div>
       </div>
           <div class="row d-flex justify-content-center">

@@ -39,7 +39,8 @@
             <input type="date" class="form-control" id="newDate" name="new_date" min="{{ today }}">
           </div>
           <div class="col m-sm-2 d-flex justify-content-center align-items-center">
-            <button type="submit" class="btn btn-primary">View Day</button>
+            <label for="newDate" class="hidden">date</label>
+            <button type="submit" class="btn btn-primary" id="newDate">View Day</button>
           </div>
         </div>
       </div>
@@ -141,9 +142,10 @@
           </div>
           <form method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn btn-unstyled" name="delete-item"
+            <label for="delete" class="hidden">delete</label>
+            <button type="submit" class="btn btn-unstyled btn-icon" name="delete-item"
               value="{{ item.key }}|{{ item.value }}|{{ item.specific_date }}"><i
-                class="bi bi-x-circle-fill fs-4"></i></button>
+                class="bi bi-x-circle-fill fs-4"></i>delete</button>
           </form>
         </li>
         {% endfor %}

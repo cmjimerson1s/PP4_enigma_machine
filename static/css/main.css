@@ -2850,3 +2850,7 @@ div.row div.booking:nth-child(odd) {
 .hidden {
   display: none;
 }
+
+.btn-icon {
+  font-size: 0px;
+}

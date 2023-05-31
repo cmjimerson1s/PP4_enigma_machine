@@ -15,13 +15,16 @@ class ReservationForm(forms.ModelForm):
 
         widgets = {
             "customer_name": forms.TextInput(
-                attrs={"placeholder": "Enter Your Name"}
+                attrs={"placeholder": "Enter Your Name", "id": "name"}
             ),
             "customer_email": forms.EmailInput(
-                attrs={"placeholder": "Enter Your Email"}
+                attrs={"placeholder": "Enter Your Email", "id": "email"}
             ),
             "comment": forms.Textarea(
-                attrs={"rows": 3, "placeholder": "Comment or Request"}
+                attrs={
+                    "rows": 3, "placeholder": "Comment or Request",
+                    "id": "comment"
+                }
             ),
         }
 
