@@ -107,11 +107,12 @@ section {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #000;
 }
 
 .breadcrumbs:before {
   content: "";
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.75);
   position: absolute;
   inset: 0;
 }
@@ -241,7 +242,7 @@ section {
   top: 0;
   left: 0;
   right: 0;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
 .header .logo img {
@@ -1738,7 +1739,7 @@ section {
   background: var(--color-primary);
   border: 0;
   padding: 10px 35px;
-  color: #fff;
+  color:  black;
   transition: 0.4s;
   border-radius: 5px;
 }
@@ -2038,7 +2039,7 @@ section {
   right: 0;
   bottom: 0;
   background-color: var(--color-primary);
-  color: #fff;
+  color: black;
   text-transform: uppercase;
   font-size: 13px;
   padding: 6px 12px;
@@ -2064,7 +2065,7 @@ section {
 
 .blog .posts-list .meta span {
   font-size: 15px;
-  color: #838893;
+  color: #43474e;
 }
 
 .blog .posts-list p {
@@ -2082,7 +2083,7 @@ section {
   font-weight: 600;
   line-height: 1;
   transition: 0.3s;
-  color: #838893;
+  color: #43474e;
 }
 
 .blog .posts-list .readmore i {
@@ -2835,4 +2836,14 @@ div.row div.booking:nth-child(odd) {
   font-style: italic;
   font-size: 14px;
   color: rgba(54, 77, 89, 0.4);
+}
+
+.link-box {
+  background-color: rgba(105, 105, 105, 0.5);
+  text-shadow: 2px 2px 2px black;
+  padding: 5px;
+}
+
+.hidden {
+  display: none;
 }

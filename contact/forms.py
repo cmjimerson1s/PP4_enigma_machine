@@ -13,15 +13,22 @@ class ContactUsForm(forms.ModelForm):
         )
         widgets = {
             "inquiry_name": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "Name"}
+                attrs={
+                    "class": "form-control", "placeholder": "Name",
+                    "id": 'name'
+                }
             ),
             "inquiry_email": forms.EmailInput(
-                attrs={"class": "form-control", "placeholder": "Email"}
+                attrs={
+                    "class": "form-control", "placeholder": "Email",
+                    "id": 'email'
+                }
             ),
             "phone_number": forms.TextInput(
                 attrs={
                     "class": "form-control",
                     "placeholder": "Enter Your Phone Number",
+                    "id": 'phone'
                 }
             ),
             "inquiry_message": forms.Textarea(
@@ -29,8 +36,13 @@ class ContactUsForm(forms.ModelForm):
                     "class": "form-control",
                     "rows": 6,
                     "placeholder": "What is your Question?",
+                    "id": 'message'
                 }
             ),
+        }
+
+        label = {
+            "inquiry_name": "Name"
         }
 
         def clean(self):

@@ -42,12 +42,11 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="header d-flex align-items-center">
+  <header id="header" class="header blk d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="{% url 'home' %}" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="{% static 'img/enigma_machine_logo.png' %}" alt="">
+        <img src="{% static 'img/enigma_machine_logo.png' %}" alt="Logo image of Enigma Machine">
       </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -55,7 +54,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           {% block scripts %}
-          <li><a {% if active_page == 'home' %} class="active" {% endif %} href="{% url 'home' %}">Home</a></li>
+          <li><a {% if active_page == 'home' %} class="active activebg" {% endif %} href="{% url 'home' %}">Home</a></li>
           <li><a {% if active_page == 'faq' %} class="active" {% endif %} href="about.html">FAQs</a></li>
           <li><a {% if active_page == 'rooms' %} class="active" {% endif %} href="{% url 'rooms' %}">Rooms</a></li>
           <li><a {% if active_page == 'blog' %} class="active" {% endif %} href="{% url 'blog-post-list' %}">Blog</a></li>
@@ -100,8 +99,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
               <a href="{% url 'home' %}" class="logo d-flex align-items-center mb-3">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="{% static 'img/enigma_machine_logo.png' %}" alt="">
+                <img src="{% static 'img/enigma_machine_logo.png' %}" alt="Logo image of Enigma Machine">
               </a>
               <p>
                 Hantverkargatan 1<br>
@@ -110,10 +108,10 @@
                 <strong>Email:</strong> info@enigmamachine.com<br>
               </p>
               <div class="social-links d-flex mt-3">
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
+                <a href="https://twitter.com/" class="d-flex align-items-center justify-content-center" target="_blank" aria-label="Opens link in new tab to company's Twitter"><i class="bi bi-twitter"></i></a>
+                <a href="https://facebook.com/" class="d-flex align-items-center justify-content-center" target="_blank" aria-label="Opens link in new tab to company's Facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/" class="d-flex align-items-center justify-content-center" target="_blank" aria-label="Opens link in new tab to company's Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://linkedin.com/" class="d-flex align-items-center justify-content-center" target="_blank" aria-label="Opens link in new tab to company's LinkedIn"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
           </div><!-- End footer info column-->
@@ -140,7 +138,7 @@
   </footer>
   <!-- End Footer -->
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Returns to the start of page"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
 
