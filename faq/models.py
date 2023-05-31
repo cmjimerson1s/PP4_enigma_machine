@@ -9,4 +9,4 @@ class Faq(models.Model):
         ordering = ["id"]
 
     def __str__(self):
-        return {self.question}
+        return self.question

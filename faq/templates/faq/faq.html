@@ -12,4 +12,27 @@
     <h2>FAQs</h2>
   </div>
 </div>
+<section id="services" class="services section-bg">
+    <div class="container" id="faq-list" data-aos="fade-up">
+        <div class="row gy-4">
+            {% for q in faq%}
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-item position-relative">
+                    <div>
+                        <div class="icon">
+                            <i class="bi bi-patch-question-fill"></i>
+                        </div>
+                        <div>
+                            <h3>{{q.question}}</h3>
+                        </div>
+                    </div>
+                        <div>
+                          <p>{{q.answer}}</p>
+                        </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}

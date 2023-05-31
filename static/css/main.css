@@ -744,6 +744,8 @@ section {
   top: 10px;
   right: -15px;
   transition: 0.3s;
+  background: var(--color-primary);
+
 }
 
 .services .service-item h3 {
@@ -756,26 +758,14 @@ section {
   display: inline-block;
   border-bottom: 4px solid #ebebed;
   transition: 0.3s;
+  border-color: var(--color-primary);
+
 }
 
 .services .service-item p {
   line-height: 24px;
   font-size: 14px;
   margin-bottom: 0;
-}
-
-.services .service-item .readmore {
-  margin-top: 15px;
-  display: inline-block;
-  color: var(--color-primary);
-}
-
-.services .service-item:hover .icon:before {
-  background: var(--color-primary);
-}
-
-.services .service-item:hover h3 {
-  border-color: var(--color-primary);
 }
 
 /* /*--------------------------------------------------------------
@@ -2853,4 +2843,16 @@ div.row div.booking:nth-child(odd) {
 
 .btn-icon {
   font-size: 0px;
+}
+
+.accordion-button:not(.collapsed) {
+  color: black;
+  background-color: rgba(254, 185, 0, 0.3) ;
+}
+
+.accordion-button:focus {
+  z-index: 3;
+  border-color: black !important;
+  outline: 0;
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem black;
 }
