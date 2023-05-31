@@ -778,10 +778,10 @@ section {
   border-color: var(--color-primary);
 }
 
-/*--------------------------------------------------------------
+/* /*--------------------------------------------------------------
 # Features Section
 --------------------------------------------------------------*/
-.features .nav-tabs {
+/* .features .nav-tabs {
   border: 0;
 }
 
@@ -866,12 +866,12 @@ section {
 
 .features .tab-pane p:last-child {
   margin-bottom: 0;
-}
+} */
 
 /*--------------------------------------------------------------
 # Our Projects Section
 --------------------------------------------------------------*/
-.projects .portfolio-flters {
+/* .projects .portfolio-flters {
   padding: 0;
   margin: 0 auto 20px auto;
   list-style: none;
@@ -978,12 +978,12 @@ section {
 
 .projects .portfolio-content:hover img {
   transform: scale(1.1);
-}
+} */
 
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
-.testimonials .testimonial-wrap {
+/* .testimonials .testimonial-wrap {
   padding-left: 50px;
 }
 
@@ -1093,12 +1093,12 @@ section {
     position: static;
     left: auto;
   }
-}
+} */
 
 /*--------------------------------------------------------------
 # Alt Services Section
 --------------------------------------------------------------*/
-.alt-services .img-bg {
+/* .alt-services .img-bg {
   background-size: cover;
   background-position: center center;
   min-height: 400px;
@@ -1168,7 +1168,7 @@ section {
   line-height: 24px;
   font-size: 14px;
   margin-bottom: 0;
-}
+} */
 
 /*--------------------------------------------------------------
 # About Section
@@ -1403,7 +1403,7 @@ section {
 /*--------------------------------------------------------------
 # Projet Details Section
 --------------------------------------------------------------*/
-.project-details .portfolio-details-slider img {
+/* .project-details .portfolio-details-slider img {
   width: 100%;
 }
 
@@ -1560,7 +1560,7 @@ section {
   position: relative;
   top: 10px;
   transform: scale(-1, -1);
-}
+} */
 
 
 
@@ -2447,7 +2447,7 @@ section {
 /*--------------------------------------------------------------
 # Blog Comments
 --------------------------------------------------------------*/
-.blog .comments {
+/* .blog .comments {
   margin-top: 30px;
 }
 
@@ -2554,7 +2554,7 @@ section {
 .blog .comments .reply-form .btn-primary:hover {
   color: var(--color-secondary);
   background-color: var(--color-primary);
-}
+} */
 
 /*--------------------------------------------------------------
 # Footer
