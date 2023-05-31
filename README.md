@@ -159,35 +159,106 @@ The site was designed for the user to be familiar with the layout such as a navi
 The footer...
 
 - The site consists of the following pages:
-    - 
+    - Home:
+    - FAQ:
+    - Rooms:
+    - Blog:
+    - Book Now:
+    - Contact:
+    - Sign Up:
+    - Login/Logout:
+    - Account: 
 
 #### Database
 
 - Built with Python and the Django framework with a database of a Postgres for the deployed Heroku version(production)
 
 <details><summary>Show diagram</summary>
-<img src="">
+<img src="docs/imgs/db_diagram.jpg">
 </details>
 
 
-##### User Model
-The User Model contains the following:
-- user_id
-- password
-- last_login
-- is_superuser
-- username
-- first_name
-- last_name
-- email
-- is_staff
-- is_active
-- date_joined
 
-#####  Model
-The ### Model contains the following:
- - 
+####  Reservation
+The Reservation Model contains the following:
+ - id
+ - customer_name
+ - customer_email
+ - player_number
+ - price
+ - date
+ - time_slot
+ - room_choice
+ - comment
+ - user_id
 
+#### Room
+The Room Model contains the following:
+ - id
+ - room_name
+ - slug
+ - short_room_description 
+ - room_description
+ - small_image
+ - detail_image
+
+#### GameTime
+The GameTime Model contains the following:
+  - id
+  - game_slot 
+
+ With choices:
+  - 00:00	
+  - 02:00	
+  - 04:00	
+  - 06:00	
+  - 08:00	
+  - 10:00	
+  - 12:00	
+  - 14:00	
+  - 16:00	
+  - 18:00	
+  - 20:00	
+  - 22:00	
+
+
+#### Blog
+The Blog Model contains the following:
+ - id
+ - blog_title
+ - slug
+ - tags
+ - blog_image
+ - blog_small_image
+ - blog_blurb
+ - blog_content
+ - posted_date
+ - meta_tags
+
+ With Choices: 
+  - Blog	
+  - Promotion	
+  - Sale	
+  - News	
+  - Partner Advert	
+  - Holiday	
+  - B.T.S	
+  - Meet the Staff	
+
+#### Contact
+The Contact Model contains the following:
+ - inquiry_id
+ - inquiry_name
+ - inquiry_email
+ - phone_number
+ - created_date
+ - inquiry_message
+
+#### FAQ
+The FAQ Model contains the following:
+ - id
+ - question 
+ - answer
 
 
 ### Wireframes
@@ -223,7 +294,7 @@ The wireframes were created using Balsamiq
 - [Heroku Platform](https://id.heroku.com/login)
 - [jQuery](https://jquery.com)
 - [Postgres](https://www.postgresql.org/)
-- [ElephantSQL]()
+- [ElephantSQL](https://www.elephantsql.com/)
 - Validation:
   - [WC3 Validator](https://validator.w3.org/)
   - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)
@@ -256,12 +327,52 @@ The wireframes were created using Balsamiq
 ## Validation
 
 The W3C Markup Validation Service
-<details><summary>Page</summary>
+<details><summary>Home</summary>
+<img src="">
+</details>
+
+<details><summary>FAQ</summary>
+<img src="">
+</details>
+
+<details><summary>Room</summary>
+<img src="">
+<details><summary>Room(Detail View)</summary>
+<img src="">
+</details>
+</details>
+
+
+<details><summary>Blog</summary>
+<img src="">
+<details><summary>Blog(Detail View)</summary>
+<img src="">
+</details>
+</details>
+
+
+<details><summary>Book Now</summary>
+<img src="">
+<details><summary>Reservation Choice</summary>
+<img src="">
+</details>
+<details><summary>Reservation Booking Form</summary>
+<img src="">
+</details>
+<details><summary>Reservation Confirmation</summary>
+<img src="">
+</details>
+</details>
+
+
+
+<details><summary>Book</summary>
 <img src="">
 </details>
 <details><summary>Subpage</summary>
 <img src="">
 </details>
+
 
 ### CSS Validation
 The W3C Jigsaw CSS Validation Service
