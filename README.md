@@ -399,13 +399,13 @@ The W3C Markup Validation Service
 </details>
 
 
-<details><summary>Book</summary>
+<details><summary>403</summary>
 <img src="">
 </details>
-<details><summary>Book</summary>
+<details><summary>404</summary>
 <img src="">
 </details>
-<details><summary>Book</summary>
+<details><summary>500</summary>
 <img src="">
 </details>
 
@@ -413,8 +413,8 @@ The W3C Markup Validation Service
 ### CSS Validation
 The W3C Jigsaw CSS Validation Service
 
-<details><summary>FILE</summary>
-<img src="">
+<details><summary>CSS</summary>
+<img src="docs/css_validation/css_validation.jpg">
 </details><hr>
 
 ### JavaScript Validation
@@ -427,13 +427,123 @@ JSHint JS Validation Service
 ### PEP8 Validation
 
 
-<hr><summary>APP/PAGE</summary><hr>
+<hr><summary>Blog App</summary><hr>
 
 
-<details><summary>####.py</summary>
+<details><summary>Files</summary>
+<details><summary>views.py</summary>
+<img src="docs/python_validation/blog/blog_view_py_validated.jpg">
+</details>
+<details><summary>urls.py</summary>
+<img src="docs/python_validation/blog/blog_url_py_validated.jpg">
+</details>
+<details><summary>tests.py</summary>
 <img src="">
 </details>
+<details><summary>models.py</summary>
+<img src="docs/python_validation/blog/blog_models_py_validated.jpg">
+</details>
+<details><summary>admin.py</summary>
+<img src="docs/python_validation/blog/blog_admin_py_validated.jpg">
+</details>
+</details>
 
+<hr><summary>Booking App</summary><hr>
+
+<details><summary>Files</summary>
+  <details><summary>views.py</summary>
+  <img src="docs/python_validation/bookings/booking_view_py_validation.jpg">
+  </details>
+  <details><summary>urls.py</summary>
+  <img src="docs/python_validation/bookings/bookings_urls_py_validated.jpg">
+  </details>
+  <details><summary>tests.py</summary>
+  <img src="">
+  </details>
+  <details><summary>forms.py</summary>
+  <img src="docs/python_validation/bookings/bookings_forms_py_validated.jpg">
+  </details>
+  <details><summary>models.py</summary>
+  <img src="docs/python_validation/bookings/bookings_models_py_validated.jpg">
+  </details>
+  <details><summary>admin.py</summary>
+  <img src="docs/python_validation/bookings/bookings_admin_py_validated.jpg">
+  </details>
+  </details>
+  <details><summary>res_tags.py</summary>
+  <img src="docs/python_validation/bookings/bookings_res_tags_py_validated.jpg">
+  </details>
+</details>
+
+<hr><summary>Contact App</summary><hr>
+
+<details><summary>Files</summary>
+  <details><summary>views.py</summary>
+  <img src="docs/python_validation/contact/contact_views_py_validated.jpg">
+  </details>
+  <details><summary>urls.py</summary>
+  <img src="docs/python_validation/contact/contact_urls_py_validated.jpg">
+  </details>
+  <details><summary>tests.py</summary>
+  <img src="">
+  </details>
+  <details><summary>forms.py</summary>
+  <img src="docs/python_validation/contact/contact_forms_py_validated.jpg">
+  </details>
+  <details><summary>models.py</summary>
+  <img src="docs/python_validation/contact/contact_models_py_validated.jpg">
+  </details>
+  <details><summary>admin.py</summary>
+  <img src="docs/python_validation/contact/contact_admin_py_validated.jpg">
+  </details>
+</details>
+
+<hr><summary>FAQ App</summary><hr>
+
+<details><summary>Files</summary>
+  <details><summary>views.py</summary>
+  <img src="docs/python_validation/faq/faq_views_py_validation.jpg">
+  </details>
+  <details><summary>urls.py</summary>
+  <img src="docs/python_validation/faq/faq_urls_py_validation.jpg">
+  </details>
+  <details><summary>tests.py</summary>
+  <img src="">
+  </details>
+  <details><summary>models.py</summary>
+  <img src="docs/python_validation/faq/faq_models_py_validation.jpg">
+  </details>
+  <details><summary>admin.py</summary>
+  <img src="docs/python_validation/faq/faq_models_py_validation.jpg">
+  </details>
+</details>
+
+<hr><summary>Rooms App</summary><hr>
+
+<details><summary>Files</summary>
+  <details><summary>views.py</summary>
+  <img src="docs/python_validation/rooms/rooms_views_py_validated.jpg">
+  </details>
+  <details><summary>urls.py</summary>
+  <img src="docs/python_validation/rooms/rooms_urls_py_validated.jpg">
+  </details>
+    <details><summary>tests.py</summary>
+  <img src="">
+  </details>
+</details>
+
+<hr><summary>User Profile App</summary><hr>
+<details><summary>Files</summary>
+  <details><summary>views.py</summary>
+  <img src="docs/python_validation/user_profiles/user_profile_views_py_validated.jpg">
+  </details>
+  <details><summary>urls.py</summary>
+  <img src="docs/python_validation/user_profiles/user_profile_urls_py_validated.jpg">
+  </details>
+  <details><summary>tests.py</summary>
+  <img src="">
+  </details>
+</details>
 
 
 ### Lighthouse
@@ -441,25 +551,121 @@ JSHint JS Validation Service
 Performance, best practices and SEO was tested using Lighthouse.
 
 #### Desktop
+<details><summary>Home</summary>
+<img src="docs/lighthouse/index_lighthouse.jpg">
+</details>
+
+<details><summary>FAQ</summary>
+<img src="docs/lighthouse/faq_lighthouse.jpg">
+</details>
+
+<details><summary>Rooms</summary>
+<img src="docs/lighthouse/room_lighthouse.jpg">
+<details><summary>Rooms Detail</summary>
+<img src="docs/lighthouse/room_detail_lighthouse.jpg">
+</details>
+
+</details>
+
+<details><summary>Blog</summary>
+<img src="docs/lighthouse/blog_lighthouse.jpg">
+<details><summary>Blog Detail</summary>
+<img src="docs/lighthouse/blog_detail_lighthouse.jpg">
+</details>
+
+</details>
+
+<details><summary>Book Now</summary>
+<img src="docs/lighthouse/booking_lighthouse.jpg">
+</details>
+
+<details><summary>Contact</summary>
+<img src="docs/lighthouse/contact_lighthouse.jpg">
+</details>
+
 <details><summary>PAGE</summary>
-<img src="">
+<img src="docs/lighthouse/account_lighthouse.jpg">
 </details>
 
 
 
-#### Mobile
-<details><summary>PAGE</summary>
-<img src="">
-</details>
 
 
 
 ### Wave
 WAVE was used to test the websites accessibility.
 
-<details><summary>PAGE</summary>
-<img src="">
+<details><summary>Home</summary>
+<img src="docs/wave_validation/index_wave_validation.jpg">
 </details>
+
+<details><summary>FAQ</summary>
+<img src="docs/wave_validation/faq/faq_wave_validation.jpg">
+</details>
+
+<details><summary>Room</summary>
+<img src="docs/wave_validation/rooms/rooms_list_wave_validation.jpg">
+<details><summary>Room(Detail View)</summary>
+<img src="docs/wave_validation/rooms/rooms_detail_wave_validation.jpg">
+</details>
+</details>
+
+
+<details><summary>Blog</summary>
+<img src="docs/wave_validation/blog/blog_bloglist_wave_validation.jpg">
+<details><summary>Blog(Detail View)</summary>
+<img src="docs/wave_validation/blog/blog_blogpost_wave_validation.jpg">
+</details>
+</details>
+
+
+<details><summary>Book Now</summary>
+<img src="docs/wave_validation/bookings/bookings_res_wave_validation.jpg">
+<details><summary>Reservation Choice</summary>
+<img src="docs/wave_validation/bookings/bookings_res_choice_wave_validation.jpg">
+</details>
+<details><summary>Reservation Booking Form</summary>
+<img src="docs/wave_validation/bookings/bookings_bookingform_wave_validation.jpg">
+</details>
+<details><summary>Reservation Confirmation</summary>
+<img src="docs/wave_validation/bookings/bookings_bookingform_confirmed_wave_validation.jpg">
+</details>
+</details>
+
+<details><summary>Contact</summary>
+<img src="docs/wave_validation/contact/contact_wave_validation.jpg">
+</details>
+
+
+<details><summary>AllAuth Account Pages</summary>
+<details><summary>Sign Up</summary>
+<img src="docs/wave_validation/user_profiles/account_signup_wave_validation.jpg">
+</details>
+<details><summary>Logout</summary>
+<img src="docs/wave_validation/user_profiles/account_logout_wave_validation.jpg">
+</details>
+<details><summary>Login</summary>
+<img src="docs/wave_validation/user_profiles/account_login_wave_validation.jpg">
+</details>
+</details>
+
+
+<details><summary>Account</summary>
+<img src="docs/wave_validation/user_profiles/account_wave_validation.jpg">
+<details><summary>Account Info Edit</summary>
+<img src="docs/wave_validation/user_profiles/account_edit_wave_validation.jpg">
+</details>
+<details><summary>Account Booking List</summary>
+<img src="docs/wave_validation/user_profiles/account_bookings_wave_validation.jpg">
+</details>
+<details><summary>Account Booking Edit</summary>
+<img src="docs/wave_validation/user_profiles/account_bookings_edit_wave_validation.jpg">
+</details>
+<details><summary>Account Booking Edit Confirm</summary>
+<img src="docs/wave_validation/user_profiles/account_bookings_edit_confirm_wave_validation.jpg">
+</details>
+</details>
+
 
 
 ##### Back to [top](#table-of-contents)<hr>
