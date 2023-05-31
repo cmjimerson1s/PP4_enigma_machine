@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Faq
 
 
-def faqList(request):
+def FaqList(request):
     template = "faq/faq.html"
     queryset = Faq.objects.all()
 
