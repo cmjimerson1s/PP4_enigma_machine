@@ -249,7 +249,12 @@ section {
   max-height: 40px;
   margin-right: 6px;
 }
-
+@media (max-height: 515px) {
+  .header .logo img {
+    max-height: 20px;
+    margin-right: 6px;
+  }
+}
 
 .header .logo h1 {
   font-size: 24px;
@@ -1899,6 +1904,16 @@ section {
   }
 }
 
+@media (max-height: 515px) {
+  .hero .info h2 {
+    font-size: 28px;
+  }
+
+  .hero .info p {
+    font-size: 12px;
+  }
+}
+
 .hero .info p {
   color: rgba(255, 255, 255, 0.8);
   font-size: 18px;
@@ -1939,6 +1954,12 @@ section {
 @media (min-width: 640px) {
   .hero .carousel-control-next {
     padding-right: 15px;
+  }
+}
+
+@media (min-height: 480px) {
+  .hero .info {
+    color:#059652 !important;
   }
 }
 
