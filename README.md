@@ -383,22 +383,28 @@ The W3C Markup Validation Service
 
 
 <details><summary>Account</summary>
-<img src="">
+<img src="docs/html_validation/user_profiles/account_html_validation.jpg">
 <details><summary>Account Info Edit</summary>
-<img src="">
+<img src="docs/html_validation/user_profiles/account_edit_html_valid.jpg">
 </details>
 <details><summary>Account Booking List</summary>
-<img src="">
+<img src="docs/html_validation/user_profiles/account_res_view_html_valid.jpg">
 </details>
 <details><summary>Account Booking Edit</summary>
-<img src="">
+<img src="docs/html_validation/user_profiles/account_res_edit_ws3_validation.jpg">
 </details>
 <details><summary>Account Booking Edit Confirm</summary>
+<img src="docs/html_validation/user_profiles/account_res_edit_confirm_ws3_validation.jpg">
+</details>
+</details>
+
+
+<details><summary>Book</summary>
 <img src="">
 </details>
+<details><summary>Book</summary>
+<img src="">
 </details>
-
-
 <details><summary>Book</summary>
 <img src="">
 </details>
