@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block scripts %}
+<!-- Passes the active page variable to the base template -->
+{% with active_page='home' %}
+{{ block.super }}
+{% endwith %}
+{% endblock %}
+{% block content%}
+<div class="breadcrumbs d-flex align-items-center"
+  style="background-image: url('https://res.cloudinary.com/dl02kivmy/image/upload/v1685362923/Escape-Game-For-Team-Building-Image-ERR_dknqc6.jpg'); background-position: 50% 80%;">
+  <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+    <h2>FAQs</h2>
+  </div>
+</div>
+{% endblock %}

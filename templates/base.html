@@ -29,7 +29,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'css/main.css'%}" rel="stylesheet">
-  
+
 </head>
 
 <body>
@@ -48,7 +48,7 @@
         <ul>
           {% block scripts %}
           <li><a {% if active_page == 'home' %} class="active activebg" {% endif %} href="{% url 'home' %}">Home</a></li>
-          <li><a {% if active_page == 'faq' %} class="active" {% endif %} href="about.html">FAQs</a></li>
+          <li><a {% if active_page == 'faq' %} class="active" {% endif %} href="{% url 'faq' %}">FAQs</a></li>
           <li><a {% if active_page == 'rooms' %} class="active" {% endif %} href="{% url 'rooms' %}">Rooms</a></li>
           <li><a {% if active_page == 'blog' %} class="active" {% endif %} href="{% url 'blog-post-list' %}">Blog</a></li>
           <li><a {% if active_page == 'reservation' %} class="active" {% endif %}  href="{% url 'reservation' %}">Book Now</a></li>
