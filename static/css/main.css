@@ -2737,11 +2737,13 @@ div.row div.booking:nth-child(odd) {
 .btn-success {
   background-color: var(--color-primary);
   border:#000 solid ;
+  color: black;
 }
 
 .btn-success:hover {
   background-color: rgba(100, 149, 237, 0.5);
   border-color: #000;
+
 }
 
 @media (max-width: 414px) {
@@ -2825,9 +2827,10 @@ div.row div.booking:nth-child(odd) {
 }
 
 .log-link {
-  color: white;
+  color: black;
   background-color: var(--color-primary);
   padding: 2px;
+  border: 2px, solid, white;
 
 }
 
