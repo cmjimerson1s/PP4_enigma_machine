@@ -1,10 +1,10 @@
 # APP NAME
 
-![Am I Responsive]()
+![Am I Responsive](docs/imgs/responsive.jpg)
 
 **Developer: Christopher Jimerson**
 
-💻 [Visit live website](docs/imgs/responsive.jpg)
+💻 [Visit live website]()
 
 
 
