@@ -425,8 +425,8 @@ JSHint JS Validation Service
 ### PEP8 Validation
 
 
-<hr><summary>Blog App</summary><hr>
-
+##### Blog App
+<hr>
 
 <details><summary>Files</summary>
 <details><summary>views.py</summary>
@@ -447,7 +447,7 @@ JSHint JS Validation Service
 </details>
 <hr>
 
-<summary>Booking App</summary>
+##### Booking App
 
 <details><summary>Files</summary>
   <details><summary>views.py</summary>
@@ -474,7 +474,7 @@ JSHint JS Validation Service
 </details>
 <hr>
 
-<summary>Contact App</summary>
+##### Contact App
 
 <details><summary>Files</summary>
   <details><summary>views.py</summary>
@@ -498,7 +498,7 @@ JSHint JS Validation Service
 </details>
 <hr>
 
-<summary>FAQ App</summary>
+##### FAQ App
 
 <details><summary>Files</summary>
   <details><summary>views.py</summary>
@@ -519,7 +519,7 @@ JSHint JS Validation Service
 </details>
 <hr>
 
-<summary>Rooms App</summary>
+##### Rooms App
 
 <details><summary>Files</summary>
   <details><summary>views.py</summary>
@@ -534,7 +534,8 @@ JSHint JS Validation Service
 </details>
 <hr>
 
-<summary>User Profile App</summary>
+##### User Profile App
+
 <details><summary>Files</summary>
   <details><summary>views.py</summary>
   <img src="docs/python_validation/user_profiles/user_profile_views_py_validated.jpg">
