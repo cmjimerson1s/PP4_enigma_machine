@@ -44,22 +44,3 @@ class ContactUsForm(forms.ModelForm):
         label = {
             "inquiry_name": "Name"
         }
-
-        def clean(self):
-            cleaned_data = super().clean()
-            name = cleaned_data.get("inquiry_name")
-            emails = cleaned_data.get("inquiry_email")
-            phone = cleaned_data.get("phone_number")
-            message = cleaned_data.get("inquiry_message")
-
-            if not name:
-                self.add_error("inquiry_name", "Please enter your name.")
-            if not emails:
-                self.add_error("inquiry_email", "Please enter your email.")
-            if not phone:
-                self.add_error(
-                    "phone_number", "Please enter your phone number.")
-            if not message:
-                self.add_error("inquiry_message", "Please enter your message.")
-
-            return cleaned_data
