@@ -15,6 +15,14 @@ def ContactUs(request):
 
 
 class ContactUsPost(View):
+    def get(self, request):
+        template = "contact/contact.html"
+        form = ContactUsForm()
+
+        context = {"form": form}
+
+        return render(request, template, context)
+
     def post(self, request):
         new_form = ContactUsForm()
         contact_form = ContactUsForm(data=request.POST)
@@ -24,6 +32,6 @@ class ContactUsPost(View):
             messages.success(request, "Message has been sent")
             return render(request, "contact/contact.html", {"form": new_form})
         else:
-            new_form = ContactUs(request)
+            new_form = ContactUsForm()
             messages.error(request, "Error: Please try again")
             return render(request, "contact/contact.html", {"form": new_form})
