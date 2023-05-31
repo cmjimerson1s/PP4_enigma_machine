@@ -5,7 +5,7 @@ from .models import Reservation, GameTime, Room
 @admin.register(Reservation)
 class ReservationAdmin(admin.ModelAdmin):
     list_display = ("customer_name", "date", "room_choice", "time_slot")
-    search_fields = ("customer_name", "customer_email")
+    search_fields = ("customer_name", "customer_email","room_choice", "time_slot", "date")
     list_filter = ("room_choice", "date")
 
 
