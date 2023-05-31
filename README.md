@@ -600,29 +600,32 @@ WAVE was used to test the websites accessibility.
 <details><summary>Home</summary>
 <img src="docs/wave_validation/index_wave_validation.jpg">
 </details>
+<hr>
 
 <details><summary>FAQ</summary>
 <img src="docs/wave_validation/faq/faq_wave_validation.jpg">
 </details>
+<hr>
 
 <details><summary>Room</summary>
 <img src="docs/wave_validation/rooms/rooms_list_wave_validation.jpg">
+</details>
 <details><summary>Room(Detail View)</summary>
 <img src="docs/wave_validation/rooms/rooms_detail_wave_validation.jpg">
 </details>
-</details>
-
+<hr>
 
 <details><summary>Blog</summary>
 <img src="docs/wave_validation/blog/blog_bloglist_wave_validation.jpg">
+</details>
 <details><summary>Blog(Detail View)</summary>
 <img src="docs/wave_validation/blog/blog_blogpost_wave_validation.jpg">
 </details>
-</details>
-
+<hr>
 
 <details><summary>Book Now</summary>
 <img src="docs/wave_validation/bookings/bookings_res_wave_validation.jpg">
+</details>
 <details><summary>Reservation Choice</summary>
 <img src="docs/wave_validation/bookings/bookings_res_choice_wave_validation.jpg">
 </details>
@@ -632,14 +635,13 @@ WAVE was used to test the websites accessibility.
 <details><summary>Reservation Confirmation</summary>
 <img src="docs/wave_validation/bookings/bookings_bookingform_confirmed_wave_validation.jpg">
 </details>
-</details>
+<hr>
 
 <details><summary>Contact</summary>
 <img src="docs/wave_validation/contact/contact_wave_validation.jpg">
 </details>
+<hr>
 
-
-<details><summary>AllAuth Account Pages</summary>
 <details><summary>Sign Up</summary>
 <img src="docs/wave_validation/user_profiles/account_signup_wave_validation.jpg">
 </details>
@@ -649,11 +651,11 @@ WAVE was used to test the websites accessibility.
 <details><summary>Login</summary>
 <img src="docs/wave_validation/user_profiles/account_login_wave_validation.jpg">
 </details>
-</details>
-
+<hr>
 
 <details><summary>Account</summary>
 <img src="docs/wave_validation/user_profiles/account_wave_validation.jpg">
+</details>
 <details><summary>Account Info Edit</summary>
 <img src="docs/wave_validation/user_profiles/account_edit_wave_validation.jpg">
 </details>
@@ -665,7 +667,6 @@ WAVE was used to test the websites accessibility.
 </details>
 <details><summary>Account Booking Edit Confirm</summary>
 <img src="docs/wave_validation/user_profiles/account_bookings_edit_confirm_wave_validation.jpg">
-</details>
 </details>
 
 
