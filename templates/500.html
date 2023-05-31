@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block scripts %}
+<!-- Passes the active page variable to the base template -->
+{% with active_page='home' %}
+{{ block.super }}
+{% endwith %}
+{% endblock %}
+<div class="container-fluid">
+  <div class="row d-flex my-5 justify-content-center">
+      <div class="col-md-10 mx-auto p-3 mt-5 rounded">
+          <h1 class="mt-5 mb-5 mx-auto">500 Server Error</h1>
+          <h2 class="mx-auto p-3">There has been a server error. Please try again.</h2>
+          <div class="row mx-auto">
+              <div class="col-md-3">
+                  <a href="{% url 'home' %}" class="btn btn-success">Home</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
