@@ -1906,11 +1906,11 @@ section {
 
 @media (max-height: 515px) {
   .hero .info h2 {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .hero .info p {
-    font-size: 12px;
+    font-size: 14px !important;
   }
 }
 

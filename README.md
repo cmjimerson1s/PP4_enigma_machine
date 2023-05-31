@@ -4,7 +4,7 @@
 
 **Developer: Christopher Jimerson**
 
-💻 [Visit live website]()
+💻 [Visit live website](docs/imgs/responsive.jpg)
 
 
 
