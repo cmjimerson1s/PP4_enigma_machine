@@ -42,6 +42,7 @@
         <div class="row">
           <div class="col d-flex justify-content-center align-items-center">
             <input type="hidden" name="res_id" value="{{booking.id}}">
+            <label for="newDate" class="hidden">date</label>
             <input type="date" class="form-control" id="newDate" name="new_date" min="{{ today }}">
           </div>
           <div class="col m-sm-2 d-flex justify-content-center align-items-center">
@@ -136,7 +137,7 @@
 {% endif %}
 {% endfor %}
 
-<a href="{% url 'account_overview' %}">Return to Account</a>
+<a href="{% url 'account_overview' %}" class="link-box">Return to Account</a>
 
 <div id="account-modal" class="modal">
   <div class="modal-content">
