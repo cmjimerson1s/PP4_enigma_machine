@@ -369,8 +369,6 @@ The W3C Markup Validation Service
 </details>
 <hr>
 
-<details><summary>AllAuth Account Pages</summary>
-</details>
 <details><summary>Sign Up</summary>
 <img src="docs/html_validation/user_profiles/signup_w3s_validation.jpg">
 </details>
@@ -447,8 +445,9 @@ JSHint JS Validation Service
 <img src="docs/python_validation/blog/blog_admin_py_validated.jpg">
 </details>
 </details>
+<hr>
 
-<hr><summary>Booking App</summary><hr>
+<summary>Booking App</summary>
 
 <details><summary>Files</summary>
   <details><summary>views.py</summary>
@@ -469,13 +468,13 @@ JSHint JS Validation Service
   <details><summary>admin.py</summary>
   <img src="docs/python_validation/bookings/bookings_admin_py_validated.jpg">
   </details>
-  </details>
   <details><summary>res_tags.py</summary>
   <img src="docs/python_validation/bookings/bookings_res_tags_py_validated.jpg">
   </details>
 </details>
+<hr>
 
-<hr><summary>Contact App</summary><hr>
+<summary>Contact App</summary>
 
 <details><summary>Files</summary>
   <details><summary>views.py</summary>
@@ -497,8 +496,9 @@ JSHint JS Validation Service
   <img src="docs/python_validation/contact/contact_admin_py_validated.jpg">
   </details>
 </details>
+<hr>
 
-<hr><summary>FAQ App</summary><hr>
+<summary>FAQ App</summary>
 
 <details><summary>Files</summary>
   <details><summary>views.py</summary>
@@ -517,8 +517,9 @@ JSHint JS Validation Service
   <img src="docs/python_validation/faq/faq_models_py_validation.jpg">
   </details>
 </details>
+<hr>
 
-<hr><summary>Rooms App</summary><hr>
+<summary>Rooms App</summary>
 
 <details><summary>Files</summary>
   <details><summary>views.py</summary>
@@ -531,8 +532,9 @@ JSHint JS Validation Service
   <img src="">
   </details>
 </details>
+<hr>
 
-<hr><summary>User Profile App</summary><hr>
+<summary>User Profile App</summary>
 <details><summary>Files</summary>
   <details><summary>views.py</summary>
   <img src="docs/python_validation/user_profiles/user_profile_views_py_validated.jpg">
@@ -544,7 +546,7 @@ JSHint JS Validation Service
   <img src="">
   </details>
 </details>
-
+<hr>
 
 ### Lighthouse
 
