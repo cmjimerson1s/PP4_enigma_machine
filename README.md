@@ -330,29 +330,31 @@ The W3C Markup Validation Service
 <details><summary>Home</summary>
 <img src="docs/html_validation/index_w3s_validation.jpg">
 </details>
-
+<hr>
 <details><summary>FAQ</summary>
 <img src="docs/html_validation/faq/faq_w3s_validation.jpg">
 </details>
+<hr>
 
 <details><summary>Room</summary>
 <img src="docs/html_validation/rooms/rooms_html_valid.jpg">
+</details>
 <details><summary>Room(Detail View)</summary>
 <img src="docs/html_validation/rooms/rooms_detail_html_valid.jpg">
 </details>
-</details>
-
+<hr>
 
 <details><summary>Blog</summary>
 <img src="docs/html_validation/blog/blog_html_valid.jpg">
+</details>
 <details><summary>Blog(Detail View)</summary>
 <img src="docs/html_validation/blog/blog_detail_html_valid.jpg">
 </details>
-</details>
-
+<hr>
 
 <details><summary>Book Now</summary>
 <img src="docs/html_validation/bookings/reservation_ws3_validation.jpg">
+</details>
 <details><summary>Reservation Choice</summary>
 <img src="docs/html_validation/bookings/reservation_res_choice_ws3_validation.jpg">
 </details>
@@ -362,14 +364,13 @@ The W3C Markup Validation Service
 <details><summary>Reservation Confirmation</summary>
 <img src="docs/html_validation/bookings/reservation_confirmation_ws3_validation.jpg">
 </details>
-</details>
-
 <details><summary>Contact</summary>
 <img src="docs/html_validation/contact/contact_html_valid.jpg">
 </details>
-
+<hr>
 
 <details><summary>AllAuth Account Pages</summary>
+</details>
 <details><summary>Sign Up</summary>
 <img src="docs/html_validation/user_profiles/signup_w3s_validation.jpg">
 </details>
@@ -379,11 +380,11 @@ The W3C Markup Validation Service
 <details><summary>Login</summary>
 <img src="docs/html_validation/user_profiles/login_w3s_validation.jpg">
 </details>
-</details>
-
+<hr>
 
 <details><summary>Account</summary>
 <img src="docs/html_validation/user_profiles/account_html_validation.jpg">
+</details>
 <details><summary>Account Info Edit</summary>
 <img src="docs/html_validation/user_profiles/account_edit_html_valid.jpg">
 </details>
@@ -396,8 +397,7 @@ The W3C Markup Validation Service
 <details><summary>Account Booking Edit Confirm</summary>
 <img src="docs/html_validation/user_profiles/account_res_edit_confirm_ws3_validation.jpg">
 </details>
-</details>
-
+<hr>
 
 <details><summary>403</summary>
 <img src="">
