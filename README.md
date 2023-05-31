@@ -328,48 +328,78 @@ The wireframes were created using Balsamiq
 
 The W3C Markup Validation Service
 <details><summary>Home</summary>
-<img src="">
+<img src="docs/html_validation/index_w3s_validation.jpg">
 </details>
 
 <details><summary>FAQ</summary>
-<img src="">
+<img src="docs/html_validation/faq/faq_w3s_validation.jpg">
 </details>
 
 <details><summary>Room</summary>
-<img src="">
+<img src="docs/html_validation/rooms/rooms_html_valid.jpg">
 <details><summary>Room(Detail View)</summary>
-<img src="">
+<img src="docs/html_validation/rooms/rooms_detail_html_valid.jpg">
 </details>
 </details>
 
 
 <details><summary>Blog</summary>
-<img src="">
+<img src="docs/html_validation/blog/blog_html_valid.jpg">
 <details><summary>Blog(Detail View)</summary>
-<img src="">
+<img src="docs/html_validation/blog/blog_detail_html_valid.jpg">
 </details>
 </details>
 
 
 <details><summary>Book Now</summary>
-<img src="">
+<img src="docs/html_validation/bookings/reservation_ws3_validation.jpg">
 <details><summary>Reservation Choice</summary>
-<img src="">
+<img src="docs/html_validation/bookings/reservation_res_choice_ws3_validation.jpg">
 </details>
 <details><summary>Reservation Booking Form</summary>
-<img src="">
+<img src="docs/html_validation/bookings/bookings_bookingform_w3s_validation.jpg">
 </details>
 <details><summary>Reservation Confirmation</summary>
-<img src="">
+<img src="docs/html_validation/bookings/reservation_confirmation_ws3_validation.jpg">
 </details>
 </details>
 
+<details><summary>Contact</summary>
+<img src="docs/html_validation/contact/contact_html_valid.jpg">
+</details>
+
+
+<details><summary>AllAuth Account Pages</summary>
+<details><summary>Sign Up</summary>
+<img src="docs/html_validation/user_profiles/signup_w3s_validation.jpg">
+</details>
+<details><summary>Logout</summary>
+<img src="docs/html_validation/user_profiles/logout_w3s_validation.jpg">
+</details>
+<details><summary>Login</summary>
+<img src="docs/html_validation/user_profiles/login_w3s_validation.jpg">
+</details>
+</details>
+
+
+<details><summary>Account</summary>
+<img src="">
+<details><summary>Account Info Edit</summary>
+<img src="">
+</details>
+<details><summary>Account Booking List</summary>
+<img src="">
+</details>
+<details><summary>Account Booking Edit</summary>
+<img src="">
+</details>
+<details><summary>Account Booking Edit Confirm</summary>
+<img src="">
+</details>
+</details>
 
 
 <details><summary>Book</summary>
-<img src="">
-</details>
-<details><summary>Subpage</summary>
 <img src="">
 </details>
 
