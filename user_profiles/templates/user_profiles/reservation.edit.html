@@ -86,7 +86,7 @@
         <input type="hidden" name="picked_date" value="{{ today }}">
         <input type="hidden" name="time" value="{{ time }}">
         <input type="hidden" name="room" value="{{ room }}">
-        <button type="submit" class="btn btn-success" id="{{ room }}-{{ time }}-{{ today }}">{{time}}</button>
+        <button type="submit" class="btn btn-success" id="{{ room.id }}-{{ time }}-{{ today }}">{{time}}</button>
       </form>
       {% endif %}
       {% endwith %}
@@ -125,7 +125,7 @@
         <input type="hidden" name="picked_date" value="{{ today }}">
         <input type="hidden" name="time" value="{{ time }}">
         <input type="hidden" name="room" value="{{ room }}">
-        <button type="submit" class="btn btn-success" id="{{ room }}-{{ time }}-{{ today }}">{{time}}</button>
+        <button type="submit" class="btn btn-success" id="{{ room.id }}-{{ time }}-{{ today }}">{{time}}</button>
       </form>
       {% endif %}
       {% endwith %}

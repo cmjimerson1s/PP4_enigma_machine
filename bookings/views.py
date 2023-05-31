@@ -108,7 +108,7 @@ class ReservationChoice(View):
 
 
 def CartView(request):
-    data = request.GET.get("cart")
+    data = request.POST.get("cart")
     user_id = request.POST.get("user_id")
     cart = CartTransform(data)
     user = User.objects.filter(id=user_id)

@@ -40,7 +40,7 @@
           </div>
           <div class="col m-sm-2 d-flex justify-content-center align-items-center">
             <label for="newDate" class="hidden">date</label>
-            <button type="submit" class="btn btn-primary" id="newDate">View Day</button>
+            <button type="submit" class="btn btn-primary" id="new-date">View Day</button>
           </div>
         </div>
       </div>
@@ -94,7 +94,6 @@
     <h3>Availability on: {{today}}</h3>
   </div>
 </div>
-</form>
 <div class="container calendar mb-3">
   <div class="row">
     {% for room in rooms %}
@@ -116,7 +115,7 @@
         <input type="hidden" name="picked_date" value="{{ today }}">
         <input type="hidden" name="time" value="{{ time }}">
         <input type="hidden" name="room" value="{{ room }}">
-        <button type="submit" class="btn btn-success" id="{{ room }}-{{ time }}-{{ today }}">{{time}}</button>
+        <button type="submit" class="btn btn-success" id="{{ room.id }}-{{ time }}-{{ today }}">{{time}}</button>
       </form>
       {% endif %}
       {% endwith %}
@@ -142,7 +141,6 @@
           </div>
           <form method="POST">
             {% csrf_token %}
-            <label for="delete" class="hidden">delete</label>
             <button type="submit" class="btn btn-unstyled btn-icon" name="delete-item"
               value="{{ item.key }}|{{ item.value }}|{{ item.specific_date }}"><i
                 class="bi bi-x-circle-fill fs-4"></i>delete</button>
@@ -151,24 +149,25 @@
         {% endfor %}
       </ul>
     </div>
-  </div class="row mt-4">
-  <div class="col-md-12 d-flex justify-content-center pb-3">
-    <form method="POST">
-      {% csrf_token %}
-      <button type="submit" class="btn btn-danger" name="delete-all" value="true">Empty Cart</button>
-    </form>
   </div>
-  <div class="col-md-12 d-flex justify-content-center pb-3">
-    <form action="{% url 'booking_form' %}?cart={{ cart }}" method="post">
-      {% csrf_token %}
-      <input type="hidden" name="cart" value="{{ cart }}">
-      <input type="hidden" name="user_id" value="{{ user.id }}">
-      <button type="submit" class="btn btn-success">Continue to Booking</button>
-    </form>
+  <div class="row mt-4">
+    <div class="col-md-12 d-flex justify-content-center pb-3">
+      <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger" name="delete-all" value="true">Empty Cart</button>
+      </form>
+    </div>
+    <div class="col-md-12 d-flex justify-content-center pb-3">
+      <form action="{% url 'booking_form' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="cart" value="{{ cart }}">
+        <input type="hidden" name="user_id" value="{{ user.id }}">
+        <button type="submit" class="btn btn-success">Continue to Booking</button>
+      </form>
+    </div>
   </div>
 </div>
-</div>
-</div>
+
 {% else %}
 <div class="cart-box">
   <div class="row mt-4">
