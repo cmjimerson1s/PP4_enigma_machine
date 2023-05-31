@@ -1,108 +1,464 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# APP NAME
 
-Welcome cmjimerson1s,
+![Am I Responsive]()
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+**Developer: Christopher Jimerson**
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+💻 [Visit live website]()
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
+## Table of Contents
+  - [About](#about)
+  - [User Goals](#user-goals)
+  - [Site Owner Goals](#site-owner-goals)
+  - [User Experience](#user-experience)
+  - [User Stories](#user-stories)
+  - [Design](#design)
+    - [Colours](#colours)
+    - [Fonts](#fonts)
+    - [Structure](#structure)
+      - [Website pages](#website-pages)
+      - [Database](#database)
+    - [Wireframes](#wireframes)
+  - [Technologies Used](#technologies-used)
+  - [Features](#features)
+  - [Validation](#validation)
+  - [Testing](#testing)
+    - [Manual testing](#manual-testing)
+    - [Automated testing](#automated-testing)
+    - [Tests on various devices](#tests-on-various-devices)
+    - [Browser compatibility](#browser-compatibility)
+  - [Bugs](#bugs)
+  - [Heroku Deployment](#heroku-deployment)
+  - [Credits](#credits)
+  - [Acknowledgements](#acknowledgements)
 
-A blue button should appear to click: _Make Public_,
+### About
 
-Another blue button should appear to click: _Open Browser_.
+<hr>
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### User Goals
 
-A blue button should appear to click: _Make Public_,
+- 
 
-Another blue button should appear to click: _Open Browser_.
+### Site Owner Goals
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- 
 
-To log into the Heroku toolbelt CLI:
+<hr>
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## User Experience
 
-------
+### Target Audience
+- 
 
-## Release History
+### User Requirements and Expectations
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- 
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+##### Back to [top](#table-of-contents)<hr>
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## User Stories
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Users
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+1. 
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Admin / Authorised User
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+1. 
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Site Owner  
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+1. 
 
-------
+### Kanban, Epics & User Stories
+- GitHub Kanban was used to track all open user stories
+- Epics were created using the milestones feature
+- Backlog, In Progress, Done headings were used in the kanban
 
-## FAQ about the uptime script
+<details><summary>Epics</summary>
 
-**Why have you added this script?**
+![Epics]()
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+</details>
 
-**How will this affect me?**
+<details><summary>User Stories</summary>
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+![User stories]()
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+</details>
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+<details><summary>Kanban</summary>
 
-**So….?**
+![Kanban finish]()
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+</details>
 
-**Can I opt out?**
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+##### Back to [top](#table-of-contents)<hr>
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
 
-**Anything more?**
+## Design
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### Colours
 
----
 
-Happy coding!
+<details><summary>See colour pallet</summary>
+<img src="">
+</details>
+
+### Fonts
+
+
+### Structure
+
+#### Website pages
+
+The site was designed for the user to be familiar with the layout such as a navigation bar along the top of the pages and a hamburger menu button for smaller screen.
+
+The footer...
+
+- The site consists of the following pages:
+    - 
+
+#### Database
+
+- Built with Python and the Django framework with a database of a Postgres for the deployed Heroku version(production)
+
+<details><summary>Show diagram</summary>
+<img src="">
+</details>
+
+
+##### User Model
+The User Model contains the following:
+- user_id
+- password
+- last_login
+- is_superuser
+- username
+- first_name
+- last_name
+- email
+- is_staff
+- is_active
+- date_joined
+
+#####  Model
+The ### Model contains the following:
+ - 
+
+
+
+### Wireframes
+The wireframes were created using Balsamiq
+<details><summary></summary>
+<img src="">
+</details>
+
+
+## Technologies Used
+
+### Languages & Frameworks
+
+- HTML
+- CSS
+- Javascript
+- Python
+- Django
+
+
+### Libraries & Tools
+
+- [Am I Responsive](http://ami.responsivedesign.is/)
+- [Balsamiq](https://balsamiq.com/)
+- [Bootstrap v5.2](https://getbootstrap.com/)
+- [Cloudinary](https://cloudinary.com/)
+- [Favicon.io](https://favicon.io)
+- [Chrome dev tools](https://developers.google.com/web/tools/chrome-devtools/)
+- [Font Awesome](https://fontawesome.com/)
+- [Git](https://git-scm.com/)
+- [GitHub](https://github.com/)
+- [Google Fonts](https://fonts.google.com/)
+- [Heroku Platform](https://id.heroku.com/login)
+- [jQuery](https://jquery.com)
+- [Postgres](https://www.postgresql.org/)
+- [ElephantSQL]()
+- Validation:
+  - [WC3 Validator](https://validator.w3.org/)
+  - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)
+  - [JShint](https://jshint.com/)
+  - [CI Validator(PEP8)](https://pep8ci.herokuapp.com//)
+  - [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
+  - [Wave Validator](https://wave.webaim.org/)
+
+##### Back to [top](#table-of-contents)
+
+
+## Features
+
+### Featre
+- Description
+
+
+<details><summary>See feature images</summary>
+
+![Feature](img)
+</details>
+
+
+
+
+
+##### Back to [top](#table-of-contents)<hr>
+
+
+## Validation
+
+The W3C Markup Validation Service
+<details><summary>Page</summary>
+<img src="">
+</details>
+<details><summary>Subpage</summary>
+<img src="">
+</details>
+
+### CSS Validation
+The W3C Jigsaw CSS Validation Service
+
+<details><summary>FILE</summary>
+<img src="">
+</details><hr>
+
+### JavaScript Validation
+JSHint JS Validation Service
+
+<details><summary>FILE</summary>
+<img src="">
+</details><hr>
+
+### PEP8 Validation
+
+
+<hr><summary>APP/PAGE</summary><hr>
+
+
+<details><summary>####.py</summary>
+<img src="">
+</details>
+
+
+
+### Lighthouse
+
+Performance, best practices and SEO was tested using Lighthouse.
+
+#### Desktop
+<details><summary>PAGE</summary>
+<img src="">
+</details>
+
+
+
+#### Mobile
+<details><summary>PAGE</summary>
+<img src="">
+</details>
+
+
+
+### Wave
+WAVE was used to test the websites accessibility.
+
+<details><summary>PAGE</summary>
+<img src="">
+</details>
+
+
+##### Back to [top](#table-of-contents)<hr>
+
+
+## Testing
+
+1. Manual testing
+2. Automated testing
+
+### Manual testing
+
+1. User Story
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+ | #### | #### | #### |
+
+<details><summary></summary>
+<img src="">
+</details>
+
+
+### Automated testing
+
+- Testing was done using the built in Django module, unittest.
+- Coverage was also usesd to generate a report
+
+
+<details><summary>APP test.py</summary>
+<img src="">
+</details>
+
+
+### Device Testing & Browser compatibility
+
+
+The following devices were used for tests:
+
+<details><summary>DEVICE</summary>
+<img src="">
+</details>
+
+
+##### Back to [top](#table-of-contents)<hr>
+
+
+## Bugs
+
+| **Bug** | **Fix** |
+| ------- | ------- |
+| #### | #### |
+
+##### Back to [top](#table-of-contents)<hr>
+
+
+### Heroku Deployment
+
+[Official Page](https://devcenter.heroku.com/articles/git) (Ctrl + click)
+
+This application has been deployed from Github using Heroku. Here's how:
+
+1. Create an account at heroku.com
+<details>
+<img src="">
+</details>
+
+2. Create an app, give it a name for such as ci-pp4-the-diplomat, and select a region
+<details>
+<img src="">
+<img src="">
+</details>
+
+3. Under resources search for postgres, and add a Postgres database to the app
+<details>
+<img src="">
+</details>
+
+Heroku Postgres
+
+1. Note the DATABASE_URL, this can be set as an environment variable in Heroku and your local deployment(env.py)
+<details>
+<img src="">
+<img src="">
+</details>
+
+2. Install the plugins dj-database-url and psycopg2-binary.
+
+3. Run pip3 freeze > requirements.txt so both are added to the requirements.txt file
+<details>
+<img src="">
+</details>
+
+4. Create a Procfile with the text: web: gunicorn APPNAME.wsgi
+<details>
+<img src="">
+</details>
+
+5. In the settings.py ensure the connection is to the Heroku postgres database
+<details>
+<img src="">
+<img src="">
+</details>
+
+6. Ensure debug is set to false in the settings.py file
+<details>
+<img src="">
+</details>
+
+7. Add localhost, and ##### to the ALLOWED_HOSTS variable in settings.py
+
+8. Run "python3 manage.py showmigrations" to check the status of the migrations
+
+9. Run "python3 manage.py migrate" to migrate the database
+
+10. Run "python3 manage.py createsuperuser" to create a super/admin user
+
+11. Run "python3 manage.py loaddata categories.json" on the categories file in products/fixtures to create the categories
+
+12. Run "python3 manage.py loaddata products.json" on the products file in products/fixtures to create the products
+
+13. Install gunicorn and add it to the requirements.txt file using the command pip3 freeze > requirements.txt
+
+14. Disable collectstatic in Heroku before any code is pushed using the command heroku config:set DISABLE_COLLECTSTATIC=1 -a ci-pp4-the-diplomat
+<details>
+<img src="">
+<img src="">
+</details>
+
+
+15. Ensure the following environment variables are set in Heroku
+<details>
+<img src="">
+</details>
+
+16. Connect the app to GitHub, and enable automatic deploys from main if you wish
+<details>
+<img src="">
+<img src="">
+</details>
+
+17. Click deploy to deploy your application to Heroku for the first time
+
+18. Click on the link provided to access the application
+
+19. If you encounter any issues accessing the build logs is a good way to troubleshoot the issue
+<hr>
+
+### Fork Repository
+To fork the repository by following these steps:
+1. Go to the GitHub repository
+2. Click on Fork button in upper right hand corner
+<hr>
+
+### Clone Repository
+You can clone the repository by following these steps:
+1. Go to the GitHub repository 
+2. Locate the Code button above the list of files and click it 
+3. Select if you prefere to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the URL to your clipboard
+4. Open Git Bash
+5. Change the current working directory to the one where you want the cloned directory
+6. Type git clone and paste the URL from the clipboard ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY)
+7.Press Enter to create your local clone.
+
+##### Back to [top](#table-of-contents)<hr>
+
+
+## Credits
+
+### Images
+
+
+### Code
+
+
+##### Back to [top](#table-of-contents)<hr>
+
+## Acknowledgements
+
+### Special thanks to the following:
