@@ -582,7 +582,6 @@ JSHint JS Validation Service
 
 
 ##### Blog App
-<hr>
 
 <details><summary>Files</summary>
 <details><summary>views.py</summary>
@@ -745,7 +744,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 <details><summary>PAGE</summary>
 <img src="docs/lighthouse/account_lighthouse.jpg">
 </details>
-
+<br>
 
 
 
@@ -829,7 +828,7 @@ WAVE was used to test the websites accessibility.
 
 
 ##### Back to [top](#table-of-contents)<hr>
-
+<br>
 
 ## Testing
 
@@ -840,9 +839,9 @@ WAVE was used to test the websites accessibility.
 
 1. As a user, I want to be able to view the availability and schedule of each escape room game in real-time on the booking website, so that I can select a time slot that works best for me.
 
-**Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Navigate to the Book Now page | The availability and schedule information is displayed. | Works as Expected|
+**Feature** | **Action** | **Expected Result** | **Actual Result**
+------------ |------------ | ------------ | ------------ |
+ | This | Navigate to the Book Now page | The availability and schedule information is displayed. | Works as Expected|
 
 <details><summary></summary>
 <img src="">
@@ -851,7 +850,7 @@ WAVE was used to test the websites accessibility.
 2. As a user, I want to be able to view all available escape room games on the booking website, including their descriptions, difficulty levels, and any other information so that I can make an informed decision on which game to reserve.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
+------------ |------------ | ------------ | ------------ |
  | Navigate to the Room page | The descriptions and details provide sufficient information to make an informed decision. | Works as Expected |
 
 <details><summary></summary>
@@ -861,7 +860,7 @@ WAVE was used to test the websites accessibility.
 3. As a user, I want to be able to reserve multiple escape room games for different time slots in a single booking transaction, so that I can plan a day of fun-filled activities with my friends or family.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
+------------ |------------ | ------------ | ------------ |
  | Navigate to the Booking page | Each chosen game and time slot are marked accordingly. | Works as Expected |
  | Navigate to the Booking page form| The booking summary shows the selected escape room games and their respective time slots. | Works as Expected |
 | Complete Booking form | The reservation is successfully processed for multiple escape room games with different time slots, with a single input of customer data | Works as Expected |
@@ -872,7 +871,7 @@ WAVE was used to test the websites accessibility.
 4. As a user, I want to be able to create an account on the booking website to store my booking history so that I can easily track my previous experiences to ensure no booking errors in the future.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
+------------ |------------ | ------------ | ------------ |
  | Navigate to the Register page | The account creation or registration form is displayed. | Works as Expected |
  | Fill in the required details for account creation.| The form is successfully submitted, and a confirmation message is displayed. | Works as Expected |
  | #### | The account dashboard or profile page is accessible with the provided credentials. | Works as Expected |
@@ -884,11 +883,11 @@ WAVE was used to test the websites accessibility.
 5. As a user, I want to be able to easily cancel or reschedule my escape room game reservations through the booking website, so that I can adjust my plans quickly if needed.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Log in to the user account.	 | The login process is successful, and the user account dashboard is accessible. | #### |
- | Locate the reservation management section in the account dashboard. | The reservation management section is visible and accessible. | #### |
- | Find the escape room game reservation to cancel or reschedule. | The reservation details, including date and time, are displayed. | #### |
- | Follow the cancellation or rescheduling process. | The user is guided through the necessary steps, such as selecting a new date or confirming the cancellation. | #### |
+------------ |------------ | ------------ | ------------ |
+ | Log in to the user account.	 | The login process is successful, and the user account dashboard is accessible. | Works as Expected |
+ | Locate the reservation management section in the account dashboard. | The reservation management section is visible and accessible. | Works as Expected |
+ | Find the escape room game reservation to cancel or reschedule. | The reservation details, including date and time, are displayed. | Works as Expected |
+ | Follow the cancellation or rescheduling process. | The user is guided through the necessary steps, such as selecting a new date or confirming the cancellation. | Works as Expected |
 
 
 <details><summary></summary>
@@ -898,9 +897,9 @@ WAVE was used to test the websites accessibility.
 6. As a user, I want to be able to leave reviews and ratings for escape room games that I have played, so that I can share my feedback and experiences with other users, and help them make informed decisions when booking games.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Log in to the user account.| See social media review site links on page | #### |
- | Locate Footer | See social media links | |
+------------ |------------ | ------------ | ------------ |
+ | Log in to the user account.| See social media review site links on page | Works as Expected |
+ | Locate Footer | See social media links | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -909,9 +908,9 @@ WAVE was used to test the websites accessibility.
 7. As a user, I want to be able to view special promotions, discounts, or packages for escape room games on the booking website, so that I can take advantage of any available deals and save on my bookings.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Navigate to the Blog page | A list of blog post displays | #### |
- | Choose a blog post tagged as promotion | The promotions are displayed with details on discounts, packages, or any special offers. | #### |
+------------ |------------ | ------------ | ------------ |
+ | Navigate to the Blog page | A list of blog post displays | Works as Expected |
+ | Choose a blog post tagged as promotion | The promotions are displayed with details on discounts, packages, or any special offers. | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -920,8 +919,8 @@ WAVE was used to test the websites accessibility.
 8. As a user, I want to be able to access the booking website on different devices, including desktops, laptops, tablets, and smartphones, with a responsive and user-friendly design, so that I can make bookings anytime and anywhere.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | View the website on a mobile phone, tablet, or laptop of varying size | The website performs correctly and visually fits the device | #### |
+------------ |------------ | ------------ | ------------ |
+ | View the website on a mobile phone, tablet, or laptop of varying size | The website performs correctly and visually fits the device | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -930,9 +929,9 @@ WAVE was used to test the websites accessibility.
 9. As a user, I want to be able to view detailed information about the escape room game venues, such as their locations, facilities, parking options, and accessibility, so that I can plan my visit accordingly and have a smooth experience.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Navigate to the Contact page | The page displays the location and facility information for the comapny | #### |
- | Navigate to FAQ page | The page displays question and answers to the requested data | #### |
+------------ |------------ | ------------ | ------------ |
+ | Navigate to the Contact page | The page displays the location and facility information for the comapny | Works as Expected |
+ | Navigate to FAQ page | The page displays question and answers to the requested data | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -941,9 +940,9 @@ WAVE was used to test the websites accessibility.
 10. As a user, I want to be able to contact the escape room game venue or customer support through the booking website, with options for email, or phone support, so that I can get assistance or information whenever I need it.
 
 **Feature**| **Action**| **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Locate the contact page. | The section containing contact information is visible and easily accessible. | #### |
- | Fill out the Contact Form | A successful message is sent to the company, also alerts the user | #### |
+------------ |------------ | ------------ | ------------ |
+ | Locate the contact page. | The section containing contact information is visible and easily accessible. | Works as Expected |
+ | Fill out the Contact Form | A successful message is sent to the company, also alerts the user | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -952,8 +951,8 @@ WAVE was used to test the websites accessibility.
 11. As a user, I want to be able to view photos of the escape room game themes and rooms on the booking website, so that I can get a sneak peek of the games and get excited about the experience.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Navigate to Home page | See a slideshow of games and people playing | #### |
+------------ |------------ | ------------ | ------------ |
+ | Navigate to Home page | See a slideshow of games and people playing | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -962,8 +961,8 @@ WAVE was used to test the websites accessibility.
 12. As a user, I want to be able to customize my escape room game experience by requesting special arrangements for birthdays, team-building events, or other occasions, through my booking so that I can get more out of my event planning.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Provide additional details or requirements during the booking process | The user can enter specific information or requests related to the special arrangement. | #### |
+------------ |------------ | ------------ | ------------ |
+ | Provide additional details or requirements during the booking process | The user can enter specific information or requests related to the special arrangement. | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -972,10 +971,10 @@ WAVE was used to test the websites accessibility.
 13. As a user I want to be able to delete my own account and request all my data be removed from your servers/databases so that I can exercise my data protection rights.
 
 **Feature**| **Action**| **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Navigate to Account page | Display account details and account edit link | #### |
- | Navigate to Account Edit page | Display the ability to edit or delete account | #### |
- | Submit delete request by pressing button | Be presented with a warning before again confirming | #### |
+------------ |------------ | ------------ | ------------ |
+ | Navigate to Account page | Display account details and account edit link | Works as Expected |
+ | Navigate to Account Edit page | Display the ability to edit or delete account | Works as Expected |
+ | Submit delete request by pressing button | Be presented with a warning before again confirming | Works as Expected |
 
 
 <details><summary></summary>
@@ -985,10 +984,10 @@ WAVE was used to test the websites accessibility.
 14. As a user I want to be able to edit my account details so that I can keep the booking process smooth and easy even if my email or other data changes.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Navigate to Account page | Display account details and account edit link | #### |
- | Navigate to Account Edit page | Display the ability to edit or delete account | #### |
- | Update information on edit page | Get an update that account update was successful | #### |
+------------ |------------ | ------------ | ------------ |
+ | Navigate to Account page | Display account details and account edit link | Works as Expected |
+ | Navigate to Account Edit page | Display the ability to edit or delete account | Works as Expected |
+ | Update information on edit page | Get an update that account update was successful | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -997,8 +996,8 @@ WAVE was used to test the websites accessibility.
 15. As a user I want to be able to create a reservation using my account information, and having all the applicable data visible such as group sizes, date, time, etc so that I can quick and easily secure a booking.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Creete a booking reservation | Have the data from my user account appeare in the booking form | #### |
+------------ |------------ | ------------ | ------------ |
+ | Creete a booking reservation | Have the data from my user account appeare in the booking form | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -1007,9 +1006,9 @@ WAVE was used to test the websites accessibility.
 16. As an admin user, I want to be able to view a list of all upcoming escape room events booked by customers, including their details such as date, time, game theme, and customer information, so that I can have an overview of the bookings and manage them efficiently.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Access the admin dashboard. | The admin user can find a specific section called Reservations. | #### |
- | Navigate to Reservation link | View and manipulate Reservation data for specific viewing needs | #### |
+------------ |------------ | ------------ | ------------ |
+ | Access the admin dashboard. | The admin user can find a specific section called Reservations. | Works as Expected |
+ | Navigate to Reservation link | View and manipulate Reservation data for specific viewing needs | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -1018,10 +1017,10 @@ WAVE was used to test the websites accessibility.
 17. As an admin user, I want to be able to add, edit, or cancel escape room bookings on behalf of customers, including updating the date, time, or game theme, so that I can accommodate their requests or resolve any issues.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Access the admin dashboard. | The admin user can find a specific section called Reservations. | |
- | Navigate to Reservation link | The user can search Reservation and find the specific game | #### |
- | Open the Reservation and Edit | The booking to be udpated with the admin users input | #### |
+------------ |------------ | ------------ | ------------ |
+ | Access the admin dashboard. | The admin user can find a specific section called Reservations. | Works as Expected |
+ | Navigate to Reservation link | The user can search Reservation and find the specific game | Works as Expected |
+ | Open the Reservation and Edit | The booking to be udpated with the admin users input | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -1030,10 +1029,10 @@ WAVE was used to test the websites accessibility.
 18. As an admin user, I want to be able to manage customer accounts and profiles, including creating, updating, or deleting customer information, and viewing their booking history, so that I can provide personalized and efficient customer service.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Access the admin dashboard. | The admin user can find a specific section called Users. | |
- | Navigate to the User link  | View all current user accounts and be able to search for the specific user | #### |
- | Chose the appropriate edit choice | The user is either deleted, if chosen, or the information is updated, if chosen | #### |
+------------ |------------ | ------------ | ------------ |
+ | Access the admin dashboard. | The admin user can find a specific section called Users. | Works as Expected |
+ | Navigate to the User link  | View all current user accounts and be able to search for the specific user | Works as Expected |
+ | Chose the appropriate edit choice | The user is either deleted, if chosen, or the information is updated, if chosen | Works as Expected |
 
 
 
@@ -1044,10 +1043,10 @@ WAVE was used to test the websites accessibility.
 19. As an admin user, I want to be able to manage special promotions, discounts, or packages for escape room games, including creating, updating, or expiring promotions so that I can attract more customers and boost sales.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Access the admin dashboard. | The admin user can find a specific section called Blog. | |
- | Navigate to Blog link | Display all current blog posts | #### |
- | Choose existing, or add new Blog post | Either be able to edit an exisiting, or create a blog post by entering in all the data | #### |
+------------ |------------ | ------------ | ------------ |
+ | Access the admin dashboard. | The admin user can find a specific section called Blog. | Works as Expected |
+ | Navigate to Blog link | Display all current blog posts | Works as Expected |
+ | Choose existing, or add new Blog post | Either be able to edit an exisiting, or create a blog post by entering in all the data | Works as Expected |
 
 
 
@@ -1058,10 +1057,10 @@ WAVE was used to test the websites accessibility.
 20. As an admin user I want to be able to add new games to the website as the company builds and expands so that we can have the newest and most up to date information about our games immediately visible to our customer.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Access the admin dashboard. | The admin user can find a specific section called Room. | |
- | Navigate to Room link | Display all current rooms listed on the site | #### |
- | Navifate to new Room link | Create a new room with all applicable data | #### |
+------------ |------------ | ------------ | ------------ |
+ | Access the admin dashboard. | The admin user can find a specific section called Room. | Works as Expected |
+ | Navigate to Room link | Display all current rooms listed on the site | Works as Expected |
+ | Navifate to new Room link | Create a new room with all applicable data | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -1070,10 +1069,10 @@ WAVE was used to test the websites accessibility.
 21. As an admin user I want to be able to add or remove time slots available for booking so that we can adjust our business hours to match the flow of the business traffic to our location.
 
 ***Feature**| **Action** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
- | Access the admin dashboard. | The admin user can find a specific section called GameTime. | |
- | Navigate to GameTime link | Display all current time slots listed as available on the site | #### |
- | Add new time slot | Add a nonduplicated game time | #### |
+------------ |------------ | ------------ | ------------ |
+ | Access the admin dashboard. | The admin user can find a specific section called GameTime. | Works as Expected |
+ | Navigate to GameTime link | Display all current time slots listed as available on the site | Works as Expected |
+ | Add new time slot | Add a nonduplicated game time | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -1095,10 +1094,16 @@ WAVE was used to test the websites accessibility.
 
 
 The following devices were used for tests:
+- Samsung Galaxy Tab8
+- Samsung S22
+- Samsung S10
+- Iphone 10
+- MSI Laptop
 
-<details><summary>DEVICE</summary>
-<img src="">
-</details>
+The following Broswers were tested:
+- Chrome
+- Mozilla
+- Safari
 
 
 ##### Back to [top](#table-of-contents)<hr>
