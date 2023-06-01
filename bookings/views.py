@@ -11,7 +11,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.messages import get_messages
 
-# Displays index.html as home page
+# Displays index.html as home page and sends
+# count of rooms for statistic section of home page
 
 
 def home(request):
