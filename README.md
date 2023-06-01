@@ -141,14 +141,14 @@ Enigma Machine is a fictitious business where users can learn about escape rooms
 ## Design
 
 ### Colours
-
-
-<details><summary>See colour pallet</summary>
-<img src="">
-</details>
+ The decision to use black, white, and yellow as the color palette for the site is to create a visually striking and immersive user experience. The combination of these colors can evoke a sense of mystery, excitement, and adventure, aligning with the theme of escape rooms.<br>
+ Segments of the website are either dark, or have a shadowy filter over images. The darker color represents the intrigue and suspense associated with escape rooms, creating an atmosphere of anticipation.<br>
+ Contrasting against the black background, key elements such as text, buttons, and icons are presented in a clean, crisp white color. The white color enhances readability and provides a sense of clarity, ensuring that important information and calls to action stand out prominently.<br>
+ To inject energy and highlight important elements, vibrant yellow accents are strategically incorporated throughout the website. The yellow color represents excitement, challenge, and adventure, aligning with the thrill of solving puzzles and escaping from the rooms. Yellow is used sparingly but effectively to draw attention to specific areas, such as buttons, links, or important messages.<br>
+ Overall, the black, white, and yellow color palette for the escape room website aims to create a visually captivating and immersive experience for users. It combines the intrigue of black, the clarity of white, and the excitement of yellow to align with the adventurous and thrilling nature of escape rooms, enticing visitors to explore the website and book their escape room experience.<br>
 
 ### Fonts
-
+ The selected fonts are from Google Fonts are are Open Sans, Roboto, and Work Sans of varying weights and syles. 
 
 ### Structure
 
@@ -156,22 +156,30 @@ Enigma Machine is a fictitious business where users can learn about escape rooms
 
 The site was designed for the user to be familiar with the layout such as a navigation bar along the top of the pages and a hamburger menu button for smaller screen.
 
-The footer...
+The footer is shared across all pages and has links social media, and to important pages, as well as information on Privay Policy and Terms of Service.
 
 - The site consists of the following pages:
     - Home:
     - FAQ:
     - Rooms:
+      - Room Detail:
     - Blog:
+      - Blog Detail
     - Book Now:
+      - Cart View
+      - Booking Form
+      - Booking Confirmation
     - Contact:
     - Sign Up:
     - Login/Logout:
-    - Account: 
+    - Account:
+      - Account Edit
+      - Account Booking List
+      - Account Booking Edit 
 
 #### Database
 
-- Built with Python and the Django framework with a database of a Postgres for the deployed Heroku version(production)
+- Built with Python and the Django framework with an ElephantSQL database for the final deployed version.
 
 <details><summary>Show diagram</summary>
 <img src="docs/imgs/db_diagram.jpg">
@@ -308,14 +316,162 @@ The wireframes were created using Balsamiq
 
 ## Features
 
-### Featre
-- Description
+### Home
+- Home page consists of a nav bar, hero section, about section, statistic, and team section, as well as footer. 
 
 
-<details><summary>See feature images</summary>
-
-![Feature](img)
+<details><summary>Feature</summary>
+<img src="docs/features/feature_home.jpg">
+<img src="docs/features/feature_home_ast.jpg">
 </details>
+
+#### Logo and Navigation
+- Responsive custom logo
+- Responsive nav bar, transforming ot 'hamburger' menu
+- Respondes to user authentication, displaying Register/Log In for unauthenticated, or Log Out/Account for authenticated
+- Displays all the route pages
+
+
+<details><summary>Feature</summary>
+<img src="docs/features/feature_home_nav.jpg">
+</details>
+
+#### Footer
+- Responsive coverage along the bottom of the page
+- Displays across all pages
+- Social media and other userful links displayed
+
+<details><summary>Feature</summary>
+<img src="docs/features/feature_home_footer.jpg">
+</details>
+
+### FAQ
+- FAQ page displays a series of questions that are common and specific to the user, as well as the ansers to the questions. 
+
+
+<details><summary>Feature</summary>
+<img src="docs/features/faq/feature_faq.jpg">
+</details>
+
+### Room
+- Room page displays a collection of cards with hook images and a brief description and link to further room information.
+
+<details><summary>Feature</summary>
+<img src="docs/features/rooms/feature_rooms.jpg">
+<img src="docs/features/rooms/feature_room_detail.jpg">
+</details>
+
+
+
+### Blog
+- Blog page displays a collection of posts, each with a hook image, tags, and a small blurb to entice the reader to it's content. 
+
+<details><summary>Feature</summary>
+<img src="docs/features/blog/feature_blog_detail.jpg">
+<img src="docs/features/blog/feature_blog_detail.jpg">
+</details>
+
+### Book Now
+- Book Now is only visible to authenticated users.
+- It displays the games available for booking, by default it displays the earliest bookable games which are at least one day in the future
+- If the user has visited other pages while selecteing they can click the View Cart button to be taken to the cart view where their cart is stored. 
+
+
+<details><summary>Feature</summary>
+<img src="docs/features/bookings/feature_booknow.jpg">
+</details>
+
+#### Book Now-Cart View
+- Once a booking is selected it shows as Selected, and is displayed in the cart below.
+- Users can choose as many bookings as needed.
+
+
+<details><summary>Feature</summary>
+<img src="docs/features/bookings/feature_booknow_cart.jpg">
+</details>
+
+#### Book Now-Booking Form
+- The booking form will ask for the number of players in each room the user has chosen.
+- It displays the total price and then the users saved account data (name, and email) will populate the form
+- The comment section is optional
+
+
+<details><summary>Feature</summary>
+<img src="docs/features/bookings/feature_booknow_form.jpg">
+</details>
+
+#### Book Now-Confirmation
+- If successful you will be met with a confirmation page with links directing to either Account or Contact.
+
+
+<details><summary>Feature</summary>
+<img src="docs/features/bookings/feature_booknow_success.jpg">
+</details>
+
+### Contact
+- Contact page displays the company information
+- There is a contact form that any user, even unauthenticated, can use to reach out to the company throgh the website. 
+- Successful form will display to user
+
+<details><summary>Feature</summary>
+<img src="docs/features/contact/feature_contact.jpg">
+</details>
+
+### Sign Up/Login/Logout
+- These pages are from AllAuth, a django library, but have been styled to fit the site
+- Users can sign up by filling out a simple form
+- Loging in or out will redirect to home
+
+
+<details><summary>Feature</summary>
+<img src="">
+</details>
+
+### Account
+- The Account page allows users to see thier user information.
+
+
+<details><summary>Feature</summary>
+<img src="docs/features/user_profiles/feature_account.jpg">
+</details>
+
+#### Account Edit
+- From the Account page users can elect to update their account information
+- Successfuly updating will result in a success message.
+- Users can also choose to delete their whole account, which will also delete their bookings
+
+
+<details><summary>Feature</summary>
+<img src="docs/features/user_profiles/feature_account_edit.jpg">
+<img src="docs/features/user_profiles/feature_account_edit_confirmed.jpg">
+</details>
+
+#### Account Booking View
+- Users can view their booking history, past and future
+
+
+<details><summary>Feature</summary>
+<img src="docs/features/user_profiles/feature_account_bookinglist.jpg">
+</details>
+
+#### Account Booking Edit/Delete
+- Users can edit or delete bookings that are only further than 24 hours out
+- Users can select a new booking date that is more than 24 hours out
+
+
+<details><summary>Feature</summary>
+<img src="docs/features/user_profiles/feature_account_booking_edit.jpg">
+</details>
+
+#### Account Booking Edit Confirmation
+- Users are presented with a confirmation page to ensure accuracy of their selection
+
+
+<details><summary>Feature</summary>
+<img src="docs/features/user_profiles/feature_account_booking_confrm.jpg">
+<img src="docs/features/user_profiles/feature_account_booking_success.jpg">
+</details>
+
 
 
 
@@ -684,9 +840,9 @@ WAVE was used to test the websites accessibility.
 
 1. As a user, I want to be able to view the availability and schedule of each escape room game in real-time on the booking website, so that I can select a time slot that works best for me.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Navigate to the Book Now page | The availability and schedule information is displayed. | Works as Expected|
 
 <details><summary></summary>
 <img src="">
@@ -694,9 +850,9 @@ WAVE was used to test the websites accessibility.
 
 2. As a user, I want to be able to view all available escape room games on the booking website, including their descriptions, difficulty levels, and any other information so that I can make an informed decision on which game to reserve.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Navigate to the Room page | The descriptions and details provide sufficient information to make an informed decision. | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -704,19 +860,22 @@ WAVE was used to test the websites accessibility.
 
 3. As a user, I want to be able to reserve multiple escape room games for different time slots in a single booking transaction, so that I can plan a day of fun-filled activities with my friends or family.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
-
+ | Navigate to the Booking page | Each chosen game and time slot are marked accordingly. | Works as Expected |
+ | Navigate to the Booking page form| The booking summary shows the selected escape room games and their respective time slots. | Works as Expected |
+| Complete Booking form | The reservation is successfully processed for multiple escape room games with different time slots, with a single input of customer data | Works as Expected |
 <details><summary></summary>
 <img src="">
 </details>
 
 4. As a user, I want to be able to create an account on the booking website to store my booking history so that I can easily track my previous experiences to ensure no booking errors in the future.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Navigate to the Register page | The account creation or registration form is displayed. | Works as Expected |
+ | Fill in the required details for account creation.| The form is successfully submitted, and a confirmation message is displayed. | Works as Expected |
+ | #### | The account dashboard or profile page is accessible with the provided credentials. | Works as Expected |
 
 <details><summary></summary>
 <img src="">
@@ -724,9 +883,13 @@ WAVE was used to test the websites accessibility.
 
 5. As a user, I want to be able to easily cancel or reschedule my escape room game reservations through the booking website, so that I can adjust my plans quickly if needed.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Log in to the user account.	 | The login process is successful, and the user account dashboard is accessible. | #### |
+ | Locate the reservation management section in the account dashboard. | The reservation management section is visible and accessible. | #### |
+ | Find the escape room game reservation to cancel or reschedule. | The reservation details, including date and time, are displayed. | #### |
+ | Follow the cancellation or rescheduling process. | The user is guided through the necessary steps, such as selecting a new date or confirming the cancellation. | #### |
+
 
 <details><summary></summary>
 <img src="">
@@ -734,9 +897,10 @@ WAVE was used to test the websites accessibility.
 
 6. As a user, I want to be able to leave reviews and ratings for escape room games that I have played, so that I can share my feedback and experiences with other users, and help them make informed decisions when booking games.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Log in to the user account.| See social media review site links on page | #### |
+ | Locate Footer | See social media links | |
 
 <details><summary></summary>
 <img src="">
@@ -744,9 +908,10 @@ WAVE was used to test the websites accessibility.
 
 7. As a user, I want to be able to view special promotions, discounts, or packages for escape room games on the booking website, so that I can take advantage of any available deals and save on my bookings.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Navigate to the Blog page | A list of blog post displays | #### |
+ | Choose a blog post tagged as promotion | The promotions are displayed with details on discounts, packages, or any special offers. | #### |
 
 <details><summary></summary>
 <img src="">
@@ -754,9 +919,9 @@ WAVE was used to test the websites accessibility.
 
 8. As a user, I want to be able to access the booking website on different devices, including desktops, laptops, tablets, and smartphones, with a responsive and user-friendly design, so that I can make bookings anytime and anywhere.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | View the website on a mobile phone, tablet, or laptop of varying size | The website performs correctly and visually fits the device | #### |
 
 <details><summary></summary>
 <img src="">
@@ -764,9 +929,10 @@ WAVE was used to test the websites accessibility.
 
 9. As a user, I want to be able to view detailed information about the escape room game venues, such as their locations, facilities, parking options, and accessibility, so that I can plan my visit accordingly and have a smooth experience.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Navigate to the Contact page | The page displays the location and facility information for the comapny | #### |
+ | Navigate to FAQ page | The page displays question and answers to the requested data | #### |
 
 <details><summary></summary>
 <img src="">
@@ -774,9 +940,10 @@ WAVE was used to test the websites accessibility.
 
 10. As a user, I want to be able to contact the escape room game venue or customer support through the booking website, with options for email, or phone support, so that I can get assistance or information whenever I need it.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action**| **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Locate the contact page. | The section containing contact information is visible and easily accessible. | #### |
+ | Fill out the Contact Form | A successful message is sent to the company, also alerts the user | #### |
 
 <details><summary></summary>
 <img src="">
@@ -784,9 +951,9 @@ WAVE was used to test the websites accessibility.
 
 11. As a user, I want to be able to view photos of the escape room game themes and rooms on the booking website, so that I can get a sneak peek of the games and get excited about the experience.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Navigate to Home page | See a slideshow of games and people playing | #### |
 
 <details><summary></summary>
 <img src="">
@@ -794,9 +961,9 @@ WAVE was used to test the websites accessibility.
 
 12. As a user, I want to be able to customize my escape room game experience by requesting special arrangements for birthdays, team-building events, or other occasions, through my booking so that I can get more out of my event planning.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Provide additional details or requirements during the booking process | The user can enter specific information or requests related to the special arrangement. | #### |
 
 <details><summary></summary>
 <img src="">
@@ -804,9 +971,12 @@ WAVE was used to test the websites accessibility.
 
 13. As a user I want to be able to delete my own account and request all my data be removed from your servers/databases so that I can exercise my data protection rights.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action**| **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Navigate to Account page | Display account details and account edit link | #### |
+ | Navigate to Account Edit page | Display the ability to edit or delete account | #### |
+ | Submit delete request by pressing button | Be presented with a warning before again confirming | #### |
+
 
 <details><summary></summary>
 <img src="">
@@ -814,9 +984,11 @@ WAVE was used to test the websites accessibility.
 
 14. As a user I want to be able to edit my account details so that I can keep the booking process smooth and easy even if my email or other data changes.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Navigate to Account page | Display account details and account edit link | #### |
+ | Navigate to Account Edit page | Display the ability to edit or delete account | #### |
+ | Update information on edit page | Get an update that account update was successful | #### |
 
 <details><summary></summary>
 <img src="">
@@ -824,9 +996,9 @@ WAVE was used to test the websites accessibility.
 
 15. As a user I want to be able to create a reservation using my account information, and having all the applicable data visible such as group sizes, date, time, etc so that I can quick and easily secure a booking.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Creete a booking reservation | Have the data from my user account appeare in the booking form | #### |
 
 <details><summary></summary>
 <img src="">
@@ -834,9 +1006,10 @@ WAVE was used to test the websites accessibility.
 
 16. As an admin user, I want to be able to view a list of all upcoming escape room events booked by customers, including their details such as date, time, game theme, and customer information, so that I can have an overview of the bookings and manage them efficiently.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Access the admin dashboard. | The admin user can find a specific section called Reservations. | #### |
+ | Navigate to Reservation link | View and manipulate Reservation data for specific viewing needs | #### |
 
 <details><summary></summary>
 <img src="">
@@ -844,19 +1017,25 @@ WAVE was used to test the websites accessibility.
 
 17. As an admin user, I want to be able to add, edit, or cancel escape room bookings on behalf of customers, including updating the date, time, or game theme, so that I can accommodate their requests or resolve any issues.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Access the admin dashboard. | The admin user can find a specific section called Reservations. | |
+ | Navigate to Reservation link | The user can search Reservation and find the specific game | #### |
+ | Open the Reservation and Edit | The booking to be udpated with the admin users input | #### |
 
 <details><summary></summary>
 <img src="">
 </details>
 
-18. As an admin user, I want to be able to *manage customer accounts and profiles, including creating, updating, or deleting customer information, and viewing their booking history, so that I can provide personalized and efficient customer service.
+18. As an admin user, I want to be able to manage customer accounts and profiles, including creating, updating, or deleting customer information, and viewing their booking history, so that I can provide personalized and efficient customer service.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Access the admin dashboard. | The admin user can find a specific section called Users. | |
+ | Navigate to the User link  | View all current user accounts and be able to search for the specific user | #### |
+ | Chose the appropriate edit choice | The user is either deleted, if chosen, or the information is updated, if chosen | #### |
+
+
 
 <details><summary></summary>
 <img src="">
@@ -864,9 +1043,13 @@ WAVE was used to test the websites accessibility.
 
 19. As an admin user, I want to be able to manage special promotions, discounts, or packages for escape room games, including creating, updating, or expiring promotions so that I can attract more customers and boost sales.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Access the admin dashboard. | The admin user can find a specific section called Blog. | |
+ | Navigate to Blog link | Display all current blog posts | #### |
+ | Choose existing, or add new Blog post | Either be able to edit an exisiting, or create a blog post by entering in all the data | #### |
+
+
 
 <details><summary></summary>
 <img src="">
@@ -874,9 +1057,11 @@ WAVE was used to test the websites accessibility.
 
 20. As an admin user I want to be able to add new games to the website as the company builds and expands so that we can have the newest and most up to date information about our games immediately visible to our customer.
 
-**Step** | **Expected Result** | **Actual Result**
+**Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Access the admin dashboard. | The admin user can find a specific section called Room. | |
+ | Navigate to Room link | Display all current rooms listed on the site | #### |
+ | Navifate to new Room link | Create a new room with all applicable data | #### |
 
 <details><summary></summary>
 <img src="">
@@ -884,9 +1069,11 @@ WAVE was used to test the websites accessibility.
 
 21. As an admin user I want to be able to add or remove time slots available for booking so that we can adjust our business hours to match the flow of the business traffic to our location.
 
-**Step** | **Expected Result** | **Actual Result**
+***Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
- | #### | #### | #### |
+ | Access the admin dashboard. | The admin user can find a specific section called GameTime. | |
+ | Navigate to GameTime link | Display all current time slots listed as available on the site | #### |
+ | Add new time slot | Add a nonduplicated game time | #### |
 
 <details><summary></summary>
 <img src="">
@@ -932,91 +1119,34 @@ The following devices were used for tests:
 
 This application has been deployed from Github using Heroku. Here's how:
 
-1. Create an account at heroku.com
-<details>
-<img src="">
-</details>
+### ElephantSQL
 
-2. Create an app, give it a name for such as ci-pp4-the-diplomat, and select a region
-<details>
-<img src="">
-<img src="">
-</details>
+1. Create an account at elephantsql.com, you may login with Github.
+2. Click 'Create New Instance'.
+3. Name your instance, choose the plan, and any tags you want to add. 
+4. Click 'Select Region', and chose a region nearest yourself. 
+5. Click 'Review', and if correct, click 'Create Instance'.
+6. Once created, navigate to the instance Detail view. Note the URL.
 
-3. Under resources search for postgres, and add a Postgres database to the app
-<details>
-<img src="">
-</details>
+### Heroku 
 
-Heroku Postgres
+1. Create an account at heroku.com.
+2. Create an app, give it a name for such as PP4-enigma-machine, and select a region.
+3. Open Settings tab
+4. Click 'Reveal Config Vars'
+5. Add a config var called DATABASE_URL and give it the value of your ElephantSQL instance
 
-1. Note the DATABASE_URL, this can be set as an environment variable in Heroku and your local deployment(env.py)
-<details>
-<img src="">
-<img src="">
-</details>
+### Coding Environment
 
-2. Install the plugins dj-database-url and psycopg2-binary.
-
-3. Run pip3 freeze > requirements.txt so both are added to the requirements.txt file
-<details>
-<img src="">
-</details>
-
-4. Create a Procfile with the text: web: gunicorn APPNAME.wsgi
-<details>
-<img src="">
-</details>
-
-5. In the settings.py ensure the connection is to the Heroku postgres database
-<details>
-<img src="">
-<img src="">
-</details>
-
-6. Ensure debug is set to false in the settings.py file
-<details>
-<img src="">
-</details>
-
-7. Add localhost, and ##### to the ALLOWED_HOSTS variable in settings.py
-
-8. Run "python3 manage.py showmigrations" to check the status of the migrations
-
-9. Run "python3 manage.py migrate" to migrate the database
-
-10. Run "python3 manage.py createsuperuser" to create a super/admin user
-
-11. Run "python3 manage.py loaddata categories.json" on the categories file in products/fixtures to create the categories
-
-12. Run "python3 manage.py loaddata products.json" on the products file in products/fixtures to create the products
-
-13. Install gunicorn and add it to the requirements.txt file using the command pip3 freeze > requirements.txt
-
-14. Disable collectstatic in Heroku before any code is pushed using the command heroku config:set DISABLE_COLLECTSTATIC=1 -a ci-pp4-the-diplomat
-<details>
-<img src="">
-<img src="">
-</details>
+1. In your coding environment create a env.py file
+2. Add your DATABASE_URL as an environment variable, and create a SECRET_KEY variable as well.
+3. Within your settings.py file direct your database to your environment variable, as well as you secret key
+4. Still within your settings.py file Add to ALLOWED_HOSTS heroku by addin code like this "projectname.herokuapp.com", "localhost" 
+5. 
 
 
-15. Ensure the following environment variables are set in Heroku
-<details>
-<img src="">
-</details>
 
-16. Connect the app to GitHub, and enable automatic deploys from main if you wish
-<details>
-<img src="">
-<img src="">
-</details>
 
-17. Click deploy to deploy your application to Heroku for the first time
-
-18. Click on the link provided to access the application
-
-19. If you encounter any issues accessing the build logs is a good way to troubleshoot the issue
-<hr>
 
 ### Fork Repository
 To fork the repository by following these steps:
