@@ -872,7 +872,7 @@ WAVE was used to test the websites accessibility.
 ------------ |------------ | ------------ | ------------ |
  | Room | Navigate to the Room page | The descriptions and details provide sufficient information to make an informed decision. | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_2.jpg">
 </details>
 
@@ -883,7 +883,7 @@ WAVE was used to test the websites accessibility.
  | Book Now | Navigate to the Booking page | Click to select games and add them to cart | Works as Expected |
  | Book Now-Booking Form | Navigate to the Booking page form| The booking summary shows the selected escape room games and their respective time slots. | Works as Expected |
  | Book Now-Confirmation | Complete Booking form | The reservation is successfully processed for multiple escape room games with different time slots, with a single input of customer data | Works as Expected |
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_3a.jpg">
 <img src="docs/user_story/userstory_3b.jpg">
 <img src="docs/user_story/userstory_3c.jpg">
@@ -897,7 +897,7 @@ WAVE was used to test the websites accessibility.
  | Sign Up | Fill in the required details for account creation.| The form is successfully submitted and the site displays new links | Works as Expected |
  | Sign Up| Locate the nav bar | The account dashboard or profile page is accessible with the provided credentials. | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_4_a.jpg">
 <img src="docs/user_story/userstory_4_b.jpg">
 </details>
@@ -912,7 +912,7 @@ WAVE was used to test the websites accessibility.
  | Follow the cancellation or rescheduling process. | The user is guided through the necessary steps, such as selecting a new date or confirming the cancellation. | Works as Expected |
 
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_5_a.jpg">
 <img src="docs/user_story/userstory_5_b.jpg">
 <img src="docs/user_story/userstory_5_c.jpg">
@@ -926,7 +926,7 @@ WAVE was used to test the websites accessibility.
  | Account | Log in to the user account.| See social media review site links on page | Works as Expected |
  | Account | Locate Footer | See social media links | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_6.jpg">
 </details>
 
@@ -937,7 +937,7 @@ WAVE was used to test the websites accessibility.
  | Blog | Navigate to the Blog page | A list of blog post displays | Works as Expected |
  | Blog Detail | Choose a blog post tagged as promotion | The promotions are displayed with details on discounts, packages, or any special offers. | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_7.jpg">
 <img src="docs/user_story/userstory_7b.jpg">
 </details>
@@ -948,7 +948,7 @@ WAVE was used to test the websites accessibility.
 ------------ |------------ | ------------ | ------------ |
  | N/A | View the website on a mobile phone, tablet, or laptop of varying size | The website performs correctly and visually fits the device | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/imgs/responsive.jpg">
 </details>
 
@@ -959,7 +959,7 @@ WAVE was used to test the websites accessibility.
  | Contact Us | Navigate to the Contact page | The page displays the location and facility information for the comapny | Works as Expected |
  | FAQ | Navigate to FAQ page | The page displays question and answers to the requested data | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_9a.jpg">
 <img src="docs/user_story/userstory_9b.jpg">
 </details>
@@ -971,7 +971,7 @@ WAVE was used to test the websites accessibility.
  | Contact Us | Locate the contact page. | The section containing contact information is visible and easily accessible. | Works as Expected |
  | Contact Us | Fill out the Contact Form | A successful message is sent to the company, also alerts the user | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_10.jpg">
 <img src="docs/user_story/userstory_10b.jpg">
 </details>
@@ -982,7 +982,7 @@ WAVE was used to test the websites accessibility.
 ------------ |------------ | ------------ | ------------ |
  | Home | Navigate to Home page | See a slideshow of games and people playing | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_11.jpg">
 </details>
 
@@ -992,7 +992,7 @@ WAVE was used to test the websites accessibility.
 ------------ |------------ | ------------ | ------------ |
  |Book Now-Booking Form | Provide additional details or requirements during the booking process | The user can enter specific information or requests related to the special arrangement. | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_12.jpg">
 </details>
 
@@ -1004,7 +1004,7 @@ WAVE was used to test the websites accessibility.
  | Account-Edit | Navigate to Account Edit page | Display the ability to edit or delete account | Works as Expected |
  | Account-Edit | Submit delete request by pressing button | Be presented with a warning before again confirming | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_13a.jpg">
 <img src="docs/user_story/userstory_13b.jpg">
 <img src="docs/user_story/userstory_13c.jpg">
@@ -1018,7 +1018,7 @@ WAVE was used to test the websites accessibility.
  | Account-Edit | Navigate to Account Edit page | Display the ability to edit or delete account | Works as Expected |
  | Account | Update information on edit page | Get an update that account update was successful | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_14a.jpg">
 <img src="docs/user_story/userstory_14b.jpg">
 <img src="docs/user_story/userstory_14c.jpg">
@@ -1030,7 +1030,7 @@ WAVE was used to test the websites accessibility.
 ------------ |------------ | ------------ | ------------ |
  |Book Now-Booking Form | Creete a booking reservation | Have the data from my user account appeare in the booking form | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_15a.jpg">
 </details>
 
@@ -1041,7 +1041,7 @@ WAVE was used to test the websites accessibility.
  | Admin | Access the admin dashboard. | The admin user can find a specific section called Reservations. | Works as Expected |
  | Admin | Navigate to Reservation link | View and manipulate Reservation data for specific viewing needs | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_16a.jpg">
 <img src="docs/user_story/userstory_16b.jpg">
 </details>
@@ -1054,7 +1054,7 @@ WAVE was used to test the websites accessibility.
  | Admin | Navigate to Reservation link | The user can search Reservation and find the specific game | Works as Expected |
  | Admin | Open the Reservation and Edit | The booking to be udpated with the admin users input | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_16a.jpg">
 <img src="/workspace/PP4_enigma_machine/docs/user_story/userstory_16b.jpg">
 <img src="docs/user_story/userstory_17.jpg">
@@ -1070,7 +1070,7 @@ WAVE was used to test the websites accessibility.
 
 
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_18a.jpg">
 <img src="docs/user_story/userstory_18b.jpg">
 <img src="docs/user_story/userstory_18c.jpg">
@@ -1084,7 +1084,7 @@ WAVE was used to test the websites accessibility.
  | Admin | Navigate to Blog link | Display all current blog posts | Works as Expected |
  | Admin | Choose existing, or add new Blog post | Either be able to edit an exisiting, or create a blog post by entering in all the data | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_19a.jpg">
 <img src="docs/user_story/userstory_19b.jpg">
 <img src="docs/user_story/userstory_19c.jpg">
@@ -1098,7 +1098,7 @@ WAVE was used to test the websites accessibility.
  | Navigate to Room link | Display all current rooms listed on the site | Works as Expected |
  | Navifate to new Room link | Create a new room with all applicable data | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_20a.jpg">
 <img src="docs/user_story/userstory_20b.jpg">
 <img src="docs/user_story/userstory_20c.jpg">
@@ -1112,7 +1112,7 @@ WAVE was used to test the websites accessibility.
  | Navigate to GameTime link | Display all current time slots listed as available on the site | Works as Expected |
  | Add new time slot | Add a nonduplicated game time | Works as Expected |
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_21a.jpg">
 <img src="docs/user_story/userstory_21b.jpg">
 <img src="docs/user_story/userstory_21c.jpg">
