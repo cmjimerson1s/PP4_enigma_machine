@@ -1240,54 +1240,60 @@ You can clone the repository by following these steps:
 
 ### Images<br>
 Images used in the hero slideshow can be found:<br>
-- [Here](url "https://www.shutterstock.com/image-photo/hands-young-people-move-pieces-mexican-640257649")<br>
-- [Here](url "https://www.shutterstock.com/image-photo/group-young-adults-inspecting-wooden-rosary-1402345220")<br>
-- [Here](url "https://www.shutterstock.com/image-photo/interested-tween-girl-trying-reach-some-1952394778")<br>
-- [Here](url "https://www.shutterstock.com/image-photo/young-people-trying-solve-conundrum-get-640243435")<br>
-- [Here](url "https://www.shutterstock.com/image-photo/five-positive-italian-adults-solving-conundrums-730981447")<br>
-- [Here](url "https://www.shutterstock.com/image-photo/two-interested-teen-boys-their-parents-1988338562")<br>
+- https://www.shutterstock.com/image-photo/hands-young-people-move-pieces-mexican-640257649
+- https://www.shutterstock.com/image-photo/group-young-adults-inspecting-wooden-rosary-1402345220
+- https://www.shutterstock.com/image-photo/interested-tween-girl-trying-reach-some-1952394778
+- https://www.shutterstock.com/image-photo/young-people-trying-solve-conundrum-get-640243435
+- https://www.shutterstock.com/image-photo/five-positive-italian-adults-solving-conundrums-730981447
+- https://www.shutterstock.com/image-photo/two-interested-teen-boys-their-parents-1988338562
 - Footer Image was an AI Generated Image from MidjourneyBot
 <br>
 
 Our Team Photos can be found here:<br>
-- [Here](url "https://www.pexels.com/photo/elegant-young-bearded-businessman-in-suit-and-tie-in-downtown-4195342/")<br>
-- [Here](url "https://www.pexels.com/photo/confident-businesswoman-4342352/")<br>
-- [Here](url "https://www.pexels.com/@ketut-subiyanto/")<br>
+- https://www.pexels.com/photo/elegant-young-bearded-businessman-in-suit-and-tie-in-downtown-4195342/
+- https://www.pexels.com/photo/confident-businesswoman-4342352/
+- https://www.pexels.com/@ketut-subiyanto/
 <br>
 
 The page breadcrumbs can be found here:<br>
-- FAQ Breadcrumb image was an AI generated image edited by myself with clipart<br>
-- [Here](url "https://www.pexels.com/photo/reception-desk-with-antique-hotel-bell-3771110/")<br>
-- [Here](url "https://depositphotos.com/stock-photos/old-books.html")<br>
-- [Here](url "https://www.youtube.com/watch?v=mbuYa8t2uA4")<br>
-- [Here](url "https://www.shutterstock.com/image-photo/enigma-machine-wheels-1285856470")<br>
-- [Here](url "https://www.shutterstock.com/image-photo/hot-news-typed-words-on-vintage-1253051434")<br>
-- [Here](url "https://www.shutterstock.com/image-photo/two-old-keys-on-rusty-metal-1776777956")<br>
-- [Here](url "https://escaperoomrank.com/wp-content/uploads/2017/09/Escape-Game-For-Team-Building-Image-ERR.jpg")<br>
+- FAQ Breadcrumb image was an AI generated image edited by myself with clipart
+- https://www.pexels.com/photo/reception-desk-with-antique-hotel-bell-3771110/"
+- https://depositphotos.com/stock-photos/old-books.html"
+- https://www.youtube.com/watch?v=mbuYa8t2uA4"
+- https://www.shutterstock.com/image-photo/enigma-machine-wheels-1285856470"
+- https://www.shutterstock.com/image-photo/hot-news-typed-words-on-vintage-1253051434"
+- https://www.shutterstock.com/image-photo/two-old-keys-on-rusty-metal-1776777956"
+- https://escaperoomrank.com/wp-content/uploads/2017/09/Escape-Game-For-Team-Building-Image-ERR.jpg"
 <br>
 
 The images for Rooms can be found here:<br>
-- [Here](url "https://www.icanvas.com/blog/wp-content/uploads/2021/12/TimeTravelArtBlog.png")<br>
-- [Here](url "https://media.istockphoto.com/id/1304704138/vector/golden-abstract-futuristic-technology-background-with-clock-concept-and-time-machine-can.jpg?s=612x612&w=0&k=20&c=Gw8Gxf4T7xwxz0qO9XNB8Oyakb-j1vtTqo3JsnKASv0=")<br>
-- [Here](url "https://stock.adobe.com/se/search?k=haunted+mansion+interior")<br>
-- [Here](url "https://www.istockphoto.com/se/foto/halloween-haunted-manor-p%C3%A5-en-kulle-mot-m%C3%A5nen-gm1267717881-372051551")<br>
-- The images for the Phantom Symphony were AI Generated Images using MidJourneyBot<br>
+- https://www.icanvas.com/blog/wp-content/uploads/2021/12/TimeTravelArtBlog.png
+- https://media.istockphoto.com/id/1304704138/vector/golden-abstract-futuristic-technology-background-with-clock-concept-and-time-machine-can.jpg?s=612x612&w=0&k=20&c=Gw8Gxf4T7xwxz0qO9XNB8Oyakb-j1vtTqo3JsnKASv0=
+- https://stock.adobe.com/se/search?k=haunted+mansion+interior
+- https://www.istockphoto.com/se/foto/halloween-haunted-manor-p%C3%A5-en-kulle-mot-m%C3%A5nen-gm1267717881-372051551
+- The images for the Phantom Symphony were AI Generated Images using MidJourneyBot
 <br>
 
 The imgages for Blogs can be found here<br>
-- [Here](url "https://www.cluequest.co.uk/escape-room-london")<br>
-- [Here](url "https://www.istockphoto.com/se/foto/silhouette-of-man-smoking-a-cigar-holding-a-magnifying-glass-gm178366909-21034314")<br>
-- [Here](url "https://www.hrmagazine.co.uk/content/features/the-importance-of-psychological-safety/")<br>
-- [Here](url "https://www.rdasia.com/wp-content/uploads/sites/2/2021/09/1-BrainGames-scaled-GETTY-770.jpg")<br>
-- [Here](url "https://questfactor.us/wp-content/uploads/2020/08/Top-Best-Escape-Room-Themes.jpg")<br>
-- [Here](url "https://omescapelondon.co.uk/wp-content/uploads/2017/04/d0600b5d4680f70788a8c79c7b026a57-640x395.jpg")<br>
+- https://www.cluequest.co.uk/escape-room-london
+- https://www.istockphoto.com/se/foto/silhouette-of-man-smoking-a-cigar-holding-a-magnifying-glass-gm178366909-21034314
+- https://www.hrmagazine.co.uk/content/features/the-importance-of-psychological-safety/
+- https://www.rdasia.com/wp-content/uploads/sites/2/2021/09/1-BrainGames-scaled-GETTY-770.jpg
+- https://questfactor.us/wp-content/uploads/2020/08/Top-Best-Escape-Room-Themes.jpg
+- https://omescapelondon.co.uk/wp-content/uploads/2017/04/d0600b5d4680f70788a8c79c7b026a57-640x395.jpg
 <br>
 
 ### Code
-I used a Bootrap5 Template called UpConstruction. The link to the tempalte can be found [Here](url "https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/")
+I used a Bootrap5 Template called UpConstruction. The link to the tempalte can be found at https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/
 
 ##### Back to [top](#table-of-contents)<hr>
 
 ## Acknowledgements
 
 ### Special thanks to the following:
+
+My partner Leo, my rock, you've have been so amzing through this. I love you so much!
+Trevor, my roommate, I appreciate all the extra things you have done around the house while I have worked on this. 
+Steven, you have been an absolute gem and blessing and I appreciate all the education and help you gave me
+Oskar, Patrik, and Mark, amazing friends alway cheering me on. 
+My mentor, Mo Shami, your direction and guidance is always appreciated. 
