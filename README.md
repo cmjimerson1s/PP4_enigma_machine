@@ -581,8 +581,23 @@ The W3C Jigsaw CSS Validation Service
 ### JavaScript Validation
 JSHint JS Validation Service
 
-<details><summary>FILE</summary>
-<img src="">
+I had issues with getting certain Javascript to work in Django, but I validated all my code even on page scripts.
+
+<details><summary>Account Page Edit</summary>
+<img src="docs/javascript_validation/account_page_edit_js_valid.jpg">
+</details>
+<details><summary>main.js</summary>
+<img src="docs/javascript_validation/js_valid.jpg">
+</details>
+<details><summary>Book Now-Booking Form</summary>
+<img src="docs/javascript_validation/res_booking_page_js_valid.jpg">
+</details>
+This Javascript doesn't pass validation but that is due to the use of Django template variable in the code
+<details><summary>Book Now-Cart View</summary>
+<img src="docs/javascript_validation/res_choice_js_valid.jpg">
+</details>
+<details><summary>Account-Booking Edit</summary>
+<img src="docs/javascript_validation/reservation_edit_js_valid.jpg">
 </details><hr>
 
 ### PEP8 Validation
