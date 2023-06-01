@@ -6,6 +6,9 @@ from datetime import datetime, date, timedelta
 from django.utils import timezone
 from django.contrib import messages
 
+# If user is authenticated, collect the data
+# from the User model and render to the template
+
 
 @login_required
 def AccountOverview(request):
@@ -27,6 +30,10 @@ def AccountOverview(request):
 
     return render(request, template, context)
 
+# Using the user id, filter all reservation by the id
+# and render to the template, while also rendering todays
+# date so the template can render both past and future bookings
+
 
 def AccountReservations(request):
     template = "user_profiles/account_bookings.html"
@@ -40,6 +47,12 @@ def AccountReservations(request):
     context = {"reservations": reservations, "current_date": current_date}
 
     return render(request, template, context)
+
+# Using the primary key of the selected reservation, the function
+# querys thed database for the specific booking as well as
+# gets all the current reservation, gametime, and room items
+# from database to display as table on template, sending todays
+# date plus two days as the earliest to be able to book
 
 
 def BookingEditSelection(request):
@@ -64,6 +77,9 @@ def BookingEditSelection(request):
     }
     return render(request, template, context)
 
+# Renders the current information for the reservation, as well as the
+# new informatin for the user to confirm
+
 
 def BookingEditConfirmation(request):
     template = "user_profiles/reservation_edit_post.html"
@@ -82,6 +98,10 @@ def BookingEditConfirmation(request):
     }
 
     return render(request, template, context)
+
+# Once user submits confirmation the function takes
+# the data from the new selection and updates the reservation with
+# the new game data and then alerts the user to success
 
 
 def BookingUpdate(request):
@@ -102,6 +122,9 @@ def BookingUpdate(request):
 
     return redirect("account_overview")
 
+# Deletes selected reservation from the database by using the
+# reservations primary key for filtering and selection
+
 
 def DeleteBooking(request):
     res_id = request.POST.get("res_id")
@@ -110,6 +133,8 @@ def DeleteBooking(request):
     messages.success(request, "Reservation Deleted!")
 
     return redirect("account_bookings")
+
+# Collect the data from the User model and render to the template
 
 
 def AccountUpdateView(request):
@@ -130,6 +155,9 @@ def AccountUpdateView(request):
 
     return render(request, template, context)
 
+# Collects the data from the input fields and then uses it to
+# update the User with the data and alerts user of the success
+
 
 def AccountUpdatePosting(request):
     user_id = int(request.POST.get("user_id"))
@@ -148,6 +176,10 @@ def AccountUpdatePosting(request):
     messages.success(request, "Form submitted successfully!")
 
     return redirect("account_overview")
+
+# Using the user id query the database for all the reservations
+# with said id and delete them from the database, then delete
+# user from the database as well and update to user success
 
 
 def DeleteAccount(request):

@@ -4,7 +4,9 @@ from .forms import ContactUsForm
 from django.views import View
 
 
-# Create your views here.
+# Collects the form and renders it to the user
+
+
 def ContactUs(request):
     template = "contact/contact.html"
     form = ContactUsForm()
@@ -12,6 +14,11 @@ def ContactUs(request):
     context = {"form": form}
 
     return render(request, template, context)
+
+# When the user submits via post the post function
+# checks if the form is valid, and if it is the database
+# is updated, if not it errors and redirects back to the form
+# and alerts user of failure
 
 
 class ContactUsPost(View):

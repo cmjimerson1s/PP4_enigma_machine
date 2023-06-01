@@ -11,11 +11,16 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.messages import get_messages
 
+# Displays index.html as home page
+
 
 def home(request):
     rooms = Room.objects.count()
 
     return render(request, "index.html", {"rooms": rooms})
+
+# Gets all the current reservation, gametime, and room items
+# from database to display as table on template
 
 
 def ReservationView(request):
@@ -36,6 +41,9 @@ def ReservationView(request):
     }
 
     return render(request, "bookings/reservations.html", context)
+
+# Continued display of the current reservations but also
+# adds selected games to the cart storing the room, time, and date
 
 
 class ReservationChoice(View):
@@ -106,6 +114,9 @@ class ReservationChoice(View):
 
         return render(request, template, context)
 
+# Gets the full cart and renders it to the user
+# as well as the reservation form
+
 
 def CartView(request):
     data = request.POST.get("cart")
@@ -116,6 +127,12 @@ def CartView(request):
     template = "bookings/res_booking_page.html"
 
     return render(request, template, {"data": cart, "form": form})
+
+# When user submits form, the function first collects the
+# cart and then for each occurance of a cart item checks
+# if the form is valid the database is then upated for each
+# occurance of the item allowing users to book multiple rooms
+# with single customer data input
 
 
 def update_database(request):
@@ -157,11 +174,17 @@ def update_database(request):
 
         return redirect("confirmed")
 
+# Displays confirmation to user if database was updated
+# sucessfully
+
 
 def ConfirmView(request):
     template = "bookings/result.html"
 
     return render(request, template)
+
+# This function takes the cart object and converts it into a tuple
+# or leaves it as the original object
 
 
 def CartTransform(data):
