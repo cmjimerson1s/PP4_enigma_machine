@@ -863,7 +863,7 @@ WAVE was used to test the websites accessibility.
  | Book Now | Navigate to the Book Now page | The availability and schedule information is displayed. | Works as Expected|
 
 <details><summary>Screenshot</summary>
-<img src="docs/user_story/userstory_one.jpg">
+<img src="docs/user_story/userstory_1.jpg">
 </details>
 
 2. As a user, I want to be able to view all available escape room games on the booking website, including their descriptions, difficulty levels, and any other information so that I can make an informed decision on which game to reserve.
@@ -873,18 +873,20 @@ WAVE was used to test the websites accessibility.
  | Room | Navigate to the Room page | The descriptions and details provide sufficient information to make an informed decision. | Works as Expected |
 
 <details><summary></summary>
-<img src="docs/user_story/userstory_two.jpg">
+<img src="docs/user_story/userstory_2.jpg">
 </details>
 
 3. As a user, I want to be able to reserve multiple escape room games for different time slots in a single booking transaction, so that I can plan a day of fun-filled activities with my friends or family.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Book Now | Navigate to the Booking page | Each chosen game and time slot are marked accordingly. | Works as Expected |
+ | Book Now | Navigate to the Booking page | Click to select games and add them to cart | Works as Expected |
  | Book Now-Booking Form | Navigate to the Booking page form| The booking summary shows the selected escape room games and their respective time slots. | Works as Expected |
  | Book Now-Confirmation | Complete Booking form | The reservation is successfully processed for multiple escape room games with different time slots, with a single input of customer data | Works as Expected |
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_3a.jpg">
+<img src="docs/user_story/userstory_3b.jpg">
+<img src="docs/user_story/userstory_3c.jpg">
 </details>
 
 4. As a user, I want to be able to create an account on the booking website to store my booking history so that I can easily track my previous experiences to ensure no booking errors in the future.
@@ -896,8 +898,8 @@ WAVE was used to test the websites accessibility.
  | Sign Up| Locate the nav bar | The account dashboard or profile page is accessible with the provided credentials. | Works as Expected |
 
 <details><summary></summary>
-<img src="docs/user_story/userstory_three_a.jpg">
-<img src="docs/user_story/userstory_three_b.jpg">
+<img src="docs/user_story/userstory_4_a.jpg">
+<img src="docs/user_story/userstory_4_b.jpg">
 </details>
 
 5. As a user, I want to be able to easily cancel or reschedule my escape room game reservations through the booking website, so that I can adjust my plans quickly if needed.
