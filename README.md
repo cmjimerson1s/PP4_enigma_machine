@@ -272,7 +272,7 @@ The FAQ Model contains the following:
 
 ### Wireframes
 The wireframes were created using Balsamiq
-<details><summary></summary>
+<details><summary>Wireframes</summary>
 <img src="docs/imgs/wireframes/wireframe.jpg">
 <img src="docs/imgs/wireframes/wireframe2.jpg">
 <img src="docs/imgs/wireframes/wireframe3.jpg">
