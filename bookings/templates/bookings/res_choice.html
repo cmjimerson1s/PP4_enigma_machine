@@ -181,23 +181,4 @@
 </div>
 {% endif %}
 
-<script>
-  // Accesses Django variable and injected as Javascript variable declaration
-  var cartData = {{cart|safe}};  
-  for (var i = 0; i < cartData.length; i++) {
-    var item = cartData[i];
-    var buttonId = item.key + "-" + item.value + "-" + item.specific_date;
-    var button = document.getElementById(buttonId);
-    
-    if (button) {
-      button.style.cursor = "not-allowed";
-      button.style.backgroundColor = "rgba(100, 149, 237, 0.5)";
-      button.textContent = "Selected";
-      button.addEventListener("click", function(event) {
-        event.preventDefault();  // Prevent button click behavior
-    });
-    }
-  }
-</script>
-
 {% endblock %}

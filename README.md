@@ -592,10 +592,6 @@ I had issues with getting certain Javascript to work in Django, but I validated 
 <details><summary>Book Now-Booking Form</summary>
 <img src="docs/javascript_validation/res_booking_page_js_valid.jpg">
 </details>
-This Javascript doesn't pass validation but that is due to the use of Django template variable in the code
-<details><summary>Book Now-Cart View</summary>
-<img src="docs/javascript_validation/res_choice_js_valid.jpg">
-</details>
 <details><summary>Account-Booking Edit</summary>
 <img src="docs/javascript_validation/reservation_edit_js_valid.jpg">
 </details><hr>
@@ -1124,10 +1120,6 @@ WAVE was used to test the websites accessibility.
 - Testing was done using the built in Django module, unittest.
 - Coverage was also usesd to generate a report
 
-
-<details><summary>booking test.py</summary>
-<img src="docs/testing/booking_tests.jpg">
-</details>
 <details><summary>blog test.py</summary>
 <img src="docs/testing/blog_test.jpg">
 </details>
@@ -1168,7 +1160,7 @@ The following Broswers were tested:
 
 | **Bug** | **Fix** |
 | ------- | ------- |
-| #### | #### |
+| Javascript that controlled a colour change function for the booking process stopped working | Wasn't able to diagnose so I removed the Javascript |
 
 ##### Back to [top](#table-of-contents)<hr>
 
