@@ -175,7 +175,8 @@ The footer is shared across all pages and has links social media, and to importa
     - Account:
       - Account Edit
       - Account Booking List
-      - Account Booking Edit 
+      - Account Booking Edit
+    - Admin 
 
 #### Database
 
@@ -472,6 +473,12 @@ The wireframes were created using Balsamiq
 <img src="docs/features/user_profiles/feature_account_booking_success.jpg">
 </details>
 
+#### Django Admin 
+- Djano comes with built in admin site functionality 
+
+<details><summary>Feature</summary>
+<img src="docs/features/feature_admin.jpg">
+</details>
 
 
 
@@ -591,7 +598,7 @@ JSHint JS Validation Service
 <img src="docs/python_validation/blog/blog_url_py_validated.jpg">
 </details>
 <details><summary>tests.py</summary>
-<img src="">
+<img src="docs/python_validation/blog/blog_tests_py_validation.jpg">
 </details>
 <details><summary>models.py</summary>
 <img src="docs/python_validation/blog/blog_models_py_validated.jpg">
@@ -610,9 +617,6 @@ JSHint JS Validation Service
   </details>
   <details><summary>urls.py</summary>
   <img src="docs/python_validation/bookings/bookings_urls_py_validated.jpg">
-  </details>
-  <details><summary>tests.py</summary>
-  <img src="">
   </details>
   <details><summary>forms.py</summary>
   <img src="docs/python_validation/bookings/bookings_forms_py_validated.jpg">
@@ -639,7 +643,7 @@ JSHint JS Validation Service
   <img src="docs/python_validation/contact/contact_urls_py_validated.jpg">
   </details>
   <details><summary>tests.py</summary>
-  <img src="">
+  <img src="docs/python_validation/contact/contact_tests_py_validation.jpg">
   </details>
   <details><summary>forms.py</summary>
   <img src="docs/python_validation/contact/contact_forms_py_validated.jpg">
@@ -663,7 +667,7 @@ JSHint JS Validation Service
   <img src="docs/python_validation/faq/faq_urls_py_validation.jpg">
   </details>
   <details><summary>tests.py</summary>
-  <img src="">
+  <img src="docs/python_validation/faq/faq_tests_py_validation.jpg">
   </details>
   <details><summary>models.py</summary>
   <img src="docs/python_validation/faq/faq_models_py_validation.jpg">
@@ -684,7 +688,7 @@ JSHint JS Validation Service
   <img src="docs/python_validation/rooms/rooms_urls_py_validated.jpg">
   </details>
     <details><summary>tests.py</summary>
-  <img src="">
+  <img src="docs/python_validation/rooms/room_tests_py_validation.jpg">
   </details>
 </details>
 <hr>
@@ -699,7 +703,7 @@ JSHint JS Validation Service
   <img src="docs/python_validation/user_profiles/user_profile_urls_py_validated.jpg">
   </details>
   <details><summary>tests.py</summary>
-  <img src="">
+  <img src="docs/python_validation/user_profiles/user_profile_tests_py_validation.jpg">
   </details>
 </details>
 <hr>
@@ -902,160 +906,171 @@ WAVE was used to test the websites accessibility.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Log in to the user account.| See social media review site links on page | Works as Expected |
- | Locate Footer | See social media links | Works as Expected |
+ | Account | Log in to the user account.| See social media review site links on page | Works as Expected |
+ | Account | Locate Footer | See social media links | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_6.jpg">
 </details>
 
 7. As a user, I want to be able to view special promotions, discounts, or packages for escape room games on the booking website, so that I can take advantage of any available deals and save on my bookings.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Navigate to the Blog page | A list of blog post displays | Works as Expected |
- | Choose a blog post tagged as promotion | The promotions are displayed with details on discounts, packages, or any special offers. | Works as Expected |
+ | Blog | Navigate to the Blog page | A list of blog post displays | Works as Expected |
+ | Blog Detail | Choose a blog post tagged as promotion | The promotions are displayed with details on discounts, packages, or any special offers. | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_7.jpg">
+<img src="docs/user_story/userstory_7b.jpg">
 </details>
 
 8. As a user, I want to be able to access the booking website on different devices, including desktops, laptops, tablets, and smartphones, with a responsive and user-friendly design, so that I can make bookings anytime and anywhere.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | View the website on a mobile phone, tablet, or laptop of varying size | The website performs correctly and visually fits the device | Works as Expected |
+ | N/A | View the website on a mobile phone, tablet, or laptop of varying size | The website performs correctly and visually fits the device | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/imgs/responsive.jpg">
 </details>
 
 9. As a user, I want to be able to view detailed information about the escape room game venues, such as their locations, facilities, parking options, and accessibility, so that I can plan my visit accordingly and have a smooth experience.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Navigate to the Contact page | The page displays the location and facility information for the comapny | Works as Expected |
- | Navigate to FAQ page | The page displays question and answers to the requested data | Works as Expected |
+ | Contact Us | Navigate to the Contact page | The page displays the location and facility information for the comapny | Works as Expected |
+ | FAQ | Navigate to FAQ page | The page displays question and answers to the requested data | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_9a.jpg">
+<img src="docs/user_story/userstory_9b.jpg">
 </details>
 
 10. As a user, I want to be able to contact the escape room game venue or customer support through the booking website, with options for email, or phone support, so that I can get assistance or information whenever I need it.
 
 **Feature**| **Action**| **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Locate the contact page. | The section containing contact information is visible and easily accessible. | Works as Expected |
- | Fill out the Contact Form | A successful message is sent to the company, also alerts the user | Works as Expected |
+ | Contact Us | Locate the contact page. | The section containing contact information is visible and easily accessible. | Works as Expected |
+ | Contact Us | Fill out the Contact Form | A successful message is sent to the company, also alerts the user | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_10.jpg">
+<img src="docs/user_story/userstory_10b.jpg">
 </details>
 
 11. As a user, I want to be able to view photos of the escape room game themes and rooms on the booking website, so that I can get a sneak peek of the games and get excited about the experience.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Navigate to Home page | See a slideshow of games and people playing | Works as Expected |
+ | Home | Navigate to Home page | See a slideshow of games and people playing | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_11.jpg">
 </details>
 
 12. As a user, I want to be able to customize my escape room game experience by requesting special arrangements for birthdays, team-building events, or other occasions, through my booking so that I can get more out of my event planning.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Provide additional details or requirements during the booking process | The user can enter specific information or requests related to the special arrangement. | Works as Expected |
+ |Book Now-Booking Form | Provide additional details or requirements during the booking process | The user can enter specific information or requests related to the special arrangement. | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_12.jpg">
 </details>
 
 13. As a user I want to be able to delete my own account and request all my data be removed from your servers/databases so that I can exercise my data protection rights.
 
 **Feature**| **Action**| **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Navigate to Account page | Display account details and account edit link | Works as Expected |
- | Navigate to Account Edit page | Display the ability to edit or delete account | Works as Expected |
- | Submit delete request by pressing button | Be presented with a warning before again confirming | Works as Expected |
-
+ | Account | Navigate to Account page | Display account details and account edit link | Works as Expected |
+ | Account-Edit | Navigate to Account Edit page | Display the ability to edit or delete account | Works as Expected |
+ | Account-Edit | Submit delete request by pressing button | Be presented with a warning before again confirming | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_13a.jpg">
+<img src="docs/user_story/userstory_13b.jpg">
+<img src="docs/user_story/userstory_13c.jpg">
 </details>
 
 14. As a user I want to be able to edit my account details so that I can keep the booking process smooth and easy even if my email or other data changes.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Navigate to Account page | Display account details and account edit link | Works as Expected |
- | Navigate to Account Edit page | Display the ability to edit or delete account | Works as Expected |
- | Update information on edit page | Get an update that account update was successful | Works as Expected |
+ | Account | Navigate to Account page | Display account details and account edit link | Works as Expected |
+ | Account-Edit | Navigate to Account Edit page | Display the ability to edit or delete account | Works as Expected |
+ | Account | Update information on edit page | Get an update that account update was successful | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_14a.jpg">
+<img src="docs/user_story/userstory_14b.jpg">
+<img src="docs/user_story/userstory_14c.jpg">
 </details>
 
 15. As a user I want to be able to create a reservation using my account information, and having all the applicable data visible such as group sizes, date, time, etc so that I can quick and easily secure a booking.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Creete a booking reservation | Have the data from my user account appeare in the booking form | Works as Expected |
+ |Book Now-Booking Form | Creete a booking reservation | Have the data from my user account appeare in the booking form | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_15a.jpg">
 </details>
 
 16. As an admin user, I want to be able to view a list of all upcoming escape room events booked by customers, including their details such as date, time, game theme, and customer information, so that I can have an overview of the bookings and manage them efficiently.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Access the admin dashboard. | The admin user can find a specific section called Reservations. | Works as Expected |
- | Navigate to Reservation link | View and manipulate Reservation data for specific viewing needs | Works as Expected |
+ | Admin | Access the admin dashboard. | The admin user can find a specific section called Reservations. | Works as Expected |
+ | Admin | Navigate to Reservation link | View and manipulate Reservation data for specific viewing needs | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_16a.jpg">
+<img src="docs/user_story/userstory_16b.jpg">
 </details>
 
 17. As an admin user, I want to be able to add, edit, or cancel escape room bookings on behalf of customers, including updating the date, time, or game theme, so that I can accommodate their requests or resolve any issues.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Access the admin dashboard. | The admin user can find a specific section called Reservations. | Works as Expected |
- | Navigate to Reservation link | The user can search Reservation and find the specific game | Works as Expected |
- | Open the Reservation and Edit | The booking to be udpated with the admin users input | Works as Expected |
+ | Admin | Access the admin dashboard. | The admin user can find a specific section called Reservations. | Works as Expected |
+ | Admin | Navigate to Reservation link | The user can search Reservation and find the specific game | Works as Expected |
+ | Admin | Open the Reservation and Edit | The booking to be udpated with the admin users input | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_16a.jpg">
+<img src="/workspace/PP4_enigma_machine/docs/user_story/userstory_16b.jpg">
+<img src="docs/user_story/userstory_17.jpg">
 </details>
 
 18. As an admin user, I want to be able to manage customer accounts and profiles, including creating, updating, or deleting customer information, and viewing their booking history, so that I can provide personalized and efficient customer service.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Access the admin dashboard. | The admin user can find a specific section called Users. | Works as Expected |
- | Navigate to the User link  | View all current user accounts and be able to search for the specific user | Works as Expected |
- | Chose the appropriate edit choice | The user is either deleted, if chosen, or the information is updated, if chosen | Works as Expected |
+ | Admin | Access the admin dashboard. | The admin user can find a specific section called Users. | Works as Expected |
+ | Admin | Navigate to the User link  | View all current user accounts and be able to search for the specific user | Works as Expected |
+ | Admin | Chose the appropriate edit choice | The user is either deleted, if chosen, or the information is updated, if chosen | Works as Expected |
 
 
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_18a.jpg">
+<img src="docs/user_story/userstory_18b.jpg">
+<img src="docs/user_story/userstory_18c.jpg">
 </details>
 
 19. As an admin user, I want to be able to manage special promotions, discounts, or packages for escape room games, including creating, updating, or expiring promotions so that I can attract more customers and boost sales.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Access the admin dashboard. | The admin user can find a specific section called Blog. | Works as Expected |
- | Navigate to Blog link | Display all current blog posts | Works as Expected |
- | Choose existing, or add new Blog post | Either be able to edit an exisiting, or create a blog post by entering in all the data | Works as Expected |
-
-
+ | Admin | Access the admin dashboard. | The admin user can find a specific section called Blog. | Works as Expected |
+ | Admin | Navigate to Blog link | Display all current blog posts | Works as Expected |
+ | Admin | Choose existing, or add new Blog post | Either be able to edit an exisiting, or create a blog post by entering in all the data | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_19a.jpg">
+<img src="docs/user_story/userstory_19b.jpg">
+<img src="docs/user_story/userstory_19c.jpg">
 </details>
 
 20. As an admin user I want to be able to add new games to the website as the company builds and expands so that we can have the newest and most up to date information about our games immediately visible to our customer.
@@ -1067,7 +1082,9 @@ WAVE was used to test the websites accessibility.
  | Navifate to new Room link | Create a new room with all applicable data | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_20a.jpg">
+<img src="docs/user_story/userstory_20b.jpg">
+<img src="docs/user_story/userstory_20c.jpg">
 </details>
 
 21. As an admin user I want to be able to add or remove time slots available for booking so that we can adjust our business hours to match the flow of the business traffic to our location.
@@ -1079,7 +1096,9 @@ WAVE was used to test the websites accessibility.
  | Add new time slot | Add a nonduplicated game time | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_21a.jpg">
+<img src="docs/user_story/userstory_21b.jpg">
+<img src="docs/user_story/userstory_21c.jpg">
 </details>
 
 
