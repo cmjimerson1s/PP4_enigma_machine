@@ -14,25 +14,18 @@
 </div>
 <section id="blog" class="blog">
   <div class="container" data-aos="fade-up" data-aos-delay="100">
-
     <div class="row g-5">
-
       <div class="col-lg-8">
-
         <article class="blog-details">
-
           <div class="post-img">
             <img src="{{blog.blog_image.url}}" alt="" class="img-fluid">
           </div>
-
           <h2 class="title">{{ blog.blog_title }}</h2>
-
           <div class="meta-top">
             <ul>
               <li class="d-flex align-items-center"><i class="bi bi-clock"></i> Jan 1, 2022</li>
             </ul>
           </div><!-- End meta top -->
-
           <div class="content">
             {% for paragraph in content_parts %}
             {% if forloop.counter == 4 %}
@@ -45,7 +38,6 @@
             {% endif %}
             {% endfor %}
           </div><!-- End post content -->
-
           <div class="meta-bottom">
             <i class="bi bi-folder"></i>
             <ul class="cats">
@@ -75,5 +67,4 @@
     </div>
   </div>
 </section>
-
 {% endblock %}

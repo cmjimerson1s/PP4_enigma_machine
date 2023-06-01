@@ -20,22 +20,22 @@
 {% endif %}
 <form method="post" action="account_update_view" class="container">
     {% csrf_token %}
-<div class="mt-5">
-    <div class="mb-3">
-        <h3><i class="bi bi-person-circle m-2"></i>Username: {{ username }}</h3>
-        <input type="hidden" name="username" value="">
+    <div class="mt-5">
+        <div class="mb-3">
+            <h3><i class="bi bi-person-circle m-2"></i>Username: {{ username }}</h3>
+            <input type="hidden" name="username" value="">
+        </div>
+        <div class="mb-3">
+            <h3><i class="bi bi-person-vcard-fill m-2"></i>Customer Name: {{ first_name }} {{ last_name }}</h3>
+            <input type="hidden" name="first_name" value="">
+            <input type="hidden" name="last_name" value="">
+        </div>
+        <div class="mb-3">
+            <h3><i class="bi bi-envelope-at-fill m-2"></i>Email Address: {{ email }}</h3>
+            <input type="hidden" name="email" value="">
+            <input type="hidden" name="user_id" value="{{user_id}}">
+        </div>
     </div>
-    <div class="mb-3">
-        <h3><i class="bi bi-person-vcard-fill m-2"></i>Customer Name: {{ first_name }} {{ last_name }}</h3>
-        <input type="hidden" name="first_name" value="">
-        <input type="hidden" name="last_name" value="">
-    </div>
-    <div class="mb-3">
-        <h3><i class="bi bi-envelope-at-fill m-2"></i>Email Address: {{ email }}</h3>
-        <input type="hidden" name="email" value="">
-        <input type="hidden" name="user_id" value="{{user_id}}">
-    </div>
-</div>
     <div class="mb-3">
         {% csrf_token %}
         <button type="submit" class="btn btn-link">Update Account Information Here</button>
@@ -48,7 +48,6 @@
         <input type="hidden" name="user_id" value="{{user_id}}">
     </div>
 </form>
-
 <div class="row mt-4 d-flex justify-content-center">
     <h5 class="text-center">Don't forget to tell others about your time with us! Review Here!</h5>
     <div class="col d-flex justify-content-center mb-3">

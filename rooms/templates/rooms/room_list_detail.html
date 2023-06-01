@@ -14,11 +14,9 @@
 </div>
 <section id="alt-services" class="alt-services">
   <div class="container" data-aos="fade-up">
-
     <div class="row justify-content-around gy-4">
       <div class="col-lg-6 img-bg" style="background-image: url({{detail.detail_image.url}});" data-aos="zoom-in"
         data-aos-delay="100"></div>
-
       <div class="col-lg-5 d-flex flex-column justify-content-center">
         <h3>{{detail.room_name}}</h3>
         <p>{{detail.room_description}}</p>
@@ -28,9 +26,7 @@
           <a href="{% url 'reservation' %}" class="link-box">Book Now</a>
         </div>
       </div>
-
     </div>
-
   </div>
 </section><!-- End Alt Services Section -->
 {% endblock%}

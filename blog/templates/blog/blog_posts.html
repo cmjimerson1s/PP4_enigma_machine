@@ -15,7 +15,6 @@
 {% if blogpost_list%}
 <section id="blog" class="blog">
   <div class="container" data-aos="fade-up" data-aos-delay="100">
-
     <div class="row gy-4 posts-list">
       {% for blogpost in blogpost_list %}
       <div class="col-xl-4 col-md-6">
@@ -31,28 +30,20 @@
             <span class="post-date">{{blogpost.posted_date}}</span>
           </div>
           {% endif %}
-
           <div class="post-content d-flex flex-column">
-
             <h3 class="post-title">{{blogpost.blog_title}}</h3>
-
             <div class="meta d-flex align-items-center">
               <div class="d-flex align-items-center">
                 <i class="bi bi-folder2"></i> <span class="ps-2">{{blogpost.tags}}</span>
               </div>
             </div>
-
             <p>
               {{blogpost.blog_blurb}}
             </p>
-
             <hr>
-
             <a href="{% url 'detail_view' blogpost.slug %}" class="readmore stretched-link"><span>Read More</span><i
                 class="bi bi-arrow-right"></i></a>
-
           </div>
-
         </div>
       </div><!-- End post list item -->
       {% endfor %}

@@ -23,7 +23,6 @@
 {% endif %}
 <section id="contact" class="contact">
   <div class="container" data-aos="fade-up" data-aos-delay="100">
-
     <div class="row gy-4">
       <div class="col-lg-6">
         <div class="info-item  d-flex flex-column justify-content-center align-items-center">
@@ -32,7 +31,6 @@
           <p>Hantverkargatan 1, 111 52 Stockholm</p>
         </div>
       </div><!-- End Info Item -->
-
       <div class="col-lg-3 col-md-6">
         <div class="info-item d-flex flex-column justify-content-center align-items-center">
           <i class="bi bi-envelope"></i>
@@ -40,7 +38,6 @@
           <p>info@enigmamachine.com</p>
         </div>
       </div><!-- End Info Item -->
-
       <div class="col-lg-3 col-md-6">
         <div class="info-item  d-flex flex-column justify-content-center align-items-center">
           <i class="bi bi-telephone"></i>
@@ -48,17 +45,13 @@
           <p>+46 12 345 6789</p>
         </div>
       </div><!-- End Info Item -->
-
     </div>
-
     <div class="row gy-4 mt-1">
-
       <div class="col-lg-6 ">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2035.329616587622!2d18.052156916072228!3d59.32745058165819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77df9092cde9%3A0xaeafc90d911394c0!2sStockholm%20City%20Hall!5e0!3m2!1sen!2sse!4v1684927132184!5m2!1sen!2sse"
            style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
       </div><!-- End Google Maps -->
-
       <div class="col-lg-6">
         <form action="{% url 'contact_us_post' %}" method="post" class="php-email-form">
           {% csrf_token %}
@@ -83,9 +76,7 @@
           <div class="text-center"><button class="text-center" type="submit">Contact Us!</button></div>
         </form>
       </div><!-- End Contact Form -->
-
     </div>
-
   </div>
 </section><!-- End Contact Section -->
 
