@@ -1,4 +1,4 @@
-# APP NAME
+# Enigma Machine
 
 ![Am I Responsive](docs/imgs/responsive.jpg)
 
