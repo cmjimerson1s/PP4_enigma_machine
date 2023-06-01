@@ -32,7 +32,7 @@ DEBUG = 'DEBUG' in os.environ
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ["pp4-enigma-machine.herokuapp.com", "*"]
+ALLOWED_HOSTS = ["pp4-enigma-machine.herokuapp.com", "localhost", "8000-cmjimerson1-pp4enigmama-euj4cv35q5k.ws-eu98.gitpod.io"]
 
 
 # Application definition
