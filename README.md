@@ -425,7 +425,7 @@ The wireframes were created using Balsamiq
 
 
 <details><summary>Feature</summary>
-<img src="">
+<img src="docs/features/feature_allauth.jpg">
 </details>
 
 ### Account
@@ -862,7 +862,7 @@ WAVE was used to test the websites accessibility.
 ------------ |------------ | ------------ | ------------ |
  | Book Now | Navigate to the Book Now page | The availability and schedule information is displayed. | Works as Expected|
 
-<details><summary></summary>
+<details><summary>Screenshot</summary>
 <img src="docs/user_story/userstory_one.jpg">
 </details>
 
