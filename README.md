@@ -273,7 +273,12 @@ The FAQ Model contains the following:
 ### Wireframes
 The wireframes were created using Balsamiq
 <details><summary></summary>
-<img src="">
+<img src="docs/imgs/wireframes/wireframe.jpg">
+<img src="docs/imgs/wireframes/wireframe2.jpg">
+<img src="docs/imgs/wireframes/wireframe3.jpg">
+<img src="docs/imgs/wireframes/wireframe4.jpg">
+<img src="docs/imgs/wireframes/wireframe5.jpg">
+<img src="docs/imgs/wireframes/wireframe6.jpg">
 </details>
 
 
@@ -302,7 +307,6 @@ The wireframes were created using Balsamiq
 - [Google Fonts](https://fonts.google.com/)
 - [Heroku Platform](https://id.heroku.com/login)
 - [jQuery](https://jquery.com)
-- [Postgres](https://www.postgresql.org/)
 - [ElephantSQL](https://www.elephantsql.com/)
 - Validation:
   - [WC3 Validator](https://validator.w3.org/)
@@ -560,15 +564,7 @@ The W3C Markup Validation Service
 </details>
 <hr>
 
-<details><summary>403</summary>
-<img src="">
-</details>
-<details><summary>404</summary>
-<img src="">
-</details>
-<details><summary>500</summary>
-<img src="">
-</details>
+
 
 
 ### CSS Validation
