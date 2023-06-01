@@ -1089,8 +1089,23 @@ WAVE was used to test the websites accessibility.
 - Coverage was also usesd to generate a report
 
 
-<details><summary>APP test.py</summary>
-<img src="">
+<details><summary>booking test.py</summary>
+<img src="docs/testing/booking_tests.jpg">
+</details>
+<details><summary>blog test.py</summary>
+<img src="docs/testing/blog_test.jpg">
+</details>
+<details><summary>contact test.py</summary>
+<img src="docs/testing/contact_test.jpg">
+</details>
+<details><summary>faq test.py</summary>
+<img src="docs/testing/faq_test.jpg">
+</details>
+<details><summary>rooms test.py</summary>
+<img src="docs/testing/room_test.jpg">
+</details>
+<details><summary>user_profiles test.py</summary>
+<img src="docs/testing/user_account_test.jpg">
 </details>
 
 

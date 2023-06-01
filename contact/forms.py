@@ -40,7 +40,3 @@ class ContactUsForm(forms.ModelForm):
                 }
             ),
         }
-
-        label = {
-            "inquiry_name": "Name"
-        }
