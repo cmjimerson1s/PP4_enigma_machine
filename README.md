@@ -841,29 +841,29 @@ WAVE was used to test the websites accessibility.
 
 **Feature** | **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | This | Navigate to the Book Now page | The availability and schedule information is displayed. | Works as Expected|
+ | Book Now | Navigate to the Book Now page | The availability and schedule information is displayed. | Works as Expected|
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_one.jpg">
 </details>
 
 2. As a user, I want to be able to view all available escape room games on the booking website, including their descriptions, difficulty levels, and any other information so that I can make an informed decision on which game to reserve.
 
-**Feature**| **Action** | **Expected Result** | **Actual Result**
+**Feature** | **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Navigate to the Room page | The descriptions and details provide sufficient information to make an informed decision. | Works as Expected |
+ | Room | Navigate to the Room page | The descriptions and details provide sufficient information to make an informed decision. | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_two.jpg">
 </details>
 
 3. As a user, I want to be able to reserve multiple escape room games for different time slots in a single booking transaction, so that I can plan a day of fun-filled activities with my friends or family.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Navigate to the Booking page | Each chosen game and time slot are marked accordingly. | Works as Expected |
- | Navigate to the Booking page form| The booking summary shows the selected escape room games and their respective time slots. | Works as Expected |
-| Complete Booking form | The reservation is successfully processed for multiple escape room games with different time slots, with a single input of customer data | Works as Expected |
+ | Book Now | Navigate to the Booking page | Each chosen game and time slot are marked accordingly. | Works as Expected |
+ | Book Now-Booking Form | Navigate to the Booking page form| The booking summary shows the selected escape room games and their respective time slots. | Works as Expected |
+ | Book Now-Confirmation | Complete Booking form | The reservation is successfully processed for multiple escape room games with different time slots, with a single input of customer data | Works as Expected |
 <details><summary></summary>
 <img src="">
 </details>
@@ -872,26 +872,30 @@ WAVE was used to test the websites accessibility.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Navigate to the Register page | The account creation or registration form is displayed. | Works as Expected |
- | Fill in the required details for account creation.| The form is successfully submitted, and a confirmation message is displayed. | Works as Expected |
- | #### | The account dashboard or profile page is accessible with the provided credentials. | Works as Expected |
+ | Sign Up | Navigate to the Register page | The account creation or registration form is displayed. | Works as Expected |
+ | Sign Up | Fill in the required details for account creation.| The form is successfully submitted and the site displays new links | Works as Expected |
+ | Sign Up| Locate the nav bar | The account dashboard or profile page is accessible with the provided credentials. | Works as Expected |
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_three_a.jpg">
+<img src="docs/user_story/userstory_three_b.jpg">
 </details>
 
 5. As a user, I want to be able to easily cancel or reschedule my escape room game reservations through the booking website, so that I can adjust my plans quickly if needed.
 
 **Feature**| **Action** | **Expected Result** | **Actual Result**
 ------------ |------------ | ------------ | ------------ |
- | Log in to the user account.	 | The login process is successful, and the user account dashboard is accessible. | Works as Expected |
- | Locate the reservation management section in the account dashboard. | The reservation management section is visible and accessible. | Works as Expected |
+ | Account | Log in to the user account.	 | The login process is successful, and the user account dashboard is accessible. | Works as Expected |
+ | Account Booking View| Locate the reservation management section in the account dashboard. | The reservation management section is visible and accessible. | Works as Expected |
  | Find the escape room game reservation to cancel or reschedule. | The reservation details, including date and time, are displayed. | Works as Expected |
  | Follow the cancellation or rescheduling process. | The user is guided through the necessary steps, such as selecting a new date or confirming the cancellation. | Works as Expected |
 
 
 <details><summary></summary>
-<img src="">
+<img src="docs/user_story/userstory_5_a.jpg">
+<img src="docs/user_story/userstory_5_b.jpg">
+<img src="docs/user_story/userstory_5_c.jpg">
+<img src="docs/user_story/userstory_5_d.jpg">
 </details>
 
 6. As a user, I want to be able to leave reviews and ratings for escape room games that I have played, so that I can share my feedback and experiences with other users, and help them make informed decisions when booking games.
@@ -1124,6 +1128,17 @@ The following Broswers were tested:
 
 This application has been deployed from Github using Heroku. Here's how:
 
+### Django
+1. Install Django and Gunicorn
+2. Install supporting libraries, dj_database_url==0.5.0 psycopg2
+3. Install Cloudinary Libraries
+4. Create requirements file
+5. Create project, giving it a name like PROJ . (don't forget .)
+6. Create App
+7. Add the app to the INSTALLED_APPS list.
+8. Migrate Changes
+10. Run Server to Test
+
 ### ElephantSQL
 
 1. Create an account at elephantsql.com, you may login with Github.
@@ -1145,10 +1160,16 @@ This application has been deployed from Github using Heroku. Here's how:
 
 1. In your coding environment create a env.py file
 2. Add your DATABASE_URL as an environment variable, and create a SECRET_KEY variable as well.
+3. Return to Heroku and add the secret key to the Config Vars
 3. Within your settings.py file direct your database to your environment variable, as well as you secret key
 4. Still within your settings.py file Add to ALLOWED_HOSTS heroku by addin code like this "projectname.herokuapp.com", "localhost" 
-5. 
-
+5. Set the necessary configurations for static and media files using Cloudinary.
+6. Add the Cloudinary libraries to the INSTALLED_APPS list.
+7. Set the template directory using TEMPLATES_DIR.
+8. Create media, static, and templates directories at the top-level directory.
+9. Create a Procfile at the top-level directory and add the following line: web: gunicorn PROJ_NAME.wsgi
+10. Commit and push all files to your Git repository.
+11. Deploy the content manually through Heroku using GitHub as the deployment method, selecting the main branch.
 
 
 
@@ -1174,11 +1195,53 @@ You can clone the repository by following these steps:
 
 ## Credits
 
-### Images
+### Images<br>
+Images used in the hero slideshow can be found:<br>
+- [Here](url "https://www.shutterstock.com/image-photo/hands-young-people-move-pieces-mexican-640257649")<br>
+- [Here](url "https://www.shutterstock.com/image-photo/group-young-adults-inspecting-wooden-rosary-1402345220")<br>
+- [Here](url "https://www.shutterstock.com/image-photo/interested-tween-girl-trying-reach-some-1952394778")<br>
+- [Here](url "https://www.shutterstock.com/image-photo/young-people-trying-solve-conundrum-get-640243435")<br>
+- [Here](url "https://www.shutterstock.com/image-photo/five-positive-italian-adults-solving-conundrums-730981447")<br>
+- [Here](url "https://www.shutterstock.com/image-photo/two-interested-teen-boys-their-parents-1988338562")<br>
+- Footer Image was an AI Generated Image from MidjourneyBot
+<br>
 
+Our Team Photos can be found here:<br>
+- [Here](url "https://www.pexels.com/photo/elegant-young-bearded-businessman-in-suit-and-tie-in-downtown-4195342/")<br>
+- [Here](url "https://www.pexels.com/photo/confident-businesswoman-4342352/")<br>
+- [Here](url "https://www.pexels.com/@ketut-subiyanto/")<br>
+<br>
+
+The page breadcrumbs can be found here:<br>
+- FAQ Breadcrumb image was an AI generated image edited by myself with clipart<br>
+- [Here](url "https://www.pexels.com/photo/reception-desk-with-antique-hotel-bell-3771110/")<br>
+- [Here](url "https://depositphotos.com/stock-photos/old-books.html")<br>
+- [Here](url "https://www.youtube.com/watch?v=mbuYa8t2uA4")<br>
+- [Here](url "https://www.shutterstock.com/image-photo/enigma-machine-wheels-1285856470")<br>
+- [Here](url "https://www.shutterstock.com/image-photo/hot-news-typed-words-on-vintage-1253051434")<br>
+- [Here](url "https://www.shutterstock.com/image-photo/two-old-keys-on-rusty-metal-1776777956")<br>
+- [Here](url "https://escaperoomrank.com/wp-content/uploads/2017/09/Escape-Game-For-Team-Building-Image-ERR.jpg")<br>
+<br>
+
+The images for Rooms can be found here:<br>
+- [Here](url "https://www.icanvas.com/blog/wp-content/uploads/2021/12/TimeTravelArtBlog.png")<br>
+- [Here](url "https://media.istockphoto.com/id/1304704138/vector/golden-abstract-futuristic-technology-background-with-clock-concept-and-time-machine-can.jpg?s=612x612&w=0&k=20&c=Gw8Gxf4T7xwxz0qO9XNB8Oyakb-j1vtTqo3JsnKASv0=")<br>
+- [Here](url "https://stock.adobe.com/se/search?k=haunted+mansion+interior")<br>
+- [Here](url "https://www.istockphoto.com/se/foto/halloween-haunted-manor-p%C3%A5-en-kulle-mot-m%C3%A5nen-gm1267717881-372051551")<br>
+- The images for the Phantom Symphony were AI Generated Images using MidJourneyBot<br>
+<br>
+
+The imgages for Blogs can be found here<br>
+- [Here](url "https://www.cluequest.co.uk/escape-room-london")<br>
+- [Here](url "https://www.istockphoto.com/se/foto/silhouette-of-man-smoking-a-cigar-holding-a-magnifying-glass-gm178366909-21034314")<br>
+- [Here](url "https://www.hrmagazine.co.uk/content/features/the-importance-of-psychological-safety/")<br>
+- [Here](url "https://www.rdasia.com/wp-content/uploads/sites/2/2021/09/1-BrainGames-scaled-GETTY-770.jpg")<br>
+- [Here](url "https://questfactor.us/wp-content/uploads/2020/08/Top-Best-Escape-Room-Themes.jpg")<br>
+- [Here](url "https://omescapelondon.co.uk/wp-content/uploads/2017/04/d0600b5d4680f70788a8c79c7b026a57-640x395.jpg")<br>
+<br>
 
 ### Code
-
+I used a Bootrap5 Template called UpConstruction. The link to the tempalte can be found [Here](url "https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/")
 
 ##### Back to [top](#table-of-contents)<hr>
 
